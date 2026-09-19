@@ -265,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   // MENÚ FLOTANTE INFERIOR (BOTTOM DOCK) INTERACTIVO
   // =========================================================================
-  const bottomDock = document.getElementById('bottom-dock');
   const dockBtnGrid = document.getElementById('dock-btn-grid');
   const dockBtnEvents = document.getElementById('dock-btn-events');
   const dockNavItems = document.querySelectorAll('.dock-nav-item');
