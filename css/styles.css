@@ -143,6 +143,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #08080c;
   transition: opacity 1.6s ease, transform 2s cubic-bezier(0.12, 0.95, 0.22, 1);
   will-change: transform, opacity;
 }
@@ -161,6 +162,7 @@ body {
   height: 100%;
   overflow: hidden;
   z-index: 1;
+  background-color: #08080c;
 }
 
 .video-bg {
@@ -169,6 +171,7 @@ body {
   object-fit: cover;
   transform: scale(1.02);
   filter: brightness(0.8) contrast(1.1);
+  background-color: #08080c;
 }
 
 .video-overlay {
@@ -674,7 +677,7 @@ body {
   position: fixed;
   bottom: 2.2rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 25px);
   z-index: 95;
   display: flex;
   align-items: center;
@@ -682,6 +685,17 @@ body {
   gap: 0.75rem;
   user-select: none;
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.55s ease;
+}
+
+.luxury-bottom-dock.dock-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 
 /* Núcleo Central: Tono Claro de Lujo que destaca sobre el fondo oscuro */
@@ -1171,12 +1185,12 @@ body {
 }
 
 .elrow-divider-top {
-  margin-top: -95px;
-  margin-bottom: -1px;
+  margin-top: -190px;
+  margin-bottom: 0;
 }
 
 .elrow-divider-bottom {
-  margin-top: -1px;
+  margin-top: 0;
   margin-bottom: -95px;
 }
 
@@ -2636,12 +2650,12 @@ body {
   }
 
   .elrow-divider-top {
-    margin-top: -55px;
-    margin-bottom: -1px;
+    margin-top: -110px;
+    margin-bottom: 0;
   }
 
   .elrow-divider-bottom {
-    margin-top: -1px;
+    margin-top: 0;
     margin-bottom: -55px;
   }
 

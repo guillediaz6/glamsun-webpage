@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const soundIconMuted = document.getElementById('sound-icon-muted');
   const soundIconUnmuted = document.getElementById('sound-icon-unmuted');
   const epicContainer = document.querySelector('.epic-heading-container');
+  const bottomDock = document.getElementById('bottom-dock');
 
   // Asegurar que el video intente reproducirse automáticamente
   if (bgVideo) {
@@ -30,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // OPTIMIZACIÓN CRÍTICA: Pausar el vídeo de portada inmediatamente para liberar 100% de GPU y CPU
     if (bgVideo && !bgVideo.paused) {
       bgVideo.pause();
+    }
+
+    // Mostrar menú flotante de navegación al entrar a la web
+    if (bottomDock) {
+      bottomDock.classList.add('dock-visible');
     }
 
     if (skipAnimation) {
@@ -67,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Volver a la pantalla del video hero
   function returnToHero() {
+    // Ocultar menú flotante al volver a la portada
+    if (bottomDock) {
+      bottomDock.classList.remove('dock-visible');
+    }
+
     // Reanudar reproducción del vídeo de portada al volver
     if (bgVideo && bgVideo.paused) {
       bgVideo.play().catch(() => {});
@@ -423,59 +434,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // PARALLAX STACKING REVEAL: BOAT PARTY SUBE POR ENCIMA (FONDO TOTALMENTE FIJO)
+  // SECCIÓN BOAT PARTY: APILAMIENTO NATIVO FLUIDO POR GPU A 120 FPS
   // =========================================================================
-  const webVisualFlow = document.querySelector('.web-visual-flow');
-  const boatSection = document.getElementById('section-boat-party');
-  const boatHeroImg = document.querySelector('.boat-party-hero-cover-img');
-
-  if (webVisualFlow && boatSection) {
-    let ticking = false;
-
-    function updateParallaxStack() {
-      const winHeight = window.innerHeight;
-      const flowHeight = webVisualFlow.offsetHeight;
-      const pinStart = flowHeight - winHeight;
-      const pinDistance = winHeight;
-      const scrollY = window.scrollY || window.pageYOffset || 0;
-
-      if (scrollY < pinStart) {
-        // 1. Antes de llegar al final del espacio de estadísticas: scroll normal
-        if (webVisualFlow.style.transform !== '') {
-          webVisualFlow.style.transform = '';
-        }
-      } else if (scrollY >= pinStart && scrollY <= pinStart + pinDistance) {
-        // 2. FASE PIN EXACTA (Fondo 100% inmóvil):
-        // Cada píxel que baja el scroll se compensa de forma síncrona en translate3d,
-        // garantizando que las estadísticas y la web previa no se muevan ni 1 milímetro
-        // mientras la portada de Boat Party sube por encima.
-        const delta = scrollY - pinStart;
-        webVisualFlow.style.transform = `translate3d(0, ${delta}px, 0)`;
-      } else {
-        // 3. Recorrido superado: queda anclado detrás de Boat Party
-        webVisualFlow.style.transform = `translate3d(0, ${pinDistance}px, 0)`;
-      }
-
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallaxStack);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    window.addEventListener('resize', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallaxStack);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Sincronización inicial
-    updateParallaxStack();
-  }
 
   // =========================================================================
   // CONTROLADOR DE VÍDEO BOAT PARTY (BAJO DEMANDA / ON-CLICK + AUTO-PAUSE)
