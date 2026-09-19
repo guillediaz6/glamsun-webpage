@@ -1,0 +1,3044 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* =========================================================================
+     PORTADA NOCTURNA CON VIDEO FULLSCREEN
+     ========================================================================= */
+  --hero-gold: #E5C365;
+  --hero-gold-gradient: linear-gradient(135deg, #FFFFFF 0%, #FFF2CC 20%, #F5D77F 40%, #D4AF37 60%, #AA7C11 80%, #FFF0C2 100%);
+  --hero-gold-glow: rgba(229, 195, 101, 0.45);
+  --hero-glass-bg: rgba(14, 14, 18, 0.46);
+  --hero-glass-border: rgba(255, 255, 255, 0.24);
+  --hero-glass-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 255, 255, 0.06) inset;
+  
+  /* =========================================================================
+     PÁGINA WEB (FONDO BEIGE SUAVE CON DETALLES CHAMPAGNE DE LUJO)
+     ========================================================================= */
+  --web-bg-beige: #FAF7F2;
+  --web-card-bg: #FFFFFF;
+  --web-border-gold: rgba(197, 160, 89, 0.28);
+  
+  /* Tonos Champagne & Oro Noble */
+  --web-champagne: #C5A059;
+  --web-champagne-gold: #D4AF37;
+  --web-champagne-dark: #8F6B22;
+  --web-gold-gradient: linear-gradient(135deg, #8A641B 0%, #D4AF37 40%, #FDF3DB 60%, #C5A059 80%, #8A641B 100%);
+  --web-gold-glow: rgba(197, 160, 89, 0.35);
+  
+  /* Tipografías */
+  --web-text-espresso: #1A1816;
+  --web-text-body: #5E564E;
+  --web-text-muted: #8A8178;
+
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #08080A;
+  color: #FFFFFF;
+  overflow-x: clip;
+}
+
+/* ==========================================================================
+   1. PORTADA: FRANJA SUPERIOR ANIMADA (SOLO EN EL HERO)
+   ========================================================================= */
+.top-ticker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background: rgba(10, 10, 14, 0.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 11px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-content {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+  padding-right: 2.8rem;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.ticker-item .badge {
+  background: rgba(229, 195, 101, 0.18);
+  border: 1px solid rgba(229, 195, 101, 0.45);
+  color: var(--hero-gold);
+  font-weight: 800;
+  font-size: 0.68rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 10px rgba(229, 195, 101, 0.2);
+}
+
+.ticker-item .dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--hero-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--hero-gold);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   2. HERO / INTRO CON VIDEO FULLSCREEN
+   ========================================================================= */
+#hero-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.6s ease, transform 2s cubic-bezier(0.12, 0.95, 0.22, 1);
+  will-change: transform, opacity;
+}
+
+#hero-section.hide-hero {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  filter: brightness(0.8) contrast(1.1);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.78) 100%),
+              linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 40%, rgba(0,0,0,0.75) 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. HERO WRAPPER & GLASS BOX (CON DECLARACIÓN DE AGATHA SUN)
+   ========================================================================= */
+.hero-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  padding: 1.5rem;
+  max-width: 980px;
+  width: 93%;
+  margin-top: 3.2rem;
+}
+
+/* Barra vertical con iconos a la izquierda */
+.vertical-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  background: rgba(20, 20, 25, 0.48);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50px;
+  padding: 1.6rem 0.95rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1.2s ease-out;
+}
+
+.vertical-socials .social-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.social-link svg {
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.social-link.instagram:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(214, 36, 159, 0.5);
+}
+
+.social-link.tiktok:hover {
+  background: #000000;
+  color: #ffffff;
+  border-color: #25F4EE;
+  box-shadow: 0 0 20px rgba(37, 244, 238, 0.45), 0 0 20px rgba(254, 44, 85, 0.45);
+}
+
+.social-link.music-note:hover {
+  background: var(--hero-gold-gradient);
+  color: #12100e;
+  border-color: var(--hero-gold);
+  box-shadow: 0 0 25px rgba(229, 195, 101, 0.65);
+}
+
+/* Caja de Cristal Borrosa (Glassmorphism) */
+.glass-box {
+  flex: 1;
+  background: var(--hero-glass-bg);
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+  border: 1px solid var(--hero-glass-border);
+  border-radius: 32px;
+  padding: 3rem 2.8rem;
+  text-align: center;
+  box-shadow: var(--hero-glass-shadow);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-out;
+}
+
+.glass-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    60deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 65%
+  );
+  pointer-events: none;
+  animation: shine 9s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  45%, 100% { transform: translateX(100%); }
+}
+
+.brand-logo-hero {
+  max-width: 320px;
+  width: 80%;
+  height: auto;
+  max-height: 140px;
+  object-fit: contain;
+  margin: 0 auto 0.6rem auto;
+  display: block;
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.65));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  user-select: none;
+}
+
+.brand-logo-hero:hover {
+  transform: scale(1.035);
+  filter: drop-shadow(0 12px 32px rgba(229, 195, 101, 0.4));
+}
+
+.brand-title {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  background: var(--hero-gold-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 28px var(--hero-gold-glow));
+  animation: shimmerGold 6s ease-in-out infinite alternate;
+  user-select: none;
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 20px var(--hero-gold-glow));
+  }
+  100% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 35px rgba(246, 218, 133, 0.7));
+  }
+}
+
+/* Contenedor Épico en la Portada */
+.hero-statement-container {
+  margin: 0 auto 2.2rem auto;
+  max-width: 680px;
+}
+
+.hero-kicker-sparkle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--hero-gold);
+  background: rgba(229, 195, 101, 0.12);
+  border: 1px solid rgba(229, 195, 101, 0.35);
+  padding: 0.35rem 1.2rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+}
+
+.sparkle-icon {
+  font-size: 0.85rem;
+}
+
+.hero-music-statement {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: center;
+  line-height: 1.15;
+}
+
+.statement-line1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+}
+
+.statement-line2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background: var(--hero-gold-gradient);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 15px rgba(229, 195, 101, 0.5));
+  animation: shimmerGold 6s ease-in-out infinite alternate;
+  margin: 0.2rem 0;
+}
+
+.statement-line3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.statement-agatha {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: var(--hero-gold);
+  text-transform: capitalize;
+}
+
+/* ==========================================================================
+   BOTONES DE LA PORTADA
+   ========================================================================== */
+.button-group {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  outline: none;
+  border-radius: 999px;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  user-select: none;
+}
+
+.btn-text-block {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.btn-main-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.btn-sub-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* Botón 1 Portada: Próximo Evento */
+.btn-event-highlight {
+  background: linear-gradient(135deg, rgba(255, 75, 43, 0.35), rgba(255, 65, 108, 0.45));
+  color: #FFFFFF;
+  border: 1.5px solid rgba(255, 120, 80, 0.65);
+  backdrop-filter: blur(14px);
+  padding: 0.95rem 1.6rem;
+  gap: 0.85rem;
+  box-shadow: 0 10px 30px rgba(255, 65, 108, 0.25), 0 0 20px rgba(255, 75, 43, 0.15) inset;
+}
+
+.btn-sparkle {
+  font-size: 1.2rem;
+  animation: pulseFire 2s infinite ease-in-out;
+}
+
+@keyframes pulseFire {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #ff4500); }
+  50% { transform: scale(1.25); filter: drop-shadow(0 0 8px #ff7b00); }
+}
+
+.btn-pill-live {
+  background: #FF3B30;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 59, 48, 0.6);
+  animation: blink 2.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.btn-event-highlight:hover {
+  background: linear-gradient(135deg, #FF4B2B, #FF416C);
+  border-color: #FFA07A;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 65, 108, 0.45);
+}
+
+/* Botón 2 Portada: Entra en la Web */
+.btn-enter-gold {
+  background: #FFFFFF;
+  color: #111111;
+  border: 1.5px solid #FFFFFF;
+  padding: 0.95rem 1.7rem;
+  gap: 1rem;
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.25);
+}
+
+.btn-enter-gold .btn-sub-label {
+  color: #555555;
+}
+
+.btn-arrow-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #111111;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-enter-gold:hover {
+  background: linear-gradient(135deg, #FFF6E5, #F3DE8A, #D4AF37);
+  border-color: #FFE69A;
+  color: #000000;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 45px var(--hero-gold-glow);
+}
+
+.btn-enter-gold:hover .btn-sub-label {
+  color: #332600;
+  font-weight: 600;
+}
+
+.btn-enter-gold:hover .btn-arrow-circle {
+  background: #000000;
+  color: #FFE69A;
+  transform: translateX(4px);
+}
+
+/* Botón de Sonido */
+.sound-toggle-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 30;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.sound-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   ==========================================================================
+   PÁGINA WEB (#main-page) — SIN HEADER, FLUJO VISUAL CONTINUO
+   ==========================================================================
+   ========================================================================== */
+#main-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #050508;
+  color: #FFFFFF;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  /* overflow removed to allow sticky position in children to work against the viewport */
+}
+
+#main-page.slide-up-anim {
+  position: relative;
+  z-index: 60;
+  animation: webSlideUpFromBottom 2.2s cubic-bezier(0.12, 0.95, 0.22, 1) forwards;
+}
+
+@keyframes webSlideUpFromBottom {
+  0% {
+    transform: translateY(135vh);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Botón Flotante para Volver a la Portada */
+.floating-return-btn {
+  position: fixed;
+  top: 1.8rem;
+  left: 2rem;
+  z-index: 90;
+  background: rgba(26, 24, 22, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #FAF7F2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: var(--transition-smooth);
+}
+
+.floating-return-btn:hover {
+  background: var(--web-text-espresso);
+  color: var(--web-champagne);
+  border-color: var(--web-champagne);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   MENÚ FLOTANTE INFERIOR DE LUJO (BOTTOM DOCK) EN TONOS CLAROS Y ORO
+   ========================================================================== */
+.luxury-bottom-dock {
+  position: fixed;
+  bottom: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  user-select: none;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7));
+}
+
+/* Núcleo Central: Tono Claro de Lujo que destaca sobre el fondo oscuro */
+.dock-core-pill {
+  background: rgba(250, 247, 242, 0.94);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1.5px solid rgba(197, 160, 89, 0.65);
+  border-radius: 999px;
+  padding: 0.45rem 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45), 0 0 20px rgba(255, 255, 255, 0.4) inset;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-bottom-dock:hover .dock-core-pill {
+  border-color: #C5A059;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), 0 0 25px rgba(255, 255, 255, 0.6) inset;
+}
+
+/* Logo a la Izquierda del Dock */
+.dock-brand-btn {
+  background: transparent;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  transition: var(--transition-smooth);
+}
+
+.dock-brand-img {
+  height: 28px;
+  width: auto;
+  max-width: 65px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.dock-brand-btn:hover .dock-brand-img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 3px 8px rgba(197, 160, 89, 0.4));
+}
+
+/* Botón Eventos en Tono Claro y Elegante (Sin hover dorado estridente) */
+.dock-btn-events {
+  background: rgba(229, 195, 101, 0.16);
+  border: 1.2px solid rgba(197, 160, 89, 0.55);
+  color: #1A1714;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.35rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dock-btn-events:hover {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #B8934A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.dock-inner-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(197, 160, 89, 0.4);
+}
+
+/* Botón 4 Cuadraditos (Grid Apps) */
+.dock-btn-grid {
+  background: rgba(229, 195, 101, 0.16);
+  border: 1.2px solid rgba(197, 160, 89, 0.55);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-icon-box {
+  display: grid;
+  grid-template-columns: repeat(2, 6px);
+  grid-gap: 3.5px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-sq {
+  width: 6px;
+  height: 6px;
+  background-color: #1A1714;
+  border-radius: 1.5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dock-btn-grid:hover {
+  background: #FFFFFF;
+  border-color: #B8934A;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.dock-btn-grid:hover .grid-icon-box {
+  transform: rotate(90deg);
+}
+
+/* Estado Expandido */
+.luxury-bottom-dock.is-expanded .dock-btn-grid {
+  background: #1A1714;
+  border-color: #1A1714;
+}
+
+.luxury-bottom-dock.is-expanded .grid-sq {
+  background-color: #FAF7F2;
+  box-shadow: none;
+}
+
+.luxury-bottom-dock.is-expanded .grid-icon-box {
+  transform: rotate(45deg);
+}
+
+/* Alas laterales desplegables (Wings) */
+.dock-wings {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: scale(0.85);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-wings-left {
+  transform-origin: right center;
+}
+
+.dock-wings-right {
+  transform-origin: left center;
+}
+
+/* Al estar expandido el dock */
+.luxury-bottom-dock.is-expanded .dock-wings {
+  max-width: 340px;
+  opacity: 1;
+  overflow: visible;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Botones de Secciones en las Alas en Tonos Claros */
+.dock-nav-item {
+  background: rgba(250, 247, 242, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.2px solid rgba(197, 160, 89, 0.6);
+  color: #1A1714;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-nav-item .dock-icon {
+  color: #B8934A;
+  font-size: 0.82rem;
+}
+
+.dock-nav-item:hover {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #B8934A;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.dock-nav-item:hover .dock-icon {
+  color: #111111;
+}
+
+/* Luces ambientales Champagne en el fondo */
+.champagne-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  z-index: 1;
+}
+
+.glow-top-left {
+  top: -100px;
+  left: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(229, 195, 101, 0.35) 0%, rgba(245, 229, 201, 0.15) 50%, transparent 80%);
+}
+
+.glow-top-right {
+  top: 25%;
+  right: -120px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.25) 0%, rgba(212, 175, 55, 0.1) 60%, transparent 80%);
+}
+
+/* ==========================================================================
+   FONDO DISCOTECA ANIMADO — LUCES, COLORES Y ATMÓSFERA NOCTURNA
+   ========================================================================== */
+.disco-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #050508;
+}
+
+/* Fuente Central de Rayos Láser */
+.disco-beam-source {
+  position: absolute;
+  top: -10%; /* Sale desde la parte superior central */
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 2;
+  perspective: 1000px;
+}
+
+/* Rayos Láser Individuales (Sutiles y Ambientales) */
+.disco-beam {
+  position: absolute;
+  top: 0; /* Origen en la fuente superior */
+  left: -1px;
+  width: 2px; /* Grosor refinado y sutil */
+  height: 150vh; /* Largo que cubre hacia abajo */
+  background: linear-gradient(to bottom, var(--color) 0%, rgba(255, 255, 255, 0.6) 15%, var(--color) 65%, transparent 100%);
+  transform-origin: top center;
+  filter: blur(1px) drop-shadow(0 0 6px var(--color));
+  opacity: 0.4;
+  /* Animación dinámica usando variables CSS */
+  animation: discoBeamSweep var(--speed) ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+}
+
+/* ---- KEYFRAMES DISCO BEAMS (Sutiles) ---- */
+@keyframes discoBeamSweep {
+  0% {
+    transform: rotateZ(calc(var(--angle) - var(--sweep))) rotateX(45deg);
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: rotateZ(calc(var(--angle) + var(--sweep))) rotateX(45deg);
+    opacity: 0.15;
+  }
+}
+
+/* Cuadrícula Sutil (suelo de discoteca) */
+.disco-grid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: 
+    linear-gradient(90deg, rgba(229, 195, 101, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(229, 195, 101, 0.06) 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  perspective: 500px;
+  transform: rotateX(55deg);
+  transform-origin: bottom center;
+  animation: discoGridPulse 4s ease-in-out infinite alternate;
+}
+
+/* Contenedor de chispas / partículas */
+.disco-sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.disco-sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  opacity: 0;
+  animation: discoSparkleFade var(--sparkle-duration) ease-in-out infinite;
+  animation-delay: var(--sparkle-delay);
+  box-shadow: 0 0 6px 2px var(--sparkle-color);
+}
+
+@keyframes discoGridPulse {
+  0% {
+    background-size: 60px 60px;
+    opacity: 0.4;
+  }
+  100% {
+    background-size: 65px 65px;
+    opacity: 0.7;
+  }
+}
+
+@keyframes discoSparkleFade {
+  0%   { opacity: 0; transform: scale(0.5); }
+  30%  { opacity: 1; transform: scale(1.2); }
+  70%  { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.3); }
+}
+
+/* Wrapper Parallax: Contiene web-visual-flow + Boat Party */
+.parallax-stack-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Flujo Visual de la Web — controlado con aceleración GPU para efecto Parallax Stacking */
+.web-visual-flow {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+/* 1. Imagen foto1.png con filtro borroso y título grande centrado sin caja */
+.banner-fullwidth-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-image-wrapper {
+  width: 100%;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.fullwidth-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: none !important;
+  transform: none !important;
+}
+
+.banner-dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.65) 100%),
+              linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 50%, rgba(0,0,0,0.4) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Escenario Centrado sobre Foto 1 */
+.banner-content-stage.banner-centered-stage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  pointer-events: none;
+  text-align: center;
+}
+
+.banner-sliding-title-wrapper {
+  max-width: 980px;
+  width: 92%;
+  margin: 0 auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  /* Animación entrando desde fuera de la izquierda y quedándose en el centro */
+  animation: bannerSlideFromLeftToCenter 2.4s cubic-bezier(0.12, 0.96, 0.24, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.banner-epic-title-centered {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.banner-epic-title-centered .gold-text-accent {
+  background: var(--hero-gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px var(--hero-gold-glow));
+}
+
+.banner-epic-desc-centered {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  max-width: 780px;
+  margin: 0 auto;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.85);
+}
+
+@keyframes bannerSlideFromLeftToCenter {
+  0% {
+    opacity: 0;
+    transform: translateX(-120vw);
+  }
+  20% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================================
+   TRANSICIÓN DIAGONAL ASIMÉTRICA ESTILO ELROW (FOTO 1 -> EVENTOS -> AGATHA)
+   ========================================================================== */
+.elrow-transition-divider {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  z-index: 10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.elrow-divider-top {
+  margin-top: -95px;
+  margin-bottom: -1px;
+}
+
+.elrow-divider-bottom {
+  margin-top: -1px;
+  margin-bottom: -95px;
+}
+
+.elrow-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- DIVISOR SUPERIOR (Hacia sección eventos) --- */
+/* Capa Posterior (Facet 1): Diagonal descendente con mayor ángulo de inclinación */
+.elrow-divider-top .elrow-layer-back {
+  clip-path: polygon(0% 10%, 100% 66%, 100% 100%, 0% 100%);
+  background: linear-gradient(135deg, #b8955b 0%, #caa971 45%, #b28e53 100%);
+  filter: drop-shadow(0 -10px 25px rgba(0, 0, 0, 0.48));
+}
+
+/* Capa Frontal (Facet 2): Diagonal ascendente con mayor ángulo de inclinación */
+.elrow-divider-top .elrow-layer-front {
+  clip-path: polygon(0% 80%, 100% 16%, 100% 100%, 0% 100%);
+  background-color: #cfb385;
+  background: radial-gradient(circle at 50% 100%, #dec49c 0%, #cfb385 65%, #bd9f6f 100%);
+  filter: drop-shadow(0 -5px 16px rgba(0, 0, 0, 0.28));
+}
+
+/* Línea de perfilado sutil para dar definición limpia al corte */
+.elrow-divider-top .elrow-edge-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0% calc(80% - 1.5px), 100% calc(16% - 1.5px), 100% 16%, 0% 80%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.7) 65%, rgba(255, 255, 255, 0.3) 100%);
+  opacity: 0.7;
+}
+
+/* --- DIVISOR INFERIOR (INVERTIDO HACIA SECCIÓN AGATHA) --- */
+/* Capa Posterior Invertida: Diagonal descendente que asoma por debajo con mayor ángulo */
+.elrow-divider-bottom .elrow-layer-back {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 34%);
+  background: linear-gradient(135deg, #b8955b 0%, #caa971 45%, #b28e53 100%);
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.48));
+}
+
+/* Capa Frontal Invertida: Diagonal saliendo del champagne de eventos */
+.elrow-divider-bottom .elrow-layer-front {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 20%, 0% 84%);
+  background-color: #cfb385;
+  background: radial-gradient(circle at 50% 0%, #dec49c 0%, #cfb385 65%, #bd9f6f 100%);
+  filter: drop-shadow(0 5px 16px rgba(0, 0, 0, 0.28));
+}
+
+/* Línea de perfilado sutil en corte inferior */
+.elrow-divider-bottom .elrow-edge-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0% 84%, 100% 20%, 100% calc(20% + 1.5px), 0% calc(84% + 1.5px));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.7) 65%, rgba(255, 255, 255, 0.3) 100%);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   2. SECCIÓN EVENTOS: FONDO BEIGE DORADO (#cfb385) + COVER-FLOW DE EVENTOS
+   ========================================================================== */
+.terracota-interactive-section {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #cfb385;
+  background: radial-gradient(circle at 50% 45%, #dec49c 0%, #cfb385 55%, #bd9f6f 100%);
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.15), inset 0 -20px 40px rgba(0, 0, 0, 0.15);
+  padding: 2rem 0 3rem 0;
+}
+
+.terracota-empty-section {
+  min-height: 580px;
+}
+
+/* ==========================================================================
+   4. SECCIÓN CHAMPAGNE: FRANJA HORIZONTAL "REVIVE CADA MOMENTO" + CARRUSEL
+   ========================================================================== */
+.revive-champagne-band-section {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  padding: 6rem 0 16rem 0;
+  margin-top: 14rem;
+  overflow: visible;
+}
+
+.revive-band-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+  position: relative;
+  z-index: 5;
+}
+
+/* Cabecera Editorial Centrada con Estilo Alta Costura / Revista de Vanguardia */
+.revive-band-header {
+  width: 100%;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.revive-band-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4.5vw, 4.2rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 auto;
+  white-space: nowrap;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.4rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 35px rgba(229, 195, 101, 0.4);
+}
+
+.revive-band-title::before,
+.revive-band-title::after {
+  content: '';
+  display: inline-block;
+  width: clamp(25px, 5vw, 70px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--hero-gold), transparent);
+}
+
+/* Carrusel Lateral Manual: Formato Vertical Rectangular Puro con Esquinas Rectas (90º) */
+.revive-manual-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.revive-manual-track {
+  display: flex;
+  gap: clamp(1rem, 1.8vw, 2rem);
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.8rem clamp(1.5rem, 6vw, 5rem);
+  cursor: grab;
+  user-select: none;
+  scrollbar-width: none;
+}
+
+.revive-manual-track::-webkit-scrollbar {
+  display: none;
+}
+
+.revive-manual-track.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+/* Tarjetas Verticales Rectangulares (Relación 3:4 o vertical alta), Esquinas 90º Rectas, Sin Sombras */
+.revive-manual-card {
+  position: relative;
+  width: clamp(280px, 26vw, 390px);
+  height: clamp(400px, 36vw, 560px);
+  aspect-ratio: 3 / 4;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-radius: 0 !important; /* Esquinas rectas 90º */
+  overflow: hidden;
+  background: #08080c;
+  box-shadow: none !important; /* Cero sombras */
+  border: 1.5px solid rgba(229, 195, 101, 0.35);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.revive-manual-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--hero-gold);
+}
+
+.revive-manual-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  border-radius: 0 !important;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revive-manual-card:hover img {
+  transform: scale(1.05);
+}
+
+.revive-manual-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  transition: background 0.35s ease;
+}
+
+.revive-manual-card:hover .revive-manual-card-overlay {
+  background: transparent;
+}
+
+/* Flechas de navegación manual flotantes: Cuadradas rectas, elegantes */
+.revive-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 0;
+  background: rgba(12, 10, 15, 0.92);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(229, 195, 101, 0.6);
+  color: #faf7f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+.revive-nav-arrow:hover {
+  background: #000000;
+  border-color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  color: var(--hero-gold);
+}
+
+.revive-nav-prev {
+  left: 1.2rem;
+}
+
+.revive-nav-next {
+  right: 1.2rem;
+}
+
+/* ==========================================================================
+   ESTADÍSTICAS REVIVE (3 STATS CENTRADAS)
+   ========================================================================== */
+.revive-stats-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  width: 100%;
+  max-width: 950px;
+  margin: 3.5rem auto 30rem auto;
+  padding: 1.8rem 2.4rem;
+  background: rgba(12, 10, 15, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(229, 195, 101, 0.3);
+  border-radius: 0;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.revive-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.revive-stat-number {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--hero-gold);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 25px rgba(229, 195, 101, 0.45);
+}
+
+.revive-stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.72rem, 1.1vw, 0.88rem);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.revive-stat-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, transparent, rgba(229, 195, 101, 0.5), transparent);
+}
+
+/* ==========================================================================
+   5. SECCIÓN BOAT PARTY: CAPA PARALLAX QUE SUBE POR ENCIMA DE LA PÁGINA
+   ========================================================================== */
+.boat-party-stack-section {
+  position: relative;
+  width: 100%;
+  z-index: 40;
+  margin-top: 0;
+  overflow: visible;
+  background: transparent; /* Changed to transparent so global bg shows */
+  box-shadow: 0 -60px 100px 30px rgba(0, 0, 0, 0.98),
+              0 -2px 0 rgba(229, 195, 101, 0.45);
+}
+
+/* FONDO GLOBAL: pegado a la pantalla detrás de toda la sección */
+.boat-party-global-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  /* Eliminamos overflow: hidden para que el position: sticky funcione correctamente */
+  pointer-events: none;
+}
+
+.boat-party-global-bg-img {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background-image: url('../assets/images/fondo%20boat%20party.png');
+  background-size: 100% auto;
+  background-repeat: repeat;
+  background-position: top center;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* Portada Fullscreen de lado a lado (ajustada a la altura real de la imagen para que no se corte) */
+.boat-party-hero-fullscreen {
+  position: relative;
+  z-index: 20; 
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: block;
+  background: transparent;
+}
+
+.boat-party-hero-cover-img {
+  display: block;
+  width: 100%;
+  height: auto; /* Mantiene la proporción original sin recortar nada */
+  z-index: 1;
+  transform: none !important;
+  filter: none !important;
+}
+
+/* Cuerpo de la Sección Boat Party */
+.boat-party-body-stage {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  padding: 8rem 0 10rem 0;
+  overflow: visible; /* Changed to visible just in case */
+  background: transparent; /* Changed to transparent */
+}
+
+.boat-party-content-container {
+  position: relative;
+  z-index: 10; /* Por delante de la imagen de fondo */
+  width: 90%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* Showcase Grid: Imagen Destacada Sin Box Detrás + Tarjeta de Detalles */
+.boat-party-showcase-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.boat-party-image-feature {
+  width: 100%;
+  border-radius: 0;
+  overflow: visible;
+  border: none !important; /* Sin caja ni borde */
+  box-shadow: none !important; /* Sin sombras */
+  background: transparent !important; /* Sin fondo de caja */
+}
+
+.boat-party-feature-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: none !important; /* Sin filtros */
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.boat-party-image-feature:hover .boat-party-feature-img {
+  transform: scale(1.03);
+}
+
+.boat-party-details-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 3.2rem 2.8rem;
+  background: rgba(10, 14, 24, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(229, 195, 101, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.boat-party-card-kicker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--hero-gold);
+}
+
+.boat-party-details-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.boat-party-details-p {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  font-weight: 300;
+}
+
+.boat-party-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+.boat-feat-pill {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #FAF7F2;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(229, 195, 101, 0.4);
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+}
+
+.btn-boat-party-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background: var(--hero-gold-gradient);
+  color: #12100e;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1.25rem 2.4rem;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(229, 195, 101, 0.35);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-boat-party-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(229, 195, 101, 0.55);
+}
+
+.btn-boat-party-cta .boat-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-boat-party-cta:hover .boat-arrow {
+  transform: translateX(5px);
+}
+
+.terracota-stage-content {
+  position: relative;
+  z-index: 5;
+  padding: 2.5rem 2rem 3rem 2rem;
+  width: 100%;
+}
+
+/* Esquina superior izquierda: Botón "VER EVENTOS" */
+.terracota-corner-title {
+  position: absolute;
+  top: 1.8rem;
+  left: 3rem;
+  font-family: 'Cinzel', 'Montserrat', serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a1612;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(197, 160, 89, 0.5);
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  box-shadow: 0 10px 25px rgba(90, 70, 40, 0.18);
+  z-index: 10;
+  transition: all 0.35s ease;
+}
+
+.terracota-corner-title:hover {
+  background: #141210;
+  color: #FAF7F2;
+  border-color: #141210;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+}
+
+.corner-sparkle {
+  color: #b58d3d;
+  font-size: 0.95rem;
+}
+
+/* Boxes Rectangulares Verticales en Carrusel (Cover-Flow con Póster Real - Formato Extra Grande) */
+.events-cycling-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  height: 680px;
+  perspective: 1300px;
+  overflow: visible;
+}
+
+.event-rect-card {
+  position: absolute;
+  width: 450px;
+  height: 660px;
+  border-radius: 30px;
+  background: #08080c;
+  border: 1.5px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease, filter 0.65s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(0) scale(0.6);
+  pointer-events: none;
+}
+
+/* Imagen de Póster Real */
+.event-card-poster-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-rect-card:hover .event-card-poster-img {
+  transform: scale(1.04);
+}
+
+.event-card-poster-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 45%, rgba(5,5,8,0.7) 72%, rgba(5,5,8,0.96) 100%);
+  pointer-events: none;
+}
+
+.event-card-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 1.8rem 2.4rem 1.8rem;
+  width: 100%;
+}
+
+.event-card-date-badge {
+  background: rgba(197, 160, 89, 0.25);
+  border: 1px solid rgba(197, 160, 89, 0.75);
+  color: var(--hero-gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  padding: 0.45rem 1.35rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.event-card-title-text {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  line-height: 1.25;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
+}
+
+/* ================== ESTADOS DEL COVER FLOW ================== */
+
+/* Activo (Centro) */
+.event-rect-card.active {
+  transform: translateX(0) scale(1.08);
+  z-index: 10;
+  opacity: 1;
+  border: 2px solid var(--hero-gold);
+  box-shadow: 0 35px 85px rgba(0, 0, 0, 0.9), 0 0 45px rgba(229, 195, 101, 0.38);
+  pointer-events: auto;
+}
+
+.event-rect-card.active .event-card-title-text {
+  color: #FFFFFF;
+}
+
+/* Prev y Next (Lados adyacentes) */
+.event-rect-card.prev {
+  transform: translateX(-350px) scale(0.85);
+  z-index: 5;
+  opacity: 0.65;
+  filter: brightness(0.65);
+  pointer-events: auto;
+}
+
+.event-rect-card.next {
+  transform: translateX(350px) scale(0.85);
+  z-index: 5;
+  opacity: 0.65;
+  filter: brightness(0.65);
+  pointer-events: auto;
+}
+
+/* Far Prev y Far Next (Extremos) */
+.event-rect-card.far-prev {
+  transform: translateX(-630px) scale(0.7);
+  z-index: 2;
+  opacity: 0.25;
+  filter: brightness(0.35);
+  pointer-events: auto;
+}
+
+.event-rect-card.far-next {
+  transform: translateX(630px) scale(0.7);
+  z-index: 2;
+  opacity: 0.25;
+  filter: brightness(0.35);
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   FONDO DISCOTECA ANIMADO CON LÁSERES ARRIBA DEL TODO (INTENSIDAD EQUILIBRADA)
+   ========================================================================== */
+.disco-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #050508;
+}
+
+/* Foco Resplandor Superior */
+.disco-top-flare {
+  position: absolute;
+  top: -110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 300px;
+  background: radial-gradient(ellipse at center top, rgba(229, 60, 255, 0.32) 0%, rgba(0, 180, 255, 0.22) 35%, rgba(229, 195, 101, 0.15) 60%, transparent 80%);
+  filter: blur(45px);
+  pointer-events: none;
+  animation: discoFlarePulse 5.5s ease-in-out infinite alternate;
+}
+
+@keyframes discoFlarePulse {
+  0% { transform: translateX(-50%) scale(0.95); opacity: 0.55; }
+  100% { transform: translateX(-50%) scale(1.1); opacity: 0.85; }
+}
+
+.disco-spotlight-cone {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 65vh;
+  background: radial-gradient(ellipse at 50% 0%, rgba(121, 40, 202, 0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Emisor Central de Rayos Láser (En el borde superior central) */
+.disco-beam-source {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 2;
+  perspective: 1100px;
+}
+
+/* Rayos Láser Definidos y Brillantes */
+.disco-beam {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 2.5px;
+  height: 260vh;
+  background: linear-gradient(to bottom, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 8%, var(--color) 22%, var(--color) 70%, transparent 100%);
+  transform-origin: top center;
+  filter: blur(0.7px) drop-shadow(0 0 8px var(--color));
+  opacity: 0.55;
+  animation: discoBeamSweep var(--speed) ease-in-out infinite alternate;
+  animation-delay: var(--delay);
+  will-change: transform, opacity;
+}
+
+@keyframes discoBeamSweep {
+  0% {
+    transform: rotateZ(calc(var(--angle) - var(--sweep)));
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.68;
+  }
+  100% {
+    transform: rotateZ(calc(var(--angle) + var(--sweep)));
+    opacity: 0.32;
+  }
+}
+
+/* Abanicos de luz volumétrica */
+.disco-fan {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+  width: 150px;
+  height: 240vh;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.disco-fan-1 {
+  background: linear-gradient(to bottom, rgba(229, 60, 255, 0.18) 0%, transparent 75%);
+  animation: discoFanSweep1 7.5s ease-in-out infinite alternate;
+}
+
+.disco-fan-2 {
+  background: linear-gradient(to bottom, rgba(0, 180, 255, 0.16) 0%, transparent 75%);
+  animation: discoFanSweep2 9s ease-in-out infinite alternate;
+  animation-delay: -3s;
+}
+
+.disco-fan-3 {
+  background: linear-gradient(to bottom, rgba(229, 195, 101, 0.14) 0%, transparent 75%);
+  animation: discoFanSweep3 7s ease-in-out infinite alternate;
+  animation-delay: -1.5s;
+}
+
+@keyframes discoFanSweep1 {
+  0% { transform: rotateZ(-42deg); opacity: 0.2; }
+  100% { transform: rotateZ(22deg); opacity: 0.45; }
+}
+
+@keyframes discoFanSweep2 {
+  0% { transform: rotateZ(42deg); opacity: 0.2; }
+  100% { transform: rotateZ(-22deg); opacity: 0.42; }
+}
+
+@keyframes discoFanSweep3 {
+  0% { transform: rotateZ(-14deg); opacity: 0.18; }
+  100% { transform: rotateZ(32deg); opacity: 0.38; }
+}
+
+/* Cuadrícula Sutil del Suelo */
+.disco-grid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: 
+    linear-gradient(90deg, rgba(229, 195, 101, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(229, 195, 101, 0.08) 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+  perspective: 500px;
+  transform: rotateX(55deg);
+  transform-origin: bottom center;
+  animation: discoGridPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes discoGridPulse {
+  0% { background-size: 60px 60px; opacity: 0.4; }
+  100% { background-size: 65px 65px; opacity: 0.7; }
+}
+
+/* Partículas Brillantes */
+.disco-sparkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.disco-sparkle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  opacity: 0;
+  animation: discoSparkleFade var(--sparkle-duration) ease-in-out infinite;
+  animation-delay: var(--sparkle-delay);
+  box-shadow: 0 0 6px 2px var(--sparkle-color);
+}
+
+@keyframes discoSparkleFade {
+  0%   { opacity: 0; transform: scale(0.5); }
+  30%  { opacity: 1; transform: scale(1.2); }
+  70%  { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.3); }
+}
+
+/* ==========================================================================
+   3. SECCIÓN AGATHA: TOTALMENTE PEGADA A LA IZQUIERDA, SIN CAJA DETRÁS, MÁS ABAJO & MUCHO MÁS GRANDE
+   ========================================================================== */
+.agatha-pure-section {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  padding: 7.5rem 0 8rem 0;
+  overflow: clip;
+  min-height: 960px;
+}
+
+.agatha-pure-container {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: flex-start;
+  width: 100%;
+  gap: 1rem;
+}
+
+/* Imagen Agatha pegada al lateral izquierdo sin caja detrás */
+.agatha-pure-image-col {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  align-self: flex-end;
+  margin-top: 1.5rem;
+}
+
+.agatha-pure-img {
+  width: 135%;
+  max-width: 1250px;
+  min-width: 740px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin-left: -8.5rem;
+  padding-left: 0;
+  margin-bottom: -0.5rem;
+  filter: drop-shadow(0 20px 50px rgba(229, 60, 255, 0.2)) drop-shadow(20px 30px 40px rgba(0, 180, 255, 0.15));
+  transition: transform 0.5s ease;
+}
+
+.agatha-pure-img:hover {
+  transform: translateX(6px) scale(1.01);
+}
+
+/* Columna Derecha: Contenido Editorial situado más abajo, más a la izquierda y bastante más grande */
+.agatha-pure-text-col {
+  padding-right: 3rem;
+  padding-left: 0;
+  padding-top: 11.5rem;
+  padding-bottom: 7rem;
+  margin-left: -2.5rem;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.agatha-pure-editorial {
+  max-width: 820px;
+}
+
+.agatha-pure-tag {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--hero-gold);
+  margin-bottom: 1.4rem;
+}
+
+.agatha-pure-title {
+  font-family: 'Cinzel', 'Cormorant Garamond', serif;
+  font-size: 7.2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 0.98;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.2rem;
+}
+
+.agatha-pure-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--web-champagne);
+  line-height: 1.35;
+  margin-bottom: 2.2rem;
+}
+
+.agatha-pure-divider {
+  width: 140px;
+  height: 4px;
+  background: var(--web-gold-gradient);
+  margin-bottom: 2.8rem;
+}
+
+.agatha-pure-text-block {
+  margin-bottom: 3.2rem;
+}
+
+.agatha-pure-lead {
+  font-size: 1.95rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.94);
+  line-height: 1.62;
+  margin-bottom: 1.8rem;
+}
+
+.agatha-pure-body {
+  font-size: 1.55rem;
+  line-height: 1.82;
+  color: rgba(255, 255, 255, 0.68);
+  font-weight: 300;
+}
+
+.btn-agatha-pure-cta {
+  background: transparent;
+  color: #FAF7F2;
+  border: 1.5px solid var(--hero-gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 1.5rem 3.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 1rem;
+  transition: var(--transition-smooth);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 195, 101, 0.1);
+}
+
+.btn-agatha-pure-cta:hover {
+  background: var(--web-gold-gradient);
+  color: var(--web-text-espresso);
+  border-color: var(--web-champagne-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px var(--web-gold-glow);
+}
+
+.btn-agatha-pure-cta .cta-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-agatha-pure-cta:hover .cta-arrow {
+  transform: translateX(5px);
+}
+
+/* Pie de Página */
+.main-footer {
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(229, 195, 101, 0.2);
+  padding: 2.5rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(5, 5, 8, 0.85);
+}
+
+.footer-links {
+  display: flex;
+  gap: 2.2rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: var(--hero-gold);
+}
+
+/* ==========================================================================
+   MODAL DE PRÓXIMO EVENTO
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 12, 10, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: rgba(15, 13, 18, 0.92);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  color: #FAF7F2;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 28px;
+  padding: 3.2rem 2.8rem;
+  position: relative;
+  transform: translateY(25px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.7), 0 0 40px rgba(229, 195, 101, 0.08);
+  border: 1px solid rgba(229, 195, 101, 0.25);
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--transition-smooth);
+}
+
+.modal-close:hover {
+  background: var(--hero-gold);
+  color: #000000;
+  transform: rotate(90deg);
+}
+
+.modal-badge-row {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.gold-badge {
+  background: rgba(229, 195, 101, 0.2);
+  border: 1px solid rgba(229, 195, 101, 0.5);
+  color: var(--hero-gold);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 10px rgba(229, 195, 101, 0.25);
+}
+
+.date-badge {
+  background: rgba(197, 160, 89, 0.15);
+  color: var(--hero-gold);
+  border: 1px solid rgba(229, 195, 101, 0.3);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+
+.event-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+.event-headline em {
+  font-style: italic;
+  color: var(--hero-gold);
+}
+
+.event-desc {
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  font-size: 0.98rem;
+  margin-bottom: 1.8rem;
+}
+
+.modal-highlights {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.highlight-item {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(229, 195, 101, 0.2);
+  padding: 1.1rem 0.8rem;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.highlight-item strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--hero-gold);
+  margin-bottom: 2px;
+}
+
+.highlight-item span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+}
+
+.modal-cta-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.btn-modal-reserve {
+  width: 100%;
+  background: transparent;
+  color: #FAF7F2;
+  border: 1.5px solid var(--hero-gold);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 1.1rem 2rem;
+  font-size: 0.88rem;
+}
+
+.btn-modal-reserve:hover {
+  background: var(--hero-gold-gradient);
+  color: #000000;
+  border-color: var(--hero-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(229, 195, 101, 0.35);
+}
+
+.modal-notice {
+  font-size: 0.75rem;
+  color: var(--hero-gold);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   ANIMACIONES GLOBALES & RESPONSIVE DESIGN
+   ========================================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  #hero-section {
+    position: fixed;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .video-bg {
+    transform: scale(1.15);
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 3.8rem;
+    width: 92%;
+    padding: 0.8rem;
+  }
+
+  .vertical-socials {
+    flex-direction: row;
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    gap: 1rem;
+  }
+
+  .vertical-socials .social-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-bottom: 0;
+    margin-right: 0.4rem;
+    font-size: 0.62rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .glass-box {
+    padding: 2.2rem 1.4rem 2rem 1.4rem;
+    border-radius: 26px;
+    width: 100%;
+  }
+
+  .brand-logo-hero {
+    max-width: 220px;
+    width: 65%;
+    max-height: 100px;
+    margin-bottom: 0.4rem;
+  }
+
+  .brand-title {
+    font-size: 2.4rem;
+    letter-spacing: 0.14em;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-statement-container {
+    margin-bottom: 1.6rem;
+  }
+
+  .hero-kicker-sparkle {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    padding: 0.3rem 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .statement-line1 {
+    font-size: 1.05rem;
+    letter-spacing: 0.12em;
+  }
+
+  .statement-line2 {
+    font-size: 1.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .statement-line3 {
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+  }
+
+  .statement-agatha {
+    font-size: 1.55rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1.1rem 1.4rem;
+  }
+
+  /* 1. Portada / Banner (Foto 1) en móvil: Mucho más alto/grande para que el fondo llegue más abajo y quepa el título */
+  .banner-fullwidth-section {
+    min-height: 520px;
+  }
+
+  .banner-image-wrapper {
+    min-height: 480px;
+  }
+
+  .fullwidth-banner-img {
+    min-height: 480px;
+    height: 480px;
+    object-fit: cover;
+    object-position: 18% center; /* Desplazada hacia la derecha para mostrar más la izquierda en móvil */
+  }
+
+  .banner-content-stage.banner-centered-stage {
+    display: none;
+  }
+
+  .terracota-interactive-section {
+    min-height: auto;
+    padding: 1rem 0 2rem 0;
+  }
+
+  .terracota-stage-content {
+    padding: 1.2rem 1rem 1.5rem 1rem;
+  }
+
+  .terracota-corner-title {
+    position: static;
+    margin-bottom: 0.8rem;
+    display: inline-flex;
+  }
+
+  .events-cycling-carousel {
+    margin-top: 0.4rem;
+    height: 415px;
+    padding: 0;
+  }
+
+  .event-rect-card {
+    width: 250px;
+    height: 400px;
+    border-radius: 20px;
+  }
+
+  .event-card-title-text {
+    font-size: 1.15rem;
+  }
+
+  .event-card-date-badge {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.85rem;
+  }
+
+  .elrow-transition-divider {
+    height: 110px;
+  }
+
+  .elrow-divider-top {
+    margin-top: -55px;
+    margin-bottom: -1px;
+  }
+
+  .elrow-divider-bottom {
+    margin-top: -1px;
+    margin-bottom: -55px;
+  }
+
+  /* 3. Sección Agatha en móvil: Imagen visible, grande y destacada arriba, texto elegante debajo */
+  .agatha-pure-section {
+    padding: 4.5rem 0 5rem 0;
+    min-height: auto;
+  }
+
+  .agatha-pure-container {
+    display: flex;
+    flex-direction: column-reverse; /* Pone la imagen debajo del texto */
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .agatha-pure-image-col {
+    margin-top: 0;
+    display: flex;
+    justify-content: flex-start; /* Pega la imagen a la izquierda */
+    align-items: flex-start;
+    align-self: flex-start; /* Asegura que la columna entera se pegue a la izquierda */
+    width: 100%;
+    overflow: visible;
+  }
+
+  .agatha-pure-img {
+    width: 112%;
+    max-width: 480px;
+    min-width: 290px;
+    height: auto;
+    display: block;
+    margin-left: -3.6rem; /* Desplazada hacia la izquierda pegada al borde */
+    margin-bottom: 0;
+    filter: drop-shadow(0 15px 35px rgba(229, 60, 255, 0.3)) drop-shadow(0 0 25px rgba(0, 180, 255, 0.25));
+  }
+
+  .agatha-pure-text-col {
+    padding: 0 1.5rem;
+    margin-left: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .agatha-pure-editorial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .agatha-pure-tag {
+    font-size: 0.82rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.8rem;
+  }
+
+  .agatha-pure-title {
+    font-size: 3.4rem;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
+  .agatha-pure-subtitle {
+    font-size: 1.5rem;
+    line-height: 1.35;
+    margin-bottom: 1.4rem;
+    text-align: center;
+  }
+
+  .agatha-pure-divider {
+    width: 80px;
+    height: 3px;
+    margin: 0 auto 1.8rem auto;
+  }
+
+  .agatha-pure-lead {
+    font-size: 1.2rem;
+    line-height: 1.55;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
+
+  .agatha-pure-body {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    text-align: center;
+  }
+
+  .btn-agatha-pure-cta {
+    font-size: 0.95rem;
+    padding: 1.1rem 2.2rem;
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* 4. Sección Revive en móvil: Separada con holgura y título perfectamente centrado */
+  .revive-champagne-band-section {
+    padding: 4rem 0 10rem 0;
+    margin-top: 7.5rem;
+    width: 100%;
+  }
+
+  .revive-band-container {
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .revive-band-header {
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .revive-band-title {
+    font-size: clamp(1.2rem, 5.4vw, 1.85rem);
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    text-align: center;
+    margin: 0 auto;
+    gap: 0.6rem;
+  }
+
+  .revive-band-title::before,
+  .revive-band-title::after {
+    width: 18px;
+  }
+
+  .revive-manual-card {
+    width: 270px;
+    height: 375px;
+    aspect-ratio: 3 / 4;
+    border-radius: 0 !important;
+  }
+
+  .revive-manual-track {
+    padding: 0.4rem 1.2rem;
+    gap: 1rem;
+  }
+
+  .revive-nav-arrow {
+    width: 42px;
+    height: 42px;
+    border-radius: 0;
+  }
+
+  .event-rect-card.active {
+    transform: translateX(0) scale(1.05);
+  }
+
+  .event-rect-card.prev {
+    transform: translateX(-140px) scale(0.84);
+  }
+
+  .event-rect-card.next {
+    transform: translateX(140px) scale(0.84);
+  }
+
+  .event-rect-card.far-prev,
+  .event-rect-card.far-next {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Estadísticas Revive en móvil */
+  .revive-stats-container {
+    flex-direction: column;
+    gap: 1.4rem;
+    padding: 1.5rem 1.2rem;
+    margin: 2rem auto 12rem auto;
+    width: 90%;
+  }
+
+  .revive-stat-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(229, 195, 101, 0.5), transparent);
+  }
+
+  .revive-stat-number {
+    font-size: 2.2rem;
+  }
+
+  /* Boat Party en móvil con Portada Fullscreen */
+  .boat-party-stack-section {
+    margin-top: 0;
+  }
+
+  .boat-party-hero-fullscreen {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .boat-party-hero-content {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .boat-party-hero-title {
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    letter-spacing: 0.12em;
+  }
+
+  .boat-party-hero-desc {
+    font-size: 1.2rem;
+  }
+
+  .boat-party-body-stage {
+    padding: 4.5rem 0 6rem 0;
+  }
+
+  .boat-party-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .boat-party-details-card {
+    padding: 2rem 1.4rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .boat-party-details-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .boat-party-details-p {
+    font-size: 0.98rem;
+    text-align: center;
+  }
+
+  .boat-party-features-list {
+    justify-content: center;
+  }
+
+  .btn-boat-party-cta {
+    width: 100%;
+    padding: 1.1rem 1.5rem;
+    font-size: 0.88rem;
+  }
+
+  .main-footer {
+    padding: 2rem 1.5rem;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: center;
+  }
+
+  .modal-highlights {
+    flex-direction: column;
+  }
+
+  /* Responsive Bottom Dock en Móvil */
+  .luxury-bottom-dock {
+    bottom: 1.2rem;
+    width: 94%;
+    max-width: 460px;
+  }
+
+  .luxury-bottom-dock.is-expanded {
+    flex-wrap: wrap;
+    background: rgba(250, 247, 242, 0.96);
+    backdrop-filter: blur(30px);
+    border: 1.5px solid rgba(197, 160, 89, 0.65);
+    border-radius: 26px;
+    padding: 0.8rem 0.6rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55);
+  }
+
+  .luxury-bottom-dock.is-expanded .dock-core-pill {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 0.6rem 0;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+    border-radius: 0;
+  }
+
+  .luxury-bottom-dock.is-expanded .dock-wings {
+    order: 2;
+    max-width: 100%;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 0.4rem;
+  }
+
+  .dock-nav-item {
+    font-size: 0.68rem;
+    padding: 0.5rem 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   PARTNERSHIP SECTION (GLAM SUN & SUIZA) DENTRO DE AGATHA (FONDO LÁSERES)
+   ========================================================================== */
+.partnership-full-section {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 8.5rem 2rem 6.5rem 2rem;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partnership-inner-container {
+  width: 100%;
+  max-width: 1350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  text-align: center;
+}
+
+.partnership-logos-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(3rem, 6vw, 6.5rem);
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.partnership-logos-row .partner-logo {
+  height: clamp(200px, 24vw, 320px);
+  width: auto;
+  max-width: clamp(360px, 44vw, 580px);
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.9));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partnership-logos-row .partner-logo:hover {
+  transform: scale(1.04);
+}
+
+.partnership-large-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.85rem, 3.4vw, 2.75rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.55;
+  color: #FFFFFF;
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto;
+  letter-spacing: 0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
+}
+
+@media (max-width: 768px) {
+  .partnership-full-section {
+    padding: 5.5rem 1.5rem 4.5rem 1.5rem;
+  }
+  .partnership-inner-container {
+    gap: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* En móvil extraemos los logos al flujo vertical para intercalar el texto */
+  .partnership-logos-row {
+    display: contents;
+  }
+  .partnership-logos-row .partner-logo-glamsun {
+    order: 1;
+    height: clamp(160px, 46vw, 250px);
+    max-width: clamp(260px, 80vw, 380px);
+    width: auto;
+  }
+  .partnership-large-text {
+    order: 2;
+    font-size: clamp(1.4rem, 4.5vw, 1.85rem);
+    line-height: 1.55;
+    padding: 0 0.8rem;
+    margin: 0.2rem 0;
+  }
+  .partnership-logos-row .partner-logo-suiza {
+    order: 3;
+    height: clamp(160px, 46vw, 250px);
+    max-width: clamp(260px, 80vw, 380px);
+    width: auto;
+  }
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos & Fechas Exclusivas — Glam Sun & Agatha Sun</title>
+  <link rel="stylesheet" href="css/eventos.css?v=v10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- =========================================================================
+       FONDO DISCOTECA ANIMADO CON LÁSERES ARRIBA DEL TODO
+       ========================================================================= -->
+  <div class="disco-bg" aria-hidden="true">
+    <!-- Foco / Lente emisor superior central -->
+    <div class="disco-top-flare"></div>
+    <div class="disco-spotlight-cone"></div>
+
+    <!-- Haces de Rayos Láser Discoteca desde el centro superior -->
+    <div class="disco-beam-source">
+      <div class="disco-beam" style="--angle: -75deg; --color: #e53cff; --delay: 0s; --sweep: 14deg; --speed: 4.2s;"></div>
+      <div class="disco-beam" style="--angle: -60deg; --color: #00d4ff; --delay: -0.9s; --sweep: 18deg; --speed: 5.1s;"></div>
+      <div class="disco-beam" style="--angle: -45deg; --color: #ffb800; --delay: -1.7s; --sweep: 12deg; --speed: 3.8s;"></div>
+      <div class="disco-beam" style="--angle: -30deg; --color: #ff2d75; --delay: -2.4s; --sweep: 20deg; --speed: 4.6s;"></div>
+      <div class="disco-beam" style="--angle: -15deg; --color: #00ffaa; --delay: -0.6s; --sweep: 15deg; --speed: 5.4s;"></div>
+      <div class="disco-beam" style="--angle: 0deg;   --color: #7928ca; --delay: -3.2s; --sweep: 10deg; --speed: 3.4s;"></div>
+      <div class="disco-beam" style="--angle: 15deg;  --color: #e53cff; --delay: -1.2s; --sweep: 16deg; --speed: 4.9s;"></div>
+      <div class="disco-beam" style="--angle: 30deg;  --color: #00d4ff; --delay: -2.7s; --sweep: 18deg; --speed: 4.3s;"></div>
+      <div class="disco-beam" style="--angle: 45deg;  --color: #ffb800; --delay: -0.4s; --sweep: 13deg; --speed: 5.0s;"></div>
+      <div class="disco-beam" style="--angle: 60deg;  --color: #ff2d75; --delay: -2.0s; --sweep: 16deg; --speed: 4.0s;"></div>
+      <div class="disco-beam" style="--angle: 75deg;  --color: #00ffaa; --delay: -3.0s; --sweep: 18deg; --speed: 4.5s;"></div>
+      <div class="disco-beam" style="--angle: -52deg; --color: #7928ca; --delay: -3.8s; --sweep: 22deg; --speed: 6.2s;"></div>
+      <div class="disco-beam" style="--angle: 8deg;   --color: #ffb800; --delay: -1.5s; --sweep: 24deg; --speed: 6.8s;"></div>
+      <div class="disco-beam" style="--angle: 52deg;  --color: #e53cff; --delay: -4.3s; --sweep: 20deg; --speed: 5.9s;"></div>
+    </div>
+
+    <!-- Abanicos de luz volumétrica (Laser Cones) -->
+    <div class="disco-fan disco-fan-1"></div>
+    <div class="disco-fan disco-fan-2"></div>
+    <div class="disco-fan disco-fan-3"></div>
+
+    <!-- Cuadrícula y Partículas de Polvo Estelar -->
+    <div class="disco-grid"></div>
+    <div class="disco-sparkles" id="disco-sparkles"></div>
+  </div>
+
+  <!-- Hero de la Sección de Eventos -->
+  <section class="events-hero-section">
+    <span class="events-tag">✦ GLAM SUN EXPERIENCE ✦</span>
+    <h1 class="events-main-title">Próximos Eventos</h1>
+    <p class="events-subtitle">
+      Una travesía sensorial donde la mejor música electrónica de Agatha Sun se fusiona con atardeceres dorados y alta producción.
+    </p>
+    <div class="events-divider"></div>
+  </section>
+
+  <!-- =========================================================================
+       LISTADO DE EVENTOS DE ARRIBA A ABAJO (MÁS NUEVO / PRÓXIMO AL MÁS ANTIGUO)
+       ========================================================================= -->
+  <main class="events-showcase-container">
+
+    <!-- 1. EVENTO 26 SEPTIEMBRE (PRÓXIMO EVENTO) -->
+    <article class="event-item-card" id="evento-26-septiembre">
+      <div class="event-poster-wrapper">
+        <img src="assets/images/26septiembre.jpeg" alt="Póster Evento 26 Septiembre" class="event-poster-img" loading="eager">
+        <div class="poster-shine-overlay"></div>
+      </div>
+      <div class="event-details-content">
+        <div class="event-meta-badge-row">
+          <span class="event-date-pill">26 SEPTIEMBRE 2026</span>
+        </div>
+        <h2 class="event-card-title">Closing Summer Edition</h2>
+        <div class="event-desc-wrapper">
+          <p class="event-card-desc">
+            La gran despedida oficial del verano de la mano de Agatha Sun. Una puesta de sol mágica frente al mar con sonido de vanguardia, performances inmersivas, coctelería de autor y la mejor atmósfera VIP.
+          </p>
+          <button class="btn-expand-text" type="button" aria-expanded="false" title="Expandir información">
+            <span class="expand-icon">+</span>
+            <span class="expand-label">Ver más</span>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. EVENTO 7 NOVIEMBRE -->
+    <article class="event-item-card" id="evento-7-noviembre">
+      <div class="event-poster-wrapper">
+        <img src="assets/images/7noviembre.jpeg" alt="Póster Evento 7 Noviembre" class="event-poster-img" loading="lazy">
+        <div class="poster-shine-overlay"></div>
+      </div>
+      <div class="event-details-content">
+        <div class="event-meta-badge-row">
+          <span class="event-date-pill">07 NOVIEMBRE 2026</span>
+        </div>
+        <h2 class="event-card-title">Winter Golden Gala</h2>
+        <div class="event-desc-wrapper">
+          <p class="event-card-desc">
+            Edición especial de gala invernal. Una velada íntima de aforo ultra reducido pensada para los amantes del sonido más refinado, alta gastronomía líquida y la atmósfera VIP más exclusiva.
+          </p>
+          <button class="btn-expand-text" type="button" aria-expanded="false" title="Expandir información">
+            <span class="expand-icon">+</span>
+            <span class="expand-label">Ver más</span>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. EVENTO 29 AGOSTO -->
+    <article class="event-item-card" id="evento-29-agosto">
+      <div class="event-poster-wrapper">
+        <img src="assets/images/29agosto.jpeg" alt="Póster Evento 29 Agosto" class="event-poster-img" loading="lazy">
+        <div class="poster-shine-overlay"></div>
+      </div>
+      <div class="event-details-content">
+        <div class="event-meta-badge-row">
+          <span class="event-date-pill">29 AGOSTO 2026</span>
+        </div>
+        <h2 class="event-card-title">Electric Horizons Night</h2>
+        <div class="event-desc-wrapper">
+          <p class="event-card-desc">
+            La transición perfecta del dorado atardecer a la noche electrónica más vanguardista. Luces láser, visuales de alto impacto y la energía arrolladora de Agatha Sun sincronizada con los latidos del público.
+          </p>
+          <button class="btn-expand-text" type="button" aria-expanded="false" title="Expandir información">
+            <span class="expand-icon">+</span>
+            <span class="expand-label">Ver más</span>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. EVENTO 28 AGOSTO -->
+    <article class="event-item-card" id="evento-28-agosto">
+      <div class="event-poster-wrapper">
+        <img src="assets/images/28agosto.jpeg" alt="Póster Evento 28 Agosto" class="event-poster-img" loading="lazy">
+        <div class="poster-shine-overlay"></div>
+      </div>
+      <div class="event-details-content">
+        <div class="event-meta-badge-row">
+          <span class="event-date-pill">28 AGOSTO 2026</span>
+        </div>
+        <h2 class="event-card-title">Midsummer Sunset Session</h2>
+        <div class="event-desc-wrapper">
+          <p class="event-card-desc">
+            El clímax del verano en su máxima expresión. Disfruta de un atardecer cinematográfico acompañado de un despliegue lumínico y sonoro único en una localización de ensueño.
+          </p>
+          <button class="btn-expand-text" type="button" aria-expanded="false" title="Expandir información">
+            <span class="expand-icon">+</span>
+            <span class="expand-label">Ver más</span>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5. EVENTO 30 JULIO -->
+    <article class="event-item-card" id="evento-30-julio">
+      <div class="event-poster-wrapper">
+        <img src="assets/images/30julio.jpeg" alt="Póster Evento 30 Julio" class="event-poster-img" loading="lazy">
+        <div class="poster-shine-overlay"></div>
+      </div>
+      <div class="event-details-content">
+        <div class="event-meta-badge-row">
+          <span class="event-date-pill">30 JULIO 2026</span>
+        </div>
+        <h2 class="event-card-title">Golden Vibrations Experience</h2>
+        <div class="event-desc-wrapper">
+          <p class="event-card-desc">
+            Armonía sonora y alta frecuencia bajo el cielo dorado. Una sesión melódica inmersiva pensada para conectar los sentidos a través de ritmos orgánicos y bajos elegantes.
+          </p>
+          <button class="btn-expand-text" type="button" aria-expanded="false" title="Expandir información">
+            <span class="expand-icon">+</span>
+            <span class="expand-label">Ver más</span>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6. EVENTO 24 JULIO -->
+    <article class="event-item-card" id="evento-24-julio">
+      <div class="event-poster-wrapper">
+        <img src="assets/images/24julio.jpeg" alt="Póster Evento 24 Julio" class="event-poster-img" loading="lazy">
+        <div class="poster-shine-overlay"></div>
+      </div>
+      <div class="event-details-content">
+        <div class="event-meta-badge-row">
+          <span class="event-date-pill">24 JULIO 2026</span>
+        </div>
+        <h2 class="event-card-title">The Sunset Opening Ritual</h2>
+        <div class="event-desc-wrapper">
+          <p class="event-card-desc">
+            La gran inauguración oficial de la temporada estival. Un ritual de sonido, arte y puesta de sol que dio comienzo a la leyenda de Glam Sun junto a Agatha Sun.
+          </p>
+          <button class="btn-expand-text" type="button" aria-expanded="false" title="Expandir información">
+            <span class="expand-icon">+</span>
+            <span class="expand-label">Ver más</span>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Contenedor de Paginación Dinámica (6 eventos por página) -->
+    <div class="events-pagination-container" id="events-pagination" aria-label="Páginas de eventos"></div>
+
+  </main>
+
+  <!-- =========================================================================
+       MENÚ FLOTANTE INFERIOR DE LUJO (BOTTOM DOCK) EN TONOS CLAROS Y ORO
+       ========================================================================= -->
+  <nav class="luxury-bottom-dock" id="bottom-dock" aria-label="Navegación principal">
+    <!-- Botones laterales desplegables (Ala Izquierda) -->
+    <div class="dock-wings dock-wings-left" id="dock-wings-left">
+      <a href="index.html" class="dock-nav-item" aria-label="Ir a Portada">
+        <span class="dock-text">Portada</span>
+      </a>
+      <a href="index.html#section-experience" class="dock-nav-item" aria-label="Ir a Web">
+        <span class="dock-text">Web</span>
+      </a>
+    </div>
+
+    <!-- Núcleo Central del Menú (Tono Claro de Lujo) -->
+    <div class="dock-core-pill">
+      <!-- Logo a la izquierda -> Vuelve a Portada -->
+      <a href="index.html" class="dock-brand-btn" id="dock-logo-btn" aria-label="Volver a Portada Glam Sun" title="Glam Sun">
+        <img src="assets/images/LOGO.png" alt="Glam Sun Logo" class="dock-brand-img">
+      </a>
+
+      <div class="dock-inner-divider"></div>
+
+      <!-- Botón Eventos (Activo) -->
+      <a href="eventos.html" class="dock-btn-events active" id="dock-btn-events" aria-label="Ver Eventos">
+        <span class="dock-events-text">Eventos</span>
+      </a>
+
+      <div class="dock-inner-divider"></div>
+
+      <!-- Botón con los 4 Cuadraditos (Grid Apps) -->
+      <button class="dock-btn-grid" id="dock-btn-grid" type="button" aria-label="Desplegar Secciones" aria-expanded="false" title="Menú">
+        <div class="grid-icon-box">
+          <span class="grid-sq"></span>
+          <span class="grid-sq"></span>
+          <span class="grid-sq"></span>
+          <span class="grid-sq"></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Botones laterales desplegables (Ala Derecha) -->
+    <div class="dock-wings dock-wings-right" id="dock-wings-right">
+      <a href="index.html#section-agatha" class="dock-nav-item" aria-label="Ir a Agatha Sun">
+        <span class="dock-text">Agatha Sun</span>
+      </a>
+      <a href="index.html#section-boat-party" class="dock-nav-item" aria-label="Ir a Boat Party">
+        <span class="dock-text">Boat Party</span>
+      </a>
+    </div>
+  </nav>
+
+  <script src="js/eventos.js?v=v5"></script>
+</body>
+</html>

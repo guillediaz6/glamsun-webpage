@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glam Sun — Exclusive Party & Event Design</title>
+  <link rel="stylesheet" href="css/styles.css?v=v78">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. PANTALLA DE PORTADA CON VIDEO FULLSCREEN, FRANJA ANIMADA & BOX GLASS
+       ========================================================================= -->
+  <section id="hero-section">
+    <!-- Franja superior en movimiento lateral: Fecha y Nombre del evento más próximo -->
+    <header class="top-ticker" aria-label="Próximo Evento Glam Sun">
+      <div class="ticker-track">
+        <div class="ticker-content">
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+        </div>
+        <div class="ticker-content" aria-hidden="true">
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> CLOSING SUMMER EXPERIENCE <span class="dot"></span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Video de fondo portada.mov -->
+    <div class="video-container">
+      <video id="bg-video" class="video-bg" autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/portada.mov" type="video/quicktime">
+        <source src="assets/videos/portada.mov" type="video/mp4">
+        Tu navegador no soporta el formato de video.
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+
+    <!-- Contenedor central: Redes sociales verticales a la izquierda + Box borroso -->
+    <div class="hero-wrapper">
+      
+      <!-- Iconos verticales a la izquierda (Instagram oficial y TikTok) -->
+      <aside class="vertical-socials" aria-label="Redes Sociales">
+        <span class="social-label">Síguenos</span>
+        
+        <!-- Instagram con logo oficial SVG vectorizado exacto -->
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram de Glam Sun" title="Instagram @GlamSun">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+
+        <!-- TikTok Oficial -->
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link tiktok" aria-label="TikTok de Glam Sun" title="TikTok @GlamSun">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.81 4.48 6.3 6.3 0 0 0 1.87-4.47V8.59a8.28 8.28 0 0 0 5.16 1.83V7a4.85 4.85 0 0 1-1.25-.31z"/>
+          </svg>
+        </a>
+
+        <!-- Nota Musical (Música / Sesiones) -->
+        <a href="eventos.html" class="social-link music-note" aria-label="Música y Sesiones" title="Música / Sesiones">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+          </svg>
+        </a>
+      </aside>
+
+      <!-- Caja Transparente Muy Borrosa (Glassmorphic Box) -->
+      <div class="glass-box">
+        <div class="brand-header">
+          <img src="assets/images/LOGO.png" alt="Glam Sun Logo" class="brand-logo-hero">
+          <h1 class="brand-title">GLAM SUN</h1>
+          
+          <!-- Texto Épico Atractivo + Declaración Musical de Agatha Sun -->
+          <div class="hero-statement-container">
+            <div class="hero-kicker-sparkle">
+              <span class="sparkle-icon">✦</span>
+              <span>DONDE CADA ATARDECER COMIENZA UNA LEYENDA</span>
+              <span class="sparkle-icon">✦</span>
+            </div>
+
+            <div class="hero-music-statement">
+              <span class="statement-line1">DISFRUTA LA VERDADERA</span>
+              <span class="statement-line2 gold-shimmer-text">MÚSICA ELECTRÓNICA</span>
+              <span class="statement-line3">... DE LA MANO DE <em class="statement-agatha">AGATHA SUN</em></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botón de Entrada Principal (Seductor & Elegante) -->
+        <div class="button-group">
+          <!-- Botón: Entra en la Web -->
+          <button id="btn-enter" class="btn btn-enter-gold" type="button" aria-label="Entra en la web oficial de Glam Sun">
+            <div class="btn-text-block">
+              <span class="btn-main-label">Entra en la Web</span>
+              <span class="btn-sub-label">Vive la Experiencia Glam Sun</span>
+            </div>
+            <span class="btn-arrow-circle">➔</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Botón de Audio Opcional para el Video -->
+    <button id="sound-toggle" class="sound-toggle-btn" aria-label="Activar/Desactivar sonido" title="Sonido">
+      <svg id="sound-icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+      <svg id="sound-icon-unmuted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+    </button>
+  </section>
+
+  <!-- =========================================================================
+       2. PÁGINA WEB (#main-page)
+       - Sin header
+       - Foto 1 de lado a lado con filtro borroso
+       - Línea divisoria oscura
+       - Sección Terracota con "VER EVENTOS" en esquina y 4 boxes interactivos
+       - Sección Agatha pegada a la izquierda (mucho más grande y sin caja detrás)
+       ========================================================================= -->
+  <main id="main-page">
+    
+    <!-- Wrapper Parallax: Contenido web sticky + Boat Party que sube por encima -->
+    <div class="parallax-stack-wrapper">
+
+    <!-- Contenido Visual de la Web (se queda fijo mientras Boat Party sube) -->
+    <div class="web-visual-flow">
+      
+      <!-- 1. Imagen foto1.png de lado a lado (Nítida sin filtro ni título) -->
+      <section class="banner-fullwidth-section" id="section-experience" aria-label="Glam Sun Atmosphere">
+        <div class="banner-image-wrapper">
+          <img src="assets/images/foto1.png" alt="Glam Sun Event Visual 1" class="fullwidth-banner-img">
+        </div>
+      </section>
+
+      <!-- Divisor Asimétrico Diagonal estilo Elrow hacia Sección de Eventos -->
+      <div class="elrow-transition-divider elrow-divider-top" aria-hidden="true">
+        <!-- Capa Posterior: Diagonal descendente izquierda-derecha en tono champagne dorado -->
+        <div class="elrow-layer elrow-layer-back"></div>
+        <!-- Capa Frontal: Diagonal ascendente en champagne principal idéntico a eventos -->
+        <div class="elrow-layer elrow-layer-front"></div>
+        <!-- Línea de perfilado sutil en el corte diagonal -->
+        <div class="elrow-edge-line"></div>
+      </div>
+
+      <!-- 2. Sección Eventos con Fondo Beige Dorado & Carrusel -->
+      <section class="terracota-interactive-section" id="section-events" aria-label="Eventos Glam Sun">
+        <div class="terracota-stage-content">
+          <!-- Esquina superior izquierda: VER EVENTOS (Enlace a página de eventos) -->
+          <a href="eventos.html" class="terracota-corner-title" title="Ver todos los eventos">
+            <span class="corner-sparkle">✦</span>
+            <span>VER EVENTOS</span>
+          </a>
+
+          <!-- En medio: 6 Boxes con los pósteres reales, fecha y título del evento -->
+          <div class="events-cycling-carousel" id="events-carousel">
+            
+            <!-- Evento 1: 26 Septiembre -->
+            <a href="eventos.html#evento-26-septiembre" class="event-rect-card active" data-index="0" aria-label="Ver Evento 26 Septiembre — Closing Summer Edition">
+              <img src="assets/images/26septiembre.jpeg" alt="26 Septiembre — Closing Summer Edition" class="event-card-poster-img" loading="eager">
+              <div class="event-card-poster-overlay"></div>
+              <div class="event-card-content">
+                <span class="event-card-date-badge">26 SEPTIEMBRE 2026</span>
+                <h3 class="event-card-title-text">Closing Summer Edition</h3>
+              </div>
+            </a>
+
+            <!-- Evento 2: 7 Noviembre -->
+            <a href="eventos.html#evento-7-noviembre" class="event-rect-card" data-index="1" aria-label="Ver Evento 7 Noviembre — Winter Golden Gala">
+              <img src="assets/images/7noviembre.jpeg" alt="07 Noviembre — Winter Golden Gala" class="event-card-poster-img" loading="lazy">
+              <div class="event-card-poster-overlay"></div>
+              <div class="event-card-content">
+                <span class="event-card-date-badge">07 NOVIEMBRE 2026</span>
+                <h3 class="event-card-title-text">Winter Golden Gala</h3>
+              </div>
+            </a>
+
+            <!-- Evento 3: 29 Agosto -->
+            <a href="eventos.html#evento-29-agosto" class="event-rect-card" data-index="2" aria-label="Ver Evento 29 Agosto — Electric Horizons Night">
+              <img src="assets/images/29agosto.jpeg" alt="29 Agosto — Electric Horizons Night" class="event-card-poster-img" loading="lazy">
+              <div class="event-card-poster-overlay"></div>
+              <div class="event-card-content">
+                <span class="event-card-date-badge">29 AGOSTO 2026</span>
+                <h3 class="event-card-title-text">Electric Horizons Night</h3>
+              </div>
+            </a>
+
+            <!-- Evento 4: 28 Agosto -->
+            <a href="eventos.html#evento-28-agosto" class="event-rect-card" data-index="3" aria-label="Ver Evento 28 Agosto — Midsummer Sunset Session">
+              <img src="assets/images/28agosto.jpeg" alt="28 Agosto — Midsummer Sunset Session" class="event-card-poster-img" loading="lazy">
+              <div class="event-card-poster-overlay"></div>
+              <div class="event-card-content">
+                <span class="event-card-date-badge">28 AGOSTO 2026</span>
+                <h3 class="event-card-title-text">Midsummer Sunset Session</h3>
+              </div>
+            </a>
+
+            <!-- Evento 5: 30 Julio -->
+            <a href="eventos.html#evento-30-julio" class="event-rect-card" data-index="4" aria-label="Ver Evento 30 Julio — Golden Vibrations Experience">
+              <img src="assets/images/30julio.jpeg" alt="30 Julio — Golden Vibrations Experience" class="event-card-poster-img" loading="lazy">
+              <div class="event-card-poster-overlay"></div>
+              <div class="event-card-content">
+                <span class="event-card-date-badge">30 JULIO 2026</span>
+                <h3 class="event-card-title-text">Golden Vibrations Experience</h3>
+              </div>
+            </a>
+
+            <!-- Evento 6: 24 Julio -->
+            <a href="eventos.html#evento-24-julio" class="event-rect-card" data-index="5" aria-label="Ver Evento 24 Julio — The Sunset Opening Ritual">
+              <img src="assets/images/24julio.jpeg" alt="24 Julio — The Sunset Opening Ritual" class="event-card-poster-img" loading="lazy">
+              <div class="event-card-poster-overlay"></div>
+              <div class="event-card-content">
+                <span class="event-card-date-badge">24 JULIO 2026</span>
+                <h3 class="event-card-title-text">The Sunset Opening Ritual</h3>
+              </div>
+            </a>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Divisor Inferior Asimétrico Diagonal estilo Elrow Invertido -->
+      <div class="elrow-transition-divider elrow-divider-bottom" aria-hidden="true">
+        <!-- Capa Posterior Invertida -->
+        <div class="elrow-layer elrow-layer-back"></div>
+        <!-- Capa Frontal Invertida -->
+        <div class="elrow-layer elrow-layer-front"></div>
+        <!-- Línea de perfilado -->
+        <div class="elrow-edge-line"></div>
+      </div>
+
+      <!-- 3. Sección Agatha (con fondo animado de láseres que cubre también los logos) -->
+      <section class="agatha-pure-section" id="section-agatha" aria-label="Agatha Sun Artist">
+
+        <!-- Fondo Discoteca Animado — Rayos Láser desde el centro -->
+        <div class="disco-bg" aria-hidden="true">
+          <!-- Foco / Lente emisor superior central -->
+          <div class="disco-top-flare"></div>
+          <div class="disco-spotlight-cone"></div>
+
+          <!-- Haces de Rayos Láser Discoteca desde el centro superior -->
+          <div class="disco-beam-source">
+            <div class="disco-beam" style="--angle: -75deg; --color: #e53cff; --delay: 0s; --sweep: 14deg; --speed: 4.2s;"></div>
+            <div class="disco-beam" style="--angle: -60deg; --color: #00d4ff; --delay: -0.9s; --sweep: 18deg; --speed: 5.1s;"></div>
+            <div class="disco-beam" style="--angle: -45deg; --color: #ffb800; --delay: -1.7s; --sweep: 12deg; --speed: 3.8s;"></div>
+            <div class="disco-beam" style="--angle: -30deg; --color: #ff2d75; --delay: -2.4s; --sweep: 20deg; --speed: 4.6s;"></div>
+            <div class="disco-beam" style="--angle: -15deg; --color: #00ffaa; --delay: -0.6s; --sweep: 15deg; --speed: 5.4s;"></div>
+            <div class="disco-beam" style="--angle: 0deg;   --color: #7928ca; --delay: -3.2s; --sweep: 10deg; --speed: 3.4s;"></div>
+            <div class="disco-beam" style="--angle: 15deg;  --color: #e53cff; --delay: -1.2s; --sweep: 16deg; --speed: 4.9s;"></div>
+            <div class="disco-beam" style="--angle: 30deg;  --color: #00d4ff; --delay: -2.7s; --sweep: 18deg; --speed: 4.3s;"></div>
+            <div class="disco-beam" style="--angle: 45deg;  --color: #ffb800; --delay: -0.4s; --sweep: 13deg; --speed: 5.0s;"></div>
+            <div class="disco-beam" style="--angle: 60deg;  --color: #ff2d75; --delay: -2.0s; --sweep: 16deg; --speed: 4.0s;"></div>
+            <div class="disco-beam" style="--angle: 75deg;  --color: #00ffaa; --delay: -3.0s; --sweep: 18deg; --speed: 4.5s;"></div>
+            <div class="disco-beam" style="--angle: -52deg; --color: #7928ca; --delay: -3.8s; --sweep: 22deg; --speed: 6.2s;"></div>
+            <div class="disco-beam" style="--angle: 8deg;   --color: #ffb800; --delay: -1.5s; --sweep: 24deg; --speed: 6.8s;"></div>
+            <div class="disco-beam" style="--angle: 52deg;  --color: #e53cff; --delay: -4.3s; --sweep: 20deg; --speed: 5.9s;"></div>
+          </div>
+
+          <!-- Abanicos de luz volumétrica (Laser Cones) -->
+          <div class="disco-fan disco-fan-1"></div>
+          <div class="disco-fan disco-fan-2"></div>
+          <div class="disco-fan disco-fan-3"></div>
+
+          <!-- Cuadrícula y Partículas de Polvo Estelar -->
+          <div class="disco-grid"></div>
+          <div class="disco-sparkles" id="disco-sparkles"></div>
+        </div>
+
+        <!-- Partnership Glam Sun & Suiza Sobre el fondo de Luces y Láseres de Agatha -->
+        <div class="partnership-full-section" aria-label="Glam Sun & Suiza Partnership">
+          <div class="partnership-inner-container">
+            <div class="partnership-logos-row">
+              <img src="assets/images/LOGO.png" alt="Glam Sun" class="partner-logo partner-logo-glamsun">
+              <img src="assets/images/glamsun suiza.png" alt="Suiza" class="partner-logo partner-logo-suiza">
+            </div>
+            <p class="partnership-large-text">
+              Glam Sun y Suiza se unen para crear una atm&oacute;sfera de puro lujo donde la mejor m&uacute;sica y la exclusividad se funden en eventos inigualables.
+            </p>
+          </div>
+        </div>
+
+        <div class="agatha-pure-container">
+        
+        <!-- Columna Izquierda: Imagen Agatha pegada al lateral izquierdo sin caja detrás -->
+        <div class="agatha-pure-image-col">
+            <img src="assets/images/agatha.png" alt="Agatha Sun" class="agatha-pure-img">
+          </div>
+
+          <!-- Columna Derecha: Texto elegante preparado -->
+          <div class="agatha-pure-text-col">
+            <div class="agatha-pure-editorial">
+              <span class="agatha-pure-tag">✦ THE SOUL BEHIND THE SOUND ✦</span>
+              <h2 class="agatha-pure-title">Agatha Sun</h2>
+              <h3 class="agatha-pure-subtitle">Vanguardia musical, elegancia sensorial y alta vibración.</h3>
+              
+              <div class="agatha-pure-divider"></div>
+
+              <div class="agatha-pure-text-block">
+                <p class="agatha-pure-lead">
+                  Donde cada compás y cada atardecer se sincronizan para crear una atmósfera inconfundible bajo el cielo dorado.
+                </p>
+                <p class="agatha-pure-body">
+                  [Espacio preparado para tu biografía, manifiesto artístico, próximos lanzamientos, colaboraciones o el mensaje exclusivo que desees transmitir].
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Sección "REVIVE CADA MOMENTO" con Carrusel Manual sobre el mismo fondo de láseres -->
+        <div class="revive-champagne-band-section" id="section-champagne" aria-label="Revive Cada Momento">
+          <div class="revive-band-container">
+            
+            <!-- Cabecera de la Franja: Editorial, en una sola línea -->
+            <div class="revive-band-header">
+              <h2 class="revive-band-title">REVIVE CADA MOMENTO</h2>
+            </div>
+
+            <!-- Carrusel Lateral Manual de Imágenes -->
+            <div class="revive-manual-carousel" id="revive-manual-carousel" aria-label="Galería interactiva Glam Sun">
+              
+              <!-- Flechas de navegación flotantes -->
+              <button class="revive-nav-arrow revive-nav-prev" id="revive-prev-btn" aria-label="Imagen anterior">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button class="revive-nav-arrow revive-nav-next" id="revive-next-btn" aria-label="Siguiente imagen">
+                <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+
+              <div class="revive-manual-track" id="revive-manual-track">
+                <!-- Foto 1 -->
+                <div class="revive-manual-card">
+                  <img src="assets/images/revive-1.jpeg" alt="Glam Sun Party DJ Booth" loading="lazy">
+                  <div class="revive-manual-card-overlay"></div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="revive-manual-card">
+                  <img src="assets/images/revive-2.jpeg" alt="Agatha Sun Halloween Session" loading="lazy">
+                  <div class="revive-manual-card-overlay"></div>
+                </div>
+                <!-- Foto 3 -->
+                <div class="revive-manual-card">
+                  <img src="assets/images/revive-3.jpeg" alt="Agatha Sun Red Session" loading="lazy">
+                  <div class="revive-manual-card-overlay"></div>
+                </div>
+                <!-- Foto 4 -->
+                <div class="revive-manual-card">
+                  <img src="assets/images/revive-4.jpeg" alt="Samigo Terrace Champagne Night" loading="lazy">
+                  <div class="revive-manual-card-overlay"></div>
+                </div>
+                <!-- Foto 5 -->
+                <div class="revive-manual-card">
+                  <img src="assets/images/revive-5.jpeg" alt="Glam Sun Dancefloor" loading="lazy">
+                  <div class="revive-manual-card-overlay"></div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 3 Estadísticas Clave debajo del carrusel -->
+            <div class="revive-stats-container" aria-label="Estadísticas Glam Sun">
+              <div class="revive-stat-card">
+                <span class="revive-stat-number">+15K</span>
+                <span class="revive-stat-label">Asistentes VIP</span>
+              </div>
+              <div class="revive-stat-divider"></div>
+              <div class="revive-stat-card">
+                <span class="revive-stat-number">100%</span>
+                <span class="revive-stat-label">Sold Out Sessions</span>
+              </div>
+              <div class="revive-stat-divider"></div>
+              <div class="revive-stat-card">
+                <span class="revive-stat-number">4.9★</span>
+                <span class="revive-stat-label">Experiencia Exclusiva</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+    <!-- /.web-visual-flow -->
+
+      <!-- 5. Sección Boat Party: Capa Parallax que sube por encima de la web con Portada Fullscreen -->
+      <section class="boat-party-stack-section" id="section-boat-party" aria-label="Boat Party Experience">
+        
+        <!-- EL FONDO GLOBAL PEGADO DETRÁS DE TODA LA SECCIÓN -->
+        <div class="boat-party-global-bg">
+          <div class="boat-party-global-bg-img"></div>
+        </div>
+
+        <!-- Portada Fullscreen de lado a lado que cubre la pantalla completa (Limpia sin letras encima) -->
+        <div class="boat-party-hero-fullscreen">
+          <img src="assets/images/portada boat party.png" alt="Glam Sun Boat Party Portada" class="boat-party-hero-cover-img">
+        </div>
+
+        <!-- Cuerpo de la sección con showcase de la imagen -->
+        <div class="boat-party-body-stage">
+
+
+          <div class="boat-party-content-container">
+            
+            <!-- Bloque Visual y Experiencia Boat Party -->
+            <div class="boat-party-showcase-grid">
+              <div class="boat-party-image-feature">
+                <img src="assets/images/imagen boat party.png" alt="Experiencia Boat Party Glam Sun" class="boat-party-feature-img" loading="lazy">
+              </div>
+              <div class="boat-party-details-card">
+                <span class="boat-party-card-kicker">✦ THE SUNSET CRUISE ✦</span>
+                <h3 class="boat-party-details-title">SUNSET ON BOARD</h3>
+                <p class="boat-party-details-p">
+                  Una travesía náutica exclusiva reservada para los amantes de la mejor música electrónica y el lujo mediterráneo. Catamarán privado, sistema de sonido envolvente de alta fidelidad, coctelería de autor y puesta de sol inolvidable bajo el horizonte dorado.
+                </p>
+                <div class="boat-party-features-list">
+                  <div class="boat-feat-pill">🌊 Alta Mar Sunset Set</div>
+                  <div class="boat-feat-pill">🥂 Open Bar Premium & Catering</div>
+                  <div class="boat-feat-pill">🎧 Agatha Sun Live Session</div>
+                  <div class="boat-feat-pill">⚡ Aforo Estrictamente Limitado</div>
+                </div>
+                <a href="eventos.html" class="btn btn-boat-party-cta">
+                  <span>Solicitar Plaza / Reservar Mesa</span>
+                  <span class="boat-arrow">➔</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Video Boat Party -->
+            <div class="boat-party-video-container" style="margin-top: 5rem; width: 100%; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.7); border: 1px solid rgba(229,195,101,0.4);">
+              <video autoplay muted loop playsinline preload="auto" style="width: 100%; height: auto; display: block;">
+                <source src="assets/videos/videoboatparty.mov" type="video/quicktime">
+                <source src="assets/videos/videoboatparty.mov" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+              </video>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+    <!-- /.parallax-stack-wrapper -->
+
+    <!-- Menú Flotante Inferior de Lujo (Centro Abajo) -->
+    
+
+    <footer class="main-footer">
+      <p>© 2026 Glam Sun & Agatha Sun. Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+        <a href="mailto:info@glamsun.com">Contacto VIP</a>
+      </div>
+    </footer>
+  </main>
+
+<nav class="luxury-bottom-dock" id="bottom-dock" aria-label="Navegación principal">
+      <!-- Botones laterales desplegables (Ala Izquierda) -->
+      <div class="dock-wings dock-wings-left" id="dock-wings-left">
+        <button class="dock-nav-item" data-action="go-hero" type="button" aria-label="Ir a Portada">
+          <span class="dock-text">Portada</span>
+        </button>
+        <button class="dock-nav-item" data-action="go-experience" type="button" aria-label="Ir a Web">
+          <span class="dock-text">Web</span>
+        </button>
+      </div>
+
+      <!-- Núcleo Central del Menú (Tono Claro de Lujo) -->
+      <div class="dock-core-pill">
+        <!-- Logo a la izquierda -->
+        <button class="dock-brand-btn" id="dock-logo-btn" type="button" aria-label="Volver a Portada Glam Sun" title="Glam Sun">
+          <img src="assets/images/LOGO.png" alt="Glam Sun Logo" class="dock-brand-img">
+        </button>
+
+        <div class="dock-inner-divider"></div>
+
+        <!-- Botón Eventos -> Navega a eventos.html -->
+        <a href="eventos.html" class="dock-btn-events" id="dock-btn-events" aria-label="Ver Eventos">
+          <span class="dock-events-text">Eventos</span>
+        </a>
+
+        <div class="dock-inner-divider"></div>
+
+        <!-- Botón con los 4 Cuadraditos (Grid Apps) -->
+        <button class="dock-btn-grid" id="dock-btn-grid" type="button" aria-label="Desplegar Secciones" aria-expanded="false" title="Menú">
+          <div class="grid-icon-box">
+            <span class="grid-sq"></span>
+            <span class="grid-sq"></span>
+            <span class="grid-sq"></span>
+            <span class="grid-sq"></span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Botones laterales desplegables (Ala Derecha) -->
+      <div class="dock-wings dock-wings-right" id="dock-wings-right">
+        <button class="dock-nav-item" data-action="go-agatha" type="button" aria-label="Ir a Agatha Sun">
+          <span class="dock-text">Agatha Sun</span>
+        </button>
+        <button class="dock-nav-item" data-action="go-boat" type="button" aria-label="Ir a Boat Party">
+          <span class="dock-text">Boat Party</span>
+        </button>
+      </div>
+    </nav>
+
+
+  <!-- =========================================================================
+       3. MODAL: DETALLES DEL PRÓXIMO EVENTO 24 JULIO / PEDIR INFO
+       ========================================================================= -->
+  <div id="event-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card event-modal-card">
+      <button id="modal-close-btn" class="modal-close" aria-label="Cerrar ventana">✕</button>
+      
+      <div class="modal-badge-row">
+        <span class="badge gold-badge">EDICIÓN EXCLUSIVA</span>
+        <span class="badge date-badge" id="modal-event-date">24 JULIO 2026</span>
+      </div>
+
+      <h2 class="event-headline">The Sunset Opening <em>Ritual</em></h2>
+      
+      <p class="event-desc">
+        La gran apertura de temporada de la mano de <strong>Agatha Sun</strong>. Una puesta de sol mágica frente al mar con la mejor música electrónica, performances en vivo y coctelería de autor.
+      </p>
+
+      <div class="modal-highlights">
+        <div class="highlight-item">
+          <strong>18:00h</strong>
+          <span>Opening & Sunset Set</span>
+        </div>
+        <div class="highlight-item">
+          <strong>VIP Only</strong>
+          <span>Dress Code: Glam Chic</span>
+        </div>
+        <div class="highlight-item">
+          <strong>Agatha Sun</strong>
+          <span>+ Guest DJs</span>
+        </div>
+      </div>
+
+      <div class="modal-cta-box">
+        <a href="https://instagram.com" target="_blank" class="btn btn-primary btn-modal-reserve">
+          <span>Solicitar Invitación / Mesa VIP</span>
+          <span class="btn-icon">→</span>
+        </a>
+        <span class="modal-notice">⚡ Aforo estrictamente limitado para garantizar la máxima exclusividad.</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=v14"></script>
+</body>
+</html>
