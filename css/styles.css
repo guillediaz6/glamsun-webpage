@@ -3058,32 +3058,37 @@ body {
 }
 
 /* ==========================================================================
-   REPRODUCTOR DE VÍDEO BOAT PARTY BAJO DEMANDA (LUXURY PLAY BUTTON)
+   REPRODUCTOR DE VÍDEO BOAT PARTY (CON INSTANTÁNEA Y TRIÁNGULO DE PLAY LIMPIO)
    ========================================================================== */
 .boat-party-video-container {
   position: relative;
   margin-top: 5rem;
   width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.8);
-  border: 1.5px solid rgba(229,195,101,0.45);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  border: 1.5px solid rgba(229, 195, 101, 0.45);
   background: #020306;
+}
+
+.boat-party-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
 }
 
 .boat-video-play-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(5, 7, 13, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: transparent; /* Sin fondo ni caja oscura */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
   cursor: pointer;
-  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
   z-index: 5;
 }
 
@@ -3093,55 +3098,34 @@ body {
   pointer-events: none;
 }
 
-.boat-play-btn {
-  width: 82px;
-  height: 82px;
-  border-radius: 50%;
-  background: var(--hero-gold-gradient);
-  border: 2px solid #FFFFFF;
-  color: #111111;
+/* Triángulo de Play limpio sin fondo ni caja */
+.boat-clean-play-icon {
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 12px 35px rgba(229, 195, 101, 0.7), 0 0 20px rgba(255, 255, 255, 0.5) inset;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(229, 195, 101, 0.7));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, filter 0.3s ease;
 }
 
-.boat-play-btn svg {
-  margin-left: 5px;
-}
-
-.boat-video-play-overlay:hover .boat-play-btn {
-  transform: scale(1.14);
-  box-shadow: 0 18px 45px rgba(229, 195, 101, 0.9), 0 0 25px rgba(255, 255, 255, 0.7) inset;
-}
-
-.boat-play-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+.boat-video-play-overlay:hover .boat-clean-play-icon {
+  transform: scale(1.2);
+  color: var(--hero-gold);
+  filter: drop-shadow(0 6px 25px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 35px var(--hero-gold-glow));
 }
 
 @media (max-width: 768px) {
   .boat-party-video-container {
     margin-top: 3.5rem;
     border-radius: 18px;
+    aspect-ratio: 16 / 9;
   }
-  .boat-play-btn {
-    width: 68px;
-    height: 68px;
+  .boat-party-video-element {
+    border-radius: 18px;
   }
-  .boat-play-btn svg {
-    width: 28px;
-    height: 28px;
-  }
-  .boat-play-label {
-    font-size: 0.74rem;
-    letter-spacing: 0.16em;
+  .boat-clean-play-icon svg {
+    width: 58px;
+    height: 58px;
   }
 }
