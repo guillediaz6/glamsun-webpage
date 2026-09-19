@@ -433,8 +433,57 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // SECCIÓN BOAT PARTY: APILAMIENTO NATIVO FLUIDO POR GPU A 120 FPS
+  // PARALLAX STACKING REVEAL: BOAT PARTY SUBE POR ENCIMA (FONDO FIJO / CAPA POR DELANTE)
   // =========================================================================
+  const webVisualFlow = document.querySelector('.web-visual-flow');
+  const boatSection = document.getElementById('section-boat-party');
+
+  if (webVisualFlow && boatSection) {
+    let ticking = false;
+
+    function updateParallaxStack() {
+      const winHeight = window.innerHeight;
+      const flowHeight = webVisualFlow.offsetHeight;
+      const pinStart = flowHeight - winHeight;
+      const pinDistance = winHeight;
+      const scrollY = window.scrollY || window.pageYOffset || 0;
+
+      if (scrollY < pinStart) {
+        // 1. Antes de llegar al final de la sección: scroll normal
+        if (webVisualFlow.style.transform !== '') {
+          webVisualFlow.style.transform = '';
+        }
+      } else if (scrollY >= pinStart && scrollY <= pinStart + pinDistance) {
+        // 2. FASE PIN EXACTA: el fondo queda inmóvil mientras Boat Party sube por encima
+        const delta = scrollY - pinStart;
+        webVisualFlow.style.transform = `translate3d(0, ${delta}px, 0)`;
+      } else {
+        // 3. Recorrido completado: anclado detrás de Boat Party
+        webVisualFlow.style.transform = `translate3d(0, ${pinDistance}px, 0)`;
+      }
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallaxStack);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallaxStack);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('load', updateParallaxStack, { passive: true });
+
+    // Sincronización inicial
+    updateParallaxStack();
+  }
 
   // =========================================================================
   // CONTROLADOR DE VÍDEO BOAT PARTY (BAJO DEMANDA / ON-CLICK + AUTO-PAUSE)
