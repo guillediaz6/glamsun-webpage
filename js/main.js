@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Transición a la página principal (Deslizándose lentamente desde abajo hacia arriba)
   function enterMainPage(skipAnimation = false) {
+    // OPTIMIZACIÓN CRÍTICA: Pausar el vídeo de portada inmediatamente para liberar 100% de GPU y CPU
+    if (bgVideo && !bgVideo.paused) {
+      bgVideo.pause();
+    }
+
     if (skipAnimation) {
       if (mainPage) mainPage.classList.remove('slide-up-anim');
       if (heroSection) heroSection.classList.add('hide-hero');
@@ -62,6 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Volver a la pantalla del video hero
   function returnToHero() {
+    // Reanudar reproducción del vídeo de portada al volver
+    if (bgVideo && bgVideo.paused) {
+      bgVideo.play().catch(() => {});
+    }
+
     if (mainPage) {
       mainPage.classList.remove('slide-up-anim');
     }
@@ -465,5 +475,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Sincronización inicial
     updateParallaxStack();
+  }
+
+  // =========================================================================
+  // CONTROLADOR DE VÍDEO BOAT PARTY (BAJO DEMANDA / ON-CLICK + AUTO-PAUSE)
+  // =========================================================================
+  const boatVideo = document.getElementById('boat-party-vid');
+  const boatPlayOverlay = document.getElementById('boat-play-overlay');
+
+  if (boatVideo && boatPlayOverlay) {
+    boatPlayOverlay.addEventListener('click', () => {
+      boatVideo.play().then(() => {
+        boatPlayOverlay.classList.add('is-playing');
+      }).catch(() => {
+        boatPlayOverlay.classList.add('is-playing');
+      });
+    });
+
+    boatVideo.addEventListener('play', () => {
+      boatPlayOverlay.classList.add('is-playing');
+    });
+
+    boatVideo.addEventListener('pause', () => {
+      if (boatVideo.currentTime === 0 || boatVideo.ended) {
+        boatPlayOverlay.classList.remove('is-playing');
+      }
+    });
+
+    // Pausar automáticamente el vídeo si el usuario se desplaza fuera de la sección
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && !boatVideo.paused) {
+            boatVideo.pause();
+          }
+        });
+      }, { threshold: 0.15 });
+      videoObserver.observe(boatVideo);
+    }
   }
 });
