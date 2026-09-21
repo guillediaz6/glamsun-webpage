@@ -40,7 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (skipAnimation) {
       if (mainPage) mainPage.classList.remove('slide-up-anim');
-      if (heroSection) heroSection.classList.add('hide-hero');
+      if (heroSection) {
+        heroSection.classList.add('hide-hero', 'hero-dormant');
+      }
       return;
     }
 
@@ -60,7 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(cleanAnim, 2300); // Respaldo por temporizador
     }
     
-    if (heroSection) heroSection.classList.add('hide-hero');
+    if (heroSection) {
+      heroSection.classList.add('hide-hero');
+      // Desmontar completamente de la GPU tras completar la transición de deslizamiento
+      setTimeout(() => {
+        if (heroSection.classList.contains('hide-hero')) {
+          heroSection.classList.add('hero-dormant');
+        }
+      }, 2100);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Reiniciar animación del banner de foto1 para ver la entrada fluida desde la izquierda hacia el centro
@@ -76,6 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ocultar menú flotante al volver a la portada
     if (bottomDock) {
       bottomDock.classList.remove('dock-visible');
+    }
+
+    // Reactivar el hero en el compositor antes de animar
+    if (heroSection) {
+      heroSection.classList.remove('hero-dormant');
     }
 
     // Reanudar reproducción del vídeo de portada al volver
@@ -216,6 +231,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (carouselContainer) {
       carouselContainer.addEventListener('mouseenter', stopCarouselAutoRotate);
       carouselContainer.addEventListener('mouseleave', startCarouselAutoRotate);
+
+      // OPTIMIZACIÓN: Pausar rotación automática si el carrusel no está visible en pantalla
+      if ('IntersectionObserver' in window) {
+        const carouselObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              startCarouselAutoRotate();
+            } else {
+              stopCarouselAutoRotate();
+            }
+          });
+        }, { threshold: 0.1 });
+        carouselObserver.observe(carouselContainer);
+      }
     }
 
     eventCards.forEach((card) => {
@@ -380,6 +409,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       sparklesContainer.appendChild(sparkle);
     }
+  }
+
+  // OPTIMIZACIÓN: Pausar 63 animaciones continuas del fondo discoteca cuando la sección Agatha esté fuera de pantalla
+  const agathaSection = document.getElementById('section-agatha');
+  if (agathaSection && 'IntersectionObserver' in window) {
+    const discoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          agathaSection.classList.remove('disco-paused');
+        } else {
+          agathaSection.classList.add('disco-paused');
+        }
+      });
+    }, { rootMargin: '150px 0px' });
+    discoObserver.observe(agathaSection);
   }
 
   // =========================================================================

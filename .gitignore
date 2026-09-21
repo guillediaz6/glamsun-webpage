@@ -1,0 +1,10 @@
+﻿# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Heavy raw media (stored locally for source editing, web uses .webp and .mp4)
+assets/images/*.png
+assets/images/*.jpeg
+assets/images/*.jpg
+assets/videos/*.mov

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+/* Fuentes cargadas desde index.html con <link> para evitar bloqueo de parsing */
 
 :root {
   /* =========================================================================
@@ -152,6 +152,11 @@ body {
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
+}
+
+#hero-section.hero-dormant {
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .video-container {
@@ -2093,6 +2098,15 @@ body {
   30%  { opacity: 1; transform: scale(1.2); }
   70%  { opacity: 0.8; transform: scale(1); }
   100% { opacity: 0; transform: scale(0.3); }
+}
+
+/* PAUSA INTELIGENTE DE RENDIMIENTO: Apaga 63 animaciones continuas cuando la sección no está en pantalla */
+.agatha-pure-section.disco-paused .disco-beam,
+.agatha-pure-section.disco-paused .disco-fan,
+.agatha-pure-section.disco-paused .disco-top-flare,
+.agatha-pure-section.disco-paused .disco-grid,
+.agatha-pure-section.disco-paused .disco-sparkle {
+  animation-play-state: paused !important;
 }
 
 /* ==========================================================================
