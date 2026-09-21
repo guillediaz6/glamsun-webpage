@@ -331,6 +331,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Botón Logo Suiza a la derecha del dock
+  const dockSuizaBtn = document.getElementById('dock-suiza-btn');
+  if (dockSuizaBtn) {
+    dockSuizaBtn.addEventListener('click', () => {
+      enterMainPage(true);
+      const sec = document.getElementById('section-agatha');
+      if (sec) {
+        sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      closeDockMenu();
+    });
+  }
+
   // Botones desplegables laterales en las alas
   dockNavItems.forEach((item) => {
     item.addEventListener('click', (e) => {
