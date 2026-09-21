@@ -316,22 +316,30 @@ body {
   45%, 100% { transform: translateX(100%); }
 }
 
-.brand-logo-hero {
-  max-width: 320px;
-  width: 80%;
-  height: auto;
-  max-height: 140px;
+.hero-brand-logos-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.2rem, 3.5vw, 3.5rem);
+  width: 100%;
+  margin: 0 auto 0.8rem auto;
+}
+
+.hero-logo-img {
+  height: clamp(140px, 18vw, 240px);
+  width: auto;
+  max-width: clamp(220px, 35vw, 420px);
   object-fit: contain;
-  margin: 0 auto 0.6rem auto;
   display: block;
-  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.75));
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
   user-select: none;
 }
 
-.brand-logo-hero:hover {
-  transform: scale(1.035);
-  filter: drop-shadow(0 12px 32px rgba(229, 195, 101, 0.4));
+.hero-logo-img:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 12px 32px rgba(229, 195, 101, 0.45));
 }
 
 .brand-title {
@@ -2550,11 +2558,14 @@ body {
     width: 100%;
   }
 
-  .brand-logo-hero {
-    max-width: 220px;
-    width: 65%;
-    max-height: 100px;
-    margin-bottom: 0.4rem;
+  .hero-brand-logos-row {
+    gap: clamp(0.6rem, 2.5vw, 1.2rem);
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-logo-img {
+    height: clamp(95px, 26vw, 155px);
+    max-width: 48%;
   }
 
   .brand-title {
@@ -3023,9 +3034,9 @@ body {
 }
 
 .partnership-logos-row .partner-logo {
-  height: clamp(200px, 24vw, 320px);
+  height: clamp(250px, 30vw, 420px);
   width: auto;
-  max-width: clamp(360px, 44vw, 580px);
+  max-width: clamp(420px, 50vw, 720px);
   object-fit: contain;
   filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.9));
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3065,8 +3076,8 @@ body {
   }
   .partnership-logos-row .partner-logo-glamsun {
     order: 1;
-    height: clamp(160px, 46vw, 250px);
-    max-width: clamp(260px, 80vw, 380px);
+    height: clamp(190px, 58vw, 300px);
+    max-width: clamp(280px, 88vw, 450px);
     width: auto;
   }
   .partnership-large-text {
@@ -3078,8 +3089,8 @@ body {
   }
   .partnership-logos-row .partner-logo-suiza {
     order: 3;
-    height: clamp(160px, 46vw, 250px);
-    max-width: clamp(260px, 80vw, 380px);
+    height: clamp(190px, 58vw, 300px);
+    max-width: clamp(280px, 88vw, 450px);
     width: auto;
   }
 }
