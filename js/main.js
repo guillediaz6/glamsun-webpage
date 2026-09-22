@@ -804,5 +804,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.05 });
     footerObserver.observe(integratedFooter);
   }
+
+  // =========================================================================
+  // CONTROL DE MODALES DE LEGALIDAD (AVISO LEGAL, PRIVACIDAD, COOKIES)
+  // =========================================================================
+  const legalLinks = document.querySelectorAll('[data-legal]');
+  legalLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const type = link.getAttribute('data-legal');
+      const targetModal = document.getElementById(`modal-legal-${type}`);
+      if (targetModal) {
+        targetModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  const legalCloseBtns = document.querySelectorAll('.legal-modal-close');
+  legalCloseBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modal = btn.closest('.legal-modal-overlay');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  document.querySelectorAll('.legal-modal-overlay').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
 });
+
 

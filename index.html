@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glam Sun — Exclusive Party & Event Design</title>
-  <link rel="stylesheet" href="css/styles.css?v=v101">
+  <link rel="stylesheet" href="css/styles.css?v=v102">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
@@ -531,7 +531,7 @@
             <label class="minimal-checkbox-label">
               <input type="checkbox" id="vip-terms" name="terms" required class="minimal-checkbox">
               <span class="checkbox-custom"></span>
-              <span class="checkbox-text">Acepto la Política de Privacidad y los Términos y Condiciones *</span>
+              <span class="checkbox-text">Acepto la <a href="#" class="legal-link-inline" data-legal="privacidad">Política de Privacidad</a> *</span>
             </label>
           </div>
 
@@ -546,7 +546,12 @@
 
       </div>
 
-      <!-- Footer Integrado Elegante con Legalidad, Redes Sociales & Copyright -->
+      <!-- Etapa de imagen fotofinal que llega hasta el final detrás del footer -->
+      <div class="contact-bottom-bg-stage">
+        <img src="assets/images/fotofinal.jpeg" alt="Glam Sun Experience" class="contact-fotofinal-img">
+      </div>
+
+      <!-- Footer Integrado Elegante con Legalidad & Redes Sociales -->
       <footer class="contact-integrated-footer" id="main-integrated-footer">
         <div class="footer-inner-stage">
           
@@ -571,10 +576,9 @@
             <div class="footer-col">
               <span class="footer-col-title">Legalidad</span>
               <div class="footer-col-links">
-                <a href="#">Aviso Legal</a>
-                <a href="#">Política de Privacidad</a>
-                <a href="#">Política de Cookies</a>
-                <a href="#">Términos y Condiciones</a>
+                <a href="#" class="legal-footer-link" data-legal="aviso">Aviso Legal</a>
+                <a href="#" class="legal-footer-link" data-legal="privacidad">Política de Privacidad</a>
+                <a href="#" class="legal-footer-link" data-legal="cookies">Política de Cookies</a>
               </div>
             </div>
           </div>
@@ -697,6 +701,78 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=v30"></script>
+  <!-- =========================================================================
+       MODALES DE LEGALIDAD (AVISO LEGAL, PRIVACIDAD & COOKIES)
+       ========================================================================= -->
+
+  <!-- Modal Aviso Legal -->
+  <div id="modal-legal-aviso" class="legal-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-aviso-legal">
+    <div class="legal-modal-card">
+      <button class="legal-modal-close" aria-label="Cerrar ventana">✕</button>
+      <h2 id="title-aviso-legal" class="legal-modal-title">Aviso Legal</h2>
+      <div class="legal-modal-body">
+        <p><strong>1. Datos Identificativos</strong></p>
+        <p>En cumplimiento con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos identificativos de la entidad titular:</p>
+        <ul>
+          <li><strong>Denominación / Marca:</strong> Glam Sun & Agatha Sun</li>
+          <li><strong>Representante:</strong> Andrés Martínez</li>
+          <li><strong>Correo Electrónico de contacto:</strong> agathasun2025@gmail.com</li>
+        </ul>
+
+        <p><strong>2. Objeto y Aceptación</strong></p>
+        <p>El presente aviso legal regula el acceso y uso del sitio web oficial de Glam Sun. La navegación por el mismo atribuye la condición de usuario e implica la aceptación plena de todas las condiciones fijadas.</p>
+
+        <p><strong>3. Propiedad Intelectual e Industrial</strong></p>
+        <p>Todos los elementos que integran este sitio web (diseños, imágenes, vídeos, textos, logotipos y marcas) son propiedad exclusiva de Glam Sun o cuentan con licencia expresa de uso. Queda prohibida su reproducción, distribución o comunicación pública sin autorización previa.</p>
+
+        <p><strong>4. Exención de Responsabilidad</strong></p>
+        <p>Glam Sun declina cualquier responsabilidad derivada de interferencias, interrupciones o averías telefónicas o desconexiones en el funcionamiento del sitio web producidas por causas ajenas al titular.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Política de Privacidad -->
+  <div id="modal-legal-privacidad" class="legal-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-privacidad">
+    <div class="legal-modal-card">
+      <button class="legal-modal-close" aria-label="Cerrar ventana">✕</button>
+      <h2 id="title-privacidad" class="legal-modal-title">Política de Privacidad</h2>
+      <div class="legal-modal-body">
+        <p><strong>1. Responsable del Tratamiento de Datos</strong></p>
+        <p>El responsable del tratamiento de los datos personales recogidos en este sitio web es <strong>Glam Sun</strong> (Representante: Andrés Martínez), con correo electrónico de contacto <strong>agathasun2025@gmail.com</strong>.</p>
+
+        <p><strong>2. Datos Recogidos y Origen</strong></p>
+        <p>Se informa expresamente de que <strong>únicamente se recopilan y tratan los datos personales que el propio usuario facilita voluntariamente</strong> a través del formulario de contacto (Nombre y apellidos, correo electrónico, teléfono, tipo de solicitud y mensaje).</p>
+
+        <p><strong>3. Finalidad del Tratamiento</strong></p>
+        <p>La recogida y tratamiento de estos datos tiene como <strong>única finalidad facilitar las contrataciones de servicios y atender las consultas dirigidas a Glam Sun</strong>.</p>
+
+        <p><strong>4. Legitimación del Tratamiento</strong></p>
+        <p>La base legal para el tratamiento de sus datos es el <strong>consentimiento expreso e inequívoco</strong> prestado al pulsar la casilla de aceptación previa al envío del formulario de contacto.</p>
+
+        <p><strong>5. Conservación de Datos y Cesión a Terceros</strong></p>
+        <p>Los datos aportados se conservarán durante el tiempo estrictamente necesario para gestionar y responder a la contratación o solicitud efectuada. <strong>Glam Sun no cederá, alquilará ni venderá en ningún caso los datos personales a terceros</strong>.</p>
+
+        <p><strong>6. Derechos del Usuario (ARCO+)</strong></p>
+        <p>El usuario puede ejercitar en cualquier momento sus derechos de acceso, rectificación, supresión, limitación del tratamiento, oposición y portabilidad enviando un correo electrónico a <strong>agathasun2025@gmail.com</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Política de Cookies -->
+  <div id="modal-legal-cookies" class="legal-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-cookies">
+    <div class="legal-modal-card">
+      <button class="legal-modal-close" aria-label="Cerrar ventana">✕</button>
+      <h2 id="title-cookies" class="legal-modal-title">Política de Cookies</h2>
+      <div class="legal-modal-body">
+        <p><strong>Declaración Expresa de Ausencia de Cookies</strong></p>
+        <p>Se informa a todos los usuarios de que el sitio web de <strong>Glam Sun NO utiliza cookies de seguimiento, ni cookies de análisis web, ni cookies publicitarias propias o de terceros</strong>.</p>
+        <p>La navegación por este portal web es totalmente limpia y privada, sin almacenar ni instalar archivos de texto ni rastreadores en su navegador o dispositivo.</p>
+        <p>Para cualquier duda o aclaración relativa a este punto, puede contactar a través de <strong>agathasun2025@gmail.com</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=v31"></script>
 </body>
 </html>
+
