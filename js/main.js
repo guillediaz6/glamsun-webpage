@@ -371,6 +371,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sec) {
           sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+      } else if (action === 'go-contact') {
+        enterMainPage(true);
+        const sec = document.getElementById('section-contact');
+        if (sec) {
+          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
 
       closeDockMenu();
@@ -385,10 +391,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // GENERADOR DE PARTÍCULAS BRILLANTES PARA EL FONDO DISCOTECA
+  // GENERADOR DE PARTÍCULAS BRILLANTES PARA EL FONDO DISCOTECA (AGATHA & CONTACTO)
   // =========================================================================
-  const sparklesContainer = document.getElementById('disco-sparkles');
-  if (sparklesContainer) {
+  function initDiscoSparkles(containerId) {
+    const sparklesContainer = document.getElementById(containerId);
+    if (!sparklesContainer) return;
+
     const sparkleColors = [
       'rgba(229, 195, 101, 0.8)',   // Gold
       'rgba(229, 60, 255, 0.7)',    // Magenta
@@ -424,18 +432,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // OPTIMIZACIÓN: Pausar 63 animaciones continuas del fondo discoteca cuando la sección Agatha esté fuera de pantalla
+  initDiscoSparkles('disco-sparkles');
+
+  // OPTIMIZACIÓN: Pausar animaciones del fondo discoteca cuando la sección Agatha esté fuera de pantalla
   const agathaSection = document.getElementById('section-agatha');
-  if (agathaSection && 'IntersectionObserver' in window) {
+
+  if ('IntersectionObserver' in window && agathaSection) {
     const discoObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          agathaSection.classList.remove('disco-paused');
+          entry.target.classList.remove('disco-paused');
         } else {
-          agathaSection.classList.add('disco-paused');
+          entry.target.classList.add('disco-paused');
         }
       });
     }, { rootMargin: '150px 0px' });
+
     discoObserver.observe(agathaSection);
   }
 
@@ -490,10 +502,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // PARALLAX STACKING REVEAL: BOAT PARTY SUBE POR ENCIMA (FONDO FIJO / CAPA POR DELANTE)
+  // PARALLAX STACKING REVEAL:
+  // FASE 1: AGATHA STICKY + BOAT PARTY SUBE POR ENCIMA
+  // FASE 2: BOAT PARTY SUBE Y DESVELA CONTACTO POR DETRÁS
   // =========================================================================
   const webVisualFlow = document.querySelector('.web-visual-flow');
   const boatSection = document.getElementById('section-boat-party');
+  const contactSection = document.getElementById('section-contact');
 
   if (webVisualFlow && boatSection) {
     let ticking = false;
@@ -501,22 +516,40 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateParallaxStack() {
       const winHeight = window.innerHeight;
       const flowHeight = webVisualFlow.offsetHeight;
-      const pinStart = flowHeight - winHeight;
-      const pinDistance = winHeight;
       const scrollY = window.scrollY || window.pageYOffset || 0;
 
-      if (scrollY < pinStart) {
-        // 1. Antes de llegar al final de la sección: scroll normal
+      // ---- FASE 1: AGATHA SUN ➔ BOAT PARTY ----
+      const pinStart1 = flowHeight - winHeight;
+      const pinDistance1 = winHeight;
+
+      if (scrollY < pinStart1) {
         if (webVisualFlow.style.transform !== '') {
           webVisualFlow.style.transform = '';
         }
-      } else if (scrollY >= pinStart && scrollY <= pinStart + pinDistance) {
-        // 2. FASE PIN EXACTA: el fondo queda inmóvil mientras Boat Party sube por encima
-        const delta = scrollY - pinStart;
-        webVisualFlow.style.transform = `translate3d(0, ${delta}px, 0)`;
+      } else if (scrollY >= pinStart1 && scrollY <= pinStart1 + pinDistance1) {
+        const delta1 = scrollY - pinStart1;
+        webVisualFlow.style.transform = `translate3d(0, ${delta1}px, 0)`;
       } else {
-        // 3. Recorrido completado: anclado detrás de Boat Party
-        webVisualFlow.style.transform = `translate3d(0, ${pinDistance}px, 0)`;
+        webVisualFlow.style.transform = `translate3d(0, ${pinDistance1}px, 0)`;
+      }
+
+      // ---- FASE 2: BOAT PARTY ➔ CONTACTO VIP ----
+      if (contactSection) {
+        const boatHeight = boatSection.offsetHeight;
+        const pinStart2 = flowHeight + boatHeight - winHeight;
+        const pinDistance2 = winHeight;
+
+        if (scrollY < pinStart2) {
+          if (contactSection.style.transform !== '') {
+            contactSection.style.transform = '';
+          }
+        } else if (scrollY >= pinStart2 && scrollY <= pinStart2 + pinDistance2) {
+          const delta2 = scrollY - pinStart2;
+          const contactOffset = -(winHeight - delta2);
+          contactSection.style.transform = `translate3d(0, ${contactOffset}px, 0)`;
+        } else {
+          contactSection.style.transform = `translate3d(0, 0, 0)`;
+        }
       }
 
       ticking = false;
@@ -534,9 +567,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.requestAnimationFrame(updateParallaxStack);
         ticking = true;
       }
-    }, { passive: true });
+    });
 
-    window.addEventListener('load', updateParallaxStack, { passive: true });
+    window.addEventListener('load', updateParallaxStack);
 
     // Sincronización inicial
     updateParallaxStack();

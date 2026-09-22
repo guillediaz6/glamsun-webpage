@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glam Sun — Exclusive Party & Event Design</title>
-  <link rel="stylesheet" href="css/styles.css?v=v85">
+  <link rel="stylesheet" href="css/styles.css?v=v98">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
@@ -132,7 +132,7 @@
     <!-- Wrapper Parallax: Contenido web sticky + Boat Party que sube por encima -->
     <div class="parallax-stack-wrapper">
 
-    <!-- Contenido Visual de la Web (se queda fijo mientras Boat Party sube) -->
+    <!-- Contenido Visual de la Web (Capa Base: Foto 1, Eventos, Agatha Sun, Revive, Contacto) -->
     <div class="web-visual-flow">
       
       <!-- 1. Imagen foto1.png de lado a lado (Nítida sin filtro ni título) -->
@@ -271,8 +271,7 @@
           <div class="disco-fan disco-fan-2"></div>
           <div class="disco-fan disco-fan-3"></div>
 
-          <!-- Cuadrícula y Partículas de Polvo Estelar -->
-          <div class="disco-grid"></div>
+          <!-- Partículas de Polvo Estelar -->
           <div class="disco-sparkles" id="disco-sparkles"></div>
         </div>
 
@@ -393,83 +392,171 @@
     </div>
     <!-- /.web-visual-flow -->
 
-      <!-- 5. Sección Boat Party: Capa Parallax que sube por encima de la web con Portada Fullscreen -->
-      <section class="boat-party-stack-section" id="section-boat-party" aria-label="Boat Party Experience">
-        
-        <!-- EL FONDO GLOBAL PEGADO DETRÁS DE TODA LA SECCIÓN -->
-        <div class="boat-party-global-bg">
-          <div class="boat-party-global-bg-img"></div>
-        </div>
-
-        <!-- Portada Fullscreen de lado a lado que cubre la pantalla completa (Limpia sin letras encima) -->
-        <div class="boat-party-hero-fullscreen">
-          <img src="assets/images/portada boat party.webp" alt="Glam Sun Boat Party Portada" class="boat-party-hero-cover-img" loading="lazy" decoding="async">
-        </div>
-
-        <!-- Cuerpo de la sección con showcase de la imagen -->
-        <div class="boat-party-body-stage">
-
-
-          <div class="boat-party-content-container">
-            
-            <!-- Bloque Visual y Experiencia Boat Party -->
-            <div class="boat-party-showcase-grid">
-              <div class="boat-party-image-feature">
-                <img src="assets/images/imagen boat party.webp" alt="Experiencia Boat Party Glam Sun" class="boat-party-feature-img" loading="lazy">
-              </div>
-              <div class="boat-party-details-card">
-                <span class="boat-party-card-kicker">✦ THE SUNSET CRUISE ✦</span>
-                <h3 class="boat-party-details-title">SUNSET ON BOARD</h3>
-                <p class="boat-party-details-p">
-                  Una travesía náutica exclusiva reservada para los amantes de la mejor música electrónica y el lujo mediterráneo. Catamarán privado, sistema de sonido envolvente de alta fidelidad, coctelería de autor y puesta de sol inolvidable bajo el horizonte dorado.
-                </p>
-                <div class="boat-party-features-list">
-                  <div class="boat-feat-pill">🌊 Alta Mar Sunset Set</div>
-                  <div class="boat-feat-pill">🥂 Open Bar Premium & Catering</div>
-                  <div class="boat-feat-pill">🎧 Agatha Sun Live Session</div>
-                  <div class="boat-feat-pill">⚡ Aforo Estrictamente Limitado</div>
-                </div>
-                <a href="eventos.html" class="btn btn-boat-party-cta">
-                  <span>Solicitar Plaza / Reservar Mesa</span>
-                  <span class="boat-arrow">➔</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Video Boat Party con instantánea de alta calidad y triángulo de Play limpio -->
-            <div class="boat-party-video-container" id="boat-video-wrapper">
-              <video id="boat-party-vid" poster="assets/images/boat-party-poster.webp" preload="none" playsinline controls class="boat-party-video-element">
-                <source src="assets/videos/videoboatparty.mp4" type="video/mp4">
-                Tu navegador no soporta el formato de video.
-              </video>
-              <div class="boat-video-play-overlay" id="boat-play-overlay" role="button" aria-label="Reproducir vídeo Boat Party">
-                <div class="boat-clean-play-icon">
-                  <svg viewBox="0 0 24 24" width="76" height="76" fill="currentColor">
-                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </section>
-
-    </div>
-    <!-- /.parallax-stack-wrapper -->
-
-    <!-- Menú Flotante Inferior de Lujo (Centro Abajo) -->
-    
-
-    <footer class="main-footer">
-      <p>© 2026 Glam Sun & Agatha Sun. Todos los derechos reservados.</p>
-      <div class="footer-links">
-        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
-        <a href="mailto:info@glamsun.com">Contacto VIP</a>
+    <!-- 5. Sección Boat Party: Capa Parallax que sube por encima de la web con Portada Fullscreen -->
+    <section class="boat-party-stack-section" id="section-boat-party" aria-label="Boat Party Experience">
+      
+      <!-- EL FONDO GLOBAL PEGADO DETRÁS DE TODA LA SECCIÓN -->
+      <div class="boat-party-global-bg">
+        <div class="boat-party-global-bg-img"></div>
       </div>
-    </footer>
+
+      <!-- Portada Fullscreen de lado a lado que cubre la pantalla completa (Limpia sin letras encima) -->
+      <div class="boat-party-hero-fullscreen">
+        <img src="assets/images/portada boat party.webp" alt="Glam Sun Boat Party Portada" class="boat-party-hero-cover-img" loading="lazy" decoding="async">
+      </div>
+
+      <!-- Cuerpo de la sección con showcase vertical centrado -->
+      <div class="boat-party-body-stage">
+
+        <div class="boat-party-content-container">
+          
+          <!-- 1. Texto debajo de la portada con título BOAT PARTY -->
+          <div class="boat-party-intro-text">
+            <h2 class="boat-party-intro-title">BOAT PARTY</h2>
+            <p class="boat-party-intro-desc">
+              Para los más veraniegos: Boat Party, una experiencia única en el yate. Música en directo, bebidas exclusivas y la diversión más refrescante en alta mar.
+            </p>
+          </div>
+
+          <!-- 2. Imagen grande y centrada (sin card de fondo) -->
+          <div class="boat-party-image-feature-center">
+            <img src="assets/images/imagen boat party.webp" alt="Experiencia Boat Party Glam Sun" class="boat-party-feature-img" loading="lazy">
+          </div>
+
+          <!-- 3. Card limpia para los emoticonos y botón de reserva -->
+          <div class="boat-party-emojis-card">
+            <div class="boat-party-features-list">
+              <div class="boat-feat-pill">🌊 Alta Mar Sunset Set</div>
+              <div class="boat-feat-pill">🥂 Open Bar Premium & Catering</div>
+              <div class="boat-feat-pill">🎧 Agatha Sun Live Session</div>
+              <div class="boat-feat-pill">⚡ Aforo Estrictamente Limitado</div>
+            </div>
+            <a href="eventos.html" class="btn btn-boat-party-cta">
+              <span>Solicitar Plaza / Reservar Mesa</span>
+              <span class="boat-arrow">➔</span>
+            </a>
+          </div>
+
+          <!-- 4. Video Boat Party -->
+          <div class="boat-party-video-container" id="boat-video-wrapper">
+            <video id="boat-party-vid" poster="assets/images/boat-party-poster.webp" preload="none" playsinline controls class="boat-party-video-element">
+              <source src="assets/videos/videoboatparty.mp4" type="video/mp4">
+              Tu navegador no soporta el formato de video.
+            </video>
+            <div class="boat-video-play-overlay" id="boat-play-overlay" role="button" aria-label="Reproducir vídeo Boat Party">
+              <div class="boat-clean-play-icon">
+                <svg viewBox="0 0 24 24" width="76" height="76" fill="currentColor">
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 6. SECCIÓN CONTACTO VIP (Desvelada por detrás al subir Boat Party) -->
+    <section class="contact-reveal-section" id="section-contact" aria-label="Contacto VIP Glam Sun">
+      
+      <!-- Fondo de Lujo Ligero y Elegante (Sin luces pesadas ni cuadrículas) -->
+      <div class="contact-ambient-bg">
+        <div class="contact-ambient-glow"></div>
+      </div>
+
+      <div class="contact-content-container">
+        
+        <div class="contact-header-block">
+          <span class="contact-kicker">EXCLUSIVIDAD & EXPERIENCIA</span>
+          <h2 class="contact-main-title">CONTACTO VIP</h2>
+          <p class="contact-subtitle">
+            Reserva tu mesa VIP, solicita pases para el próximo evento o contrata una experiencia privada a medida.
+          </p>
+        </div>
+
+        <!-- 3 Tarjetas de Contacto / Reserva -->
+        <div class="contact-cards-grid">
+          
+          <!-- Card 1: Reservas VIP -->
+          <div class="contact-vip-card featured-booking-card">
+            <div class="contact-card-icon gold-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+            </div>
+            <h3 class="contact-card-title">Mesa VIP & Botellas</h3>
+            <p class="contact-card-desc">Acceso prioritario, servicio exclusivo en zona preferente y catering premium.</p>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn-contact-card btn-contact-gold">
+              <span>Reservar Mesa</span>
+              <span class="btn-arrow">➔</span>
+            </a>
+          </div>
+
+          <!-- Card 2: Contacto Directo WhatsApp / Teléfono -->
+          <div class="contact-vip-card">
+            <div class="contact-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3 class="contact-card-title">Atención Personalizada</h3>
+            <p class="contact-card-desc">Atención directa para dudas sobre eventos, vestimenta y aforos.</p>
+            <a href="mailto:info@glamsun.com" class="btn-contact-card">
+              <span>Contactar</span>
+              <span class="btn-arrow">➔</span>
+            </a>
+          </div>
+
+          <!-- Card 3: Eventos Privados / Boat Party -->
+          <div class="contact-vip-card">
+            <div class="contact-card-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="contact-card-title">Eventos Privados</h3>
+            <p class="contact-card-desc">Producción a medida en villas, yates privados y localizaciones exclusivas.</p>
+            <a href="eventos.html" class="btn-contact-card">
+              <span>Ver Eventos</span>
+              <span class="btn-arrow">➔</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Redes Sociales y Enlaces -->
+        <div class="contact-social-row">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="contact-mini-social">
+            <span>Instagram</span>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" class="contact-mini-social">
+            <span>TikTok</span>
+          </a>
+          <a href="mailto:vip@glamsun.com" class="contact-mini-social">
+            <span>vip@glamsun.com</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Footer Integrado dentro de la sección Contacto -->
+      <footer class="contact-integrated-footer">
+        <p>© 2026 Glam Sun & Agatha Sun. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+          <a href="mailto:info@glamsun.com">Contacto VIP</a>
+        </div>
+      </footer>
+
+    </section>
+
+  </div>
+  <!-- /.parallax-stack-wrapper -->
+
   </main>
 
 <nav class="luxury-bottom-dock" id="bottom-dock" aria-label="Navegación principal">
@@ -525,6 +612,9 @@
         <button class="dock-nav-item" data-action="go-boat" type="button" aria-label="Ir a Boat Party">
           <span class="dock-text">Boat Party</span>
         </button>
+        <button class="dock-nav-item" data-action="go-contact" type="button" aria-label="Ir a Contacto">
+          <span class="dock-text">Contacto</span>
+        </button>
       </div>
     </nav>
 
@@ -572,6 +662,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=v22"></script>
+  <script src="js/main.js?v=v27"></script>
 </body>
 </html>
