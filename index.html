@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glam Sun — Exclusive Party & Event Design</title>
-  <link rel="stylesheet" href="css/styles.css?v=v99">
+  <link rel="stylesheet" href="css/styles.css?v=v100">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
@@ -457,10 +457,10 @@
 
     </section>
 
-    <!-- 6. SECCIÓN CONTACTO VIP (Desvelada por detrás al subir Boat Party) -->
-    <section class="contact-reveal-section" id="section-contact" aria-label="Contacto VIP Glam Sun">
+    <!-- 6. SECCIÓN CONTACTO (Desvelada por detrás al subir Boat Party) -->
+    <section class="contact-reveal-section" id="section-contact" aria-label="Contacto Glam Sun">
       
-      <!-- Fondo de Lujo Ligero y Elegante -->
+      <!-- Fondo Ambient Sobrio -->
       <div class="contact-ambient-bg">
         <div class="contact-ambient-glow"></div>
       </div>
@@ -470,9 +470,9 @@
         <div class="contact-header-block">
           <h2 class="contact-main-title">CONTACTO</h2>
           
-          <!-- Línea Elegante del Representante VIP Andrés Martínez -->
+          <!-- Línea Elegante del Representante Andrés Martínez -->
           <div class="contact-representative-bar">
-            <span class="rep-label">Representante VIP:</span>
+            <span class="rep-label">Representante:</span>
             <span class="rep-name">Andrés Martínez</span>
             <span class="rep-divider">•</span>
             <a href="tel:+34600000000" class="rep-phone-link" aria-label="Llamar a Andrés Martínez">
@@ -484,65 +484,80 @@
           </div>
         </div>
 
-        <!-- Formulario Profesional VIP en Tonos Blanquecinos Brillantes (Sin cards oscuras detrás) -->
-        <form id="contact-vip-form" class="vip-bright-form" action="https://formspree.io/f/agathasun2025@gmail.com" method="POST" novalidate>
-          <!-- Honeypot Anti-Spam Bots -->
-          <div style="display:none;" aria-hidden="true">
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="form-grid-row">
-            <div class="form-group">
-              <label for="vip-name" class="vip-label">Nombre y Apellidos *</label>
-              <input type="text" id="vip-name" name="name" class="vip-bright-input" placeholder="Tu nombre completo" required autocomplete="name">
-            </div>
-
-            <div class="form-group">
-              <label for="vip-email" class="vip-label">Correo Electrónico *</label>
-              <input type="email" id="vip-email" name="email" class="vip-bright-input" placeholder="ejemplo@dominio.com" required autocomplete="email">
+        <!-- Escenario de 2 Columnas: Izquierda Imagen Vertical / Derecha Formulario -->
+        <div class="contact-stage-grid">
+          
+          <!-- Columna Izquierda: Imagen Vertical de Presentación -->
+          <div class="contact-image-col">
+            <div class="contact-vertical-img-wrapper">
+              <img src="assets/images/foto1.webp" alt="Glam Sun Contacto" class="contact-vertical-img" loading="lazy">
+              <div class="contact-img-overlay"></div>
             </div>
           </div>
 
-          <div class="form-grid-row">
-            <div class="form-group">
-              <label for="vip-phone" class="vip-label">Teléfono / WhatsApp *</label>
-              <input type="tel" id="vip-phone" name="phone" class="vip-bright-input" placeholder="+34 600 000 000" required autocomplete="tel">
-            </div>
+          <!-- Columna Derecha: Formulario Minimalista con Líneas Horizontales -->
+          <div class="contact-form-col">
+            <form id="contact-vip-form" class="minimal-line-form" action="https://formspree.io/f/agathasun2025@gmail.com" method="POST" novalidate>
+              <!-- Honeypot Anti-Spam Bots -->
+              <div style="display:none;" aria-hidden="true">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
 
-            <div class="form-group">
-              <label for="vip-subject" class="vip-label">Tipo de Solicitud *</label>
-              <select id="vip-subject" name="subject" class="vip-bright-input vip-bright-select" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option value="Reserva Mesa VIP">Reserva de Mesa VIP & Botellas</option>
-                <option value="Boat Party Plaza">Solicitar Plaza / Yacht Boat Party</option>
-                <option value="Evento Privado">Organización de Evento Privado</option>
-                <option value="Booking / Prensa">Booking, Prensa o Colaboración</option>
-                <option value="Informacion General">Información General</option>
-              </select>
-            </div>
+              <div class="form-grid-row">
+                <div class="form-group">
+                  <label for="vip-name" class="minimal-label">Nombre y Apellidos *</label>
+                  <input type="text" id="vip-name" name="name" class="minimal-line-input" placeholder="Tu nombre completo" required autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                  <label for="vip-email" class="minimal-label">Correo Electrónico *</label>
+                  <input type="email" id="vip-email" name="email" class="minimal-line-input" placeholder="ejemplo@dominio.com" required autocomplete="email">
+                </div>
+              </div>
+
+              <div class="form-grid-row">
+                <div class="form-group">
+                  <label for="vip-phone" class="minimal-label">Teléfono / WhatsApp *</label>
+                  <input type="tel" id="vip-phone" name="phone" class="minimal-line-input" placeholder="+34 600 000 000" required autocomplete="tel">
+                </div>
+
+                <div class="form-group">
+                  <label for="vip-subject" class="minimal-label">Tipo de Solicitud *</label>
+                  <select id="vip-subject" name="subject" class="minimal-line-input minimal-line-select" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="Reserva Mesa">Reserva de Mesa & Botellas</option>
+                    <option value="Boat Party Plaza">Solicitar Plaza / Yacht Boat Party</option>
+                    <option value="Evento Privado">Organización de Evento Privado</option>
+                    <option value="Booking / Prensa">Booking, Prensa o Colaboración</option>
+                    <option value="Informacion General">Información General</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group form-group-full">
+                <label for="vip-message" class="minimal-label">Mensaje o Detalle *</label>
+                <textarea id="vip-message" name="message" class="minimal-line-input minimal-line-textarea" rows="3" placeholder="Indica fecha aproximada, número de personas o cualquier requerimiento..." required></textarea>
+              </div>
+
+              <div class="form-group form-checkbox-group">
+                <label class="minimal-checkbox-label">
+                  <input type="checkbox" id="vip-terms" name="terms" required class="minimal-checkbox">
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">Acepto los Términos y Condiciones y la Política de Privacidad *</span>
+                </label>
+              </div>
+
+              <!-- Cuadro de estado / feedback de seguridad y rate limit -->
+              <div id="form-status-msg" class="form-status-box" aria-live="polite"></div>
+
+              <button type="submit" id="btn-submit-vip" class="btn-simple-submit">
+                <span class="btn-text">Enviar Solicitud</span>
+                <span class="btn-arrow">➔</span>
+              </button>
+            </form>
           </div>
 
-          <div class="form-group form-group-full">
-            <label for="vip-message" class="vip-label">Mensaje o Detalle de la Reserva *</label>
-            <textarea id="vip-message" name="message" class="vip-bright-input vip-bright-textarea" rows="4" placeholder="Indica fecha aproximada, número de personas o cualquier requerimiento especial..." required></textarea>
-          </div>
-
-          <div class="form-group form-checkbox-group">
-            <label class="vip-checkbox-label">
-              <input type="checkbox" id="vip-terms" name="terms" required class="vip-checkbox">
-              <span class="checkbox-custom"></span>
-              <span class="checkbox-text">Acepto los Términos y Condiciones y la Política de Privacidad *</span>
-            </label>
-          </div>
-
-          <!-- Cuadro de estado / feedback de seguridad y rate limit -->
-          <div id="form-status-msg" class="form-status-box" aria-live="polite"></div>
-
-          <button type="submit" id="btn-submit-vip" class="btn-bright-submit">
-            <span class="btn-text">Enviar Solicitud VIP</span>
-            <span class="btn-glow-sparkle">✦</span>
-          </button>
-        </form>
+        </div>
 
       </div>
 
@@ -552,7 +567,7 @@
         <div class="footer-links">
           <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
           <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
-          <a href="mailto:info@glamsun.com">Contacto VIP</a>
+          <a href="mailto:info@glamsun.com">Contacto</a>
         </div>
       </footer>
 
@@ -666,6 +681,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=v28"></script>
+  <script src="js/main.js?v=v29"></script>
 </body>
 </html>

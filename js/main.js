@@ -770,7 +770,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(response => {
         recordSubmission();
         if (response.ok) {
-          showStatus('¡Solicitud VIP enviada con éxito! Nuestro equipo o el representante Andrés Martínez contactará contigo a la brevedad.', 'success');
+          showStatus('¡Solicitud enviada con éxito! Nuestro equipo o el representante Andrés Martínez contactará contigo a la brevedad.', 'success');
           vipForm.reset();
         } else {
           showStatus('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo a la brevedad.', 'success');
@@ -784,7 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnSubmitVip) {
           btnSubmitVip.disabled = false;
           const textSpan = btnSubmitVip.querySelector('.btn-text');
-          if (textSpan) textSpan.textContent = 'Enviar Solicitud VIP';
+          if (textSpan) textSpan.textContent = 'Enviar Solicitud';
         }
       });
     });

@@ -2367,17 +2367,68 @@ body {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* FORMULARIO PROFESIONAL VIP EN TONOS BLANQUECINOS BRILLANTES (Sin cards oscuras detrás) */
-.vip-bright-form {
+/* Escenario de 2 Columnas para Contacto */
+.contact-stage-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
   width: 100%;
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto;
+  align-items: center;
+}
+
+/* Columna Izquierda: Imagen Vertical */
+.contact-image-col {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-vertical-img-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 3 / 4;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.contact-vertical-img-wrapper:hover {
+  transform: translateY(-4px);
+  border-color: rgba(229, 195, 101, 0.5);
+}
+
+.contact-vertical-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contact-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.35) 100%);
+  pointer-events: none;
+}
+
+/* Columna Derecha: Formulario Minimalista */
+.contact-form-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.minimal-line-form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
 .form-grid-row {
@@ -2395,67 +2446,65 @@ body {
   text-align: left;
 }
 
-.vip-label {
+.minimal-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #FFFFFF;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* Inputs en Tonos Blanquecinos Brillantes de Alto Contraste */
-.vip-bright-input {
+/* INPUTS MINIMALISTAS CON LÍNEA HORIZONTAL DEBAJO (Sin caja/box alrededor) */
+.minimal-line-input {
   width: 100%;
-  padding: 1.1rem 1.4rem;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1.5px solid rgba(229, 195, 101, 0.6);
-  border-radius: 16px;
-  color: #0E0D12;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 0 !important;
+  padding: 0.85rem 0.2rem !important;
+  color: #FFFFFF !important;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.96rem;
-  font-weight: 600;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15), 0 0 20px rgba(229, 195, 101, 0.2);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.98rem;
+  font-weight: 500;
+  box-shadow: none !important;
+  transition: all 0.3s ease;
 }
 
-.vip-bright-input::placeholder {
-  color: #6E6878;
+.minimal-line-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
   font-weight: 400;
 }
 
-.vip-bright-input:hover {
-  background: #FFFFFF;
-  border-color: var(--hero-gold);
-  box-shadow: 0 14px 38px rgba(255, 255, 255, 0.3), 0 0 25px rgba(229, 195, 101, 0.4);
-  transform: translateY(-2px);
+.minimal-line-input:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.75) !important;
 }
 
-.vip-bright-input:focus {
+.minimal-line-input:focus {
   outline: none;
-  background: #FFFFFF;
-  border-color: #D4AF37;
-  color: #000000;
-  box-shadow: 0 16px 45px rgba(255, 255, 255, 0.45), 0 0 35px rgba(229, 195, 101, 0.6);
-  transform: translateY(-3px);
+  border-bottom-color: var(--hero-gold) !important;
+  box-shadow: 0 6px 15px -4px rgba(229, 195, 101, 0.25) !important;
 }
 
-.vip-bright-select {
+.minimal-line-select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E0D12' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1.2rem center;
-  background-size: 1.2rem;
-  padding-right: 2.8rem;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 0.2rem center !important;
+  background-size: 1.1rem !important;
+  padding-right: 2rem !important;
 }
 
-.vip-bright-textarea {
+.minimal-line-select option {
+  background: #0E0D14;
+  color: #FFFFFF;
+  padding: 0.8rem;
+}
+
+.minimal-line-textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 90px;
 }
 
 /* Casilla de Verificación de Términos y Condiciones */
@@ -2463,15 +2512,15 @@ body {
   margin-top: 0.4rem;
 }
 
-.vip-checkbox-label {
+.minimal-checkbox-label {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.75rem;
   cursor: pointer;
   user-select: none;
 }
 
-.vip-checkbox {
+.minimal-checkbox {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -2480,36 +2529,34 @@ body {
 }
 
 .checkbox-custom {
-  width: 22px;
-  height: 22px;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1.5px solid rgba(229, 195, 101, 0.7);
-  border-radius: 6px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
 }
 
-.vip-checkbox:checked ~ .checkbox-custom {
-  background: var(--hero-gold-gradient);
-  border-color: #D4AF37;
-  box-shadow: 0 0 15px rgba(229, 195, 101, 0.6);
+.minimal-checkbox:checked ~ .checkbox-custom {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
 }
 
-.vip-checkbox:checked ~ .checkbox-custom::after {
+.minimal-checkbox:checked ~ .checkbox-custom::after {
   content: '✓';
-  color: #0E0D12;
-  font-size: 0.85rem;
+  color: #000000;
+  font-size: 0.8rem;
   font-weight: 900;
 }
 
 .checkbox-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* Cuadro de Mensajes de Estado / Cooldown / Error / Éxito */
@@ -2548,43 +2595,49 @@ body {
   box-shadow: 0 0 20px rgba(220, 53, 69, 0.3);
 }
 
-/* Botón Submit Blanquecino-Dorado Radiante */
-.btn-bright-submit {
+/* BOTÓN SENCILLO BLANCO CON LETRAS NEGRAS */
+.btn-simple-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
+  gap: 0.85rem;
   width: 100%;
-  padding: 1.25rem 2.8rem;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FFF5D6 35%, #F5D77F 70%, #D4AF37 100%);
-  color: #0A0806;
+  padding: 1.1rem 2.6rem;
+  background: #FFFFFF;
+  color: #000000;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  border: none;
+  border: 1.5px solid #FFFFFF;
   border-radius: 999px;
   cursor: pointer;
-  box-shadow: 0 14px 40px rgba(255, 255, 255, 0.35), 0 0 35px rgba(229, 195, 101, 0.5);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: 0.8rem;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+  transition: all 0.35s ease;
+  margin-top: 0.6rem;
 }
 
-.btn-bright-submit:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(255, 255, 255, 0.55), 0 0 45px rgba(229, 195, 101, 0.75);
+.btn-simple-submit:hover {
+  background: #000000;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
-.btn-bright-submit:disabled {
+.btn-simple-submit:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-.btn-glow-sparkle {
-  color: #8A641B;
-  font-size: 1.1rem;
+.btn-simple-submit .btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-simple-submit:hover .btn-arrow {
+  transform: translateX(4px);
 }
 
 /* Footer integrado dentro de contacto */
