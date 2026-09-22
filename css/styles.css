@@ -3719,36 +3719,53 @@ body {
 
 @media (max-width: 768px) {
   .partnership-full-section {
-    padding: 5.5rem 1.5rem 4.5rem 1.5rem;
+    padding: 4rem 1.2rem 3.5rem 1.2rem;
   }
   .partnership-inner-container {
-    gap: 3.2rem;
+    gap: 2.2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  /* En móvil extraemos los logos al flujo vertical para intercalar el texto */
   .partnership-logos-row {
-    display: contents;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
   }
-  .partnership-logos-row .partner-logo-glamsun {
-    order: 1;
-    height: clamp(190px, 58vw, 300px);
-    max-width: clamp(280px, 88vw, 450px);
+  .partnership-logos-row .partner-logo-glamsun,
+  .partnership-logos-row .partner-logo-suiza {
+    height: auto;
+    max-height: 140px;
+    max-width: 85vw;
     width: auto;
+    object-fit: contain;
+  }
+  .glamsun-manifesto-block {
+    width: 100%;
+    margin-top: 0.5rem;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  .glamsun-manifesto-heading {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+    line-height: 1.35;
   }
   .partnership-large-text {
-    order: 2;
-    font-size: clamp(1.4rem, 4.5vw, 1.85rem);
-    line-height: 1.55;
-    padding: 0 0.8rem;
-    margin: 0.2rem 0;
+    font-size: clamp(1.05rem, 4.2vw, 1.25rem);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
   }
-  .partnership-logos-row .partner-logo-suiza {
-    order: 3;
-    height: clamp(190px, 58vw, 300px);
-    max-width: clamp(280px, 88vw, 450px);
-    width: auto;
+  .manifesto-highlights {
+    font-size: clamp(0.98rem, 3.8vw, 1.12rem);
+    line-height: 1.6;
+    gap: 0.4rem;
+  }
+  .manifesto-welcome {
+    font-size: clamp(1.1rem, 4.2vw, 1.35rem);
   }
 }
 
