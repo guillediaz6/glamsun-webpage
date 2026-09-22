@@ -2136,8 +2136,8 @@ body {
 .agatha-pure-text-col {
   padding-right: 3rem;
   padding-left: 0;
-  padding-top: 11.5rem;
-  padding-bottom: 7rem;
+  padding-top: 6.5rem;
+  padding-bottom: 4rem;
   margin-left: -2.5rem;
   align-self: flex-start;
   text-align: left;
@@ -2150,22 +2150,22 @@ body {
 .agatha-pure-tag {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--hero-gold);
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 .agatha-pure-title {
   font-family: 'Cinzel', 'Cormorant Garamond', serif;
-  font-size: 7.2rem;
+  font-size: clamp(3.8rem, 6vw, 5.8rem);
   font-weight: 800;
   color: #FFFFFF;
   line-height: 0.98;
   letter-spacing: 0.08em;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .agatha-pure-subtitle {
