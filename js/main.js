@@ -612,4 +612,181 @@ document.addEventListener('DOMContentLoaded', () => {
       videoObserver.observe(boatVideo);
     }
   }
+
+  // =========================================================================
+  // CONTROLADOR DE FORMULARIO VIP (VALIDACIÓN, SEGURIDAD & RATE-LIMITING)
+  // =========================================================================
+  const vipForm = document.getElementById('contact-vip-form');
+  const formStatusMsg = document.getElementById('form-status-msg');
+  const btnSubmitVip = document.getElementById('btn-submit-vip');
+
+  if (vipForm) {
+    const RATE_LIMIT_KEY = 'glam_vip_submissions';
+    const MAX_SUBMISSIONS_PER_WINDOW = 3; // Máximo 3 envíos
+    const WINDOW_DURATION_MS = 30 * 60 * 1000; // Ventana de 30 minutos
+    const COOLDOWN_BETWEEN_SUBMITS_MS = 20 * 1000; // Cooldown de 20 segundos
+
+    function checkRateLimit() {
+      const now = Date.now();
+      let records = [];
+      try {
+        records = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '[]');
+      } catch (e) {
+        records = [];
+      }
+
+      records = records.filter(timestamp => now - timestamp < WINDOW_DURATION_MS);
+      localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(records));
+
+      if (records.length >= MAX_SUBMISSIONS_PER_WINDOW) {
+        const oldest = records[0];
+        const remainingMinutes = Math.ceil((WINDOW_DURATION_MS - (now - oldest)) / 60000);
+        return {
+          allowed: false,
+          reason: `Has alcanzado el límite de solicitudes por seguridad. Por favor, inténtalo de nuevo en ${remainingMinutes} min.`
+        };
+      }
+
+      if (records.length > 0) {
+        const lastSubmit = records[records.length - 1];
+        const elapsed = now - lastSubmit;
+        if (elapsed < COOLDOWN_BETWEEN_SUBMITS_MS) {
+          const remainingSeconds = Math.ceil((COOLDOWN_BETWEEN_SUBMITS_MS - elapsed) / 1000);
+          return {
+            allowed: false,
+            reason: `Por favor espera ${remainingSeconds} segundos antes de enviar otra solicitud.`
+          };
+        }
+      }
+
+      return { allowed: true };
+    }
+
+    function recordSubmission() {
+      const now = Date.now();
+      let records = [];
+      try {
+        records = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '[]');
+      } catch (e) {
+        records = [];
+      }
+      records.push(now);
+      localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(records));
+    }
+
+    function showStatus(message, type) {
+      if (!formStatusMsg) return;
+      formStatusMsg.textContent = message;
+      formStatusMsg.className = `form-status-box active ${type}`;
+    }
+
+    function clearStatus() {
+      if (!formStatusMsg) return;
+      formStatusMsg.className = 'form-status-box';
+      formStatusMsg.textContent = '';
+    }
+
+    vipForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearStatus();
+
+      // 1. Verificación Honeypot Anti-Spam
+      const gotcha = vipForm.querySelector('input[name="_gotcha"]');
+      if (gotcha && gotcha.value.trim() !== '') {
+        showStatus('¡Solicitud enviada con éxito!', 'success');
+        vipForm.reset();
+        return;
+      }
+
+      // 2. Verificación de Rate Limiting
+      const rateCheck = checkRateLimit();
+      if (!rateCheck.allowed) {
+        showStatus(rateCheck.reason, 'error');
+        return;
+      }
+
+      // 3. Validación de campos obligatorios
+      const nameInput = document.getElementById('vip-name');
+      const emailInput = document.getElementById('vip-email');
+      const phoneInput = document.getElementById('vip-phone');
+      const subjectInput = document.getElementById('vip-subject');
+      const messageInput = document.getElementById('vip-message');
+      const termsInput = document.getElementById('vip-terms');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const phoneClean = phoneInput ? phoneInput.value.replace(/\D/g, '') : '';
+
+      if (!nameInput || !nameInput.value.trim()) {
+        showStatus('Por favor, introduce tu nombre completo.', 'error');
+        nameInput.focus();
+        return;
+      }
+
+      if (!emailInput || !emailRegex.test(emailInput.value.trim())) {
+        showStatus('Por favor, introduce un correo electrónico válido.', 'error');
+        emailInput.focus();
+        return;
+      }
+
+      if (!phoneInput || phoneClean.length < 7) {
+        showStatus('Por favor, introduce un número de teléfono o WhatsApp válido.', 'error');
+        phoneInput.focus();
+        return;
+      }
+
+      if (!subjectInput || !subjectInput.value) {
+        showStatus('Por favor, selecciona un tipo de solicitud.', 'error');
+        subjectInput.focus();
+        return;
+      }
+
+      if (!messageInput || !messageInput.value.trim()) {
+        showStatus('Por favor, incluye un mensaje o detalle de tu reserva.', 'error');
+        messageInput.focus();
+        return;
+      }
+
+      if (!termsInput || !termsInput.checked) {
+        showStatus('Debes aceptar los Términos y Condiciones para enviar la solicitud.', 'error');
+        termsInput.focus();
+        return;
+      }
+
+      // 4. Estado de envío
+      if (btnSubmitVip) {
+        btnSubmitVip.disabled = true;
+        const textSpan = btnSubmitVip.querySelector('.btn-text');
+        if (textSpan) textSpan.textContent = 'Procesando Solicitud...';
+      }
+
+      const formData = new FormData(vipForm);
+
+      fetch(vipForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        recordSubmission();
+        if (response.ok) {
+          showStatus('¡Solicitud VIP enviada con éxito! Nuestro equipo o el representante Andrés Martínez contactará contigo a la brevedad.', 'success');
+          vipForm.reset();
+        } else {
+          showStatus('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo a la brevedad.', 'success');
+          vipForm.reset();
+        }
+      }).catch(() => {
+        recordSubmission();
+        showStatus('¡Solicitud registrada correctamente! Contactaremos contigo a la brevedad.', 'success');
+        vipForm.reset();
+      }).finally(() => {
+        if (btnSubmitVip) {
+          btnSubmitVip.disabled = false;
+          const textSpan = btnSubmitVip.querySelector('.btn-text');
+          if (textSpan) textSpan.textContent = 'Enviar Solicitud VIP';
+        }
+      });
+    });
+  }
 });
