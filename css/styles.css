@@ -4218,6 +4218,20 @@ body {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
 }
 
+.credit-link {
+  color: var(--hero-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.credit-link:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-shadow: 0 0 10px rgba(229, 195, 101, 0.5);
+}
+
 .legal-link-inline {
   color: var(--hero-gold);
   text-decoration: underline;
