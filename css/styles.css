@@ -4122,19 +4122,21 @@ body {
 
 .contact-fotofinal-img {
   display: block;
-  /* En PC/Portátil: Se ve entera al 100% sin recortar nada */
+  /* En PC/Portátil: Lado a lado y sutilmente horizontal */
   width: 100%;
-  max-width: 980px;
-  height: auto;
-  object-fit: contain;
+  max-width: 100%;
+  aspect-ratio: 1.3 / 1; /* Ligeramente horizontal para recortar un poco arriba/abajo respecto al cuadrado */
+  object-fit: cover;
+  object-position: center center;
   margin: 0 auto;
   filter: brightness(0.95) contrast(1.05);
 }
 
-/* Footer superpuesto SIN fondo borroso: palabras sueltas y organizadas */
 .contact-integrated-footer {
-  position: relative;
-  margin-top: -160px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
   width: 100%;
   background: transparent !important;
@@ -4188,7 +4190,18 @@ body {
 
 .footer-col-links a:hover {
   color: var(--hero-gold);
-  transform: translateX(3px);
+}
+
+.footer-social-links a:hover {
+  transform: scale(1.1);
+}
+
+.footer-legal-links a {
+  font-size: 0.7rem;
+}
+
+.footer-legal-links a:hover {
+  transform: translateY(-2px);
 }
 
 .footer-bottom-bar {
@@ -4328,17 +4341,16 @@ body {
 
 @media (max-width: 768px) {
   .contact-fotofinal-img {
-    /* En móvil: recorta sutilmente los lados sin tapar ni cortar texto */
+    /* En móvil: recorta sutilmente los lados para que sea más vertical y cubra todo el footer */
     width: 100%;
     max-width: 100%;
     height: auto;
-    aspect-ratio: 0.88 / 1;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center;
   }
   .contact-integrated-footer {
-    margin-top: -120px;
-    padding: 2rem 1.5rem 2rem 1.5rem;
+    padding: 1.5rem;
   }
   .legal-modal-card {
     padding: 2rem 1.4rem;
