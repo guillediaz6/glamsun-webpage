@@ -4107,38 +4107,101 @@ body {
 }
 
 /* ==========================================================================
-   IMAGEN FOTOFINAL (Debajo del formulario y extendiéndose detrás del footer)
+   IMAGEN FOTOFINAL & FOOTER TRANSPARENTE
    ========================================================================== */
 .contact-bottom-bg-stage {
   position: relative;
   width: 100%;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   z-index: 1;
 }
 
 .contact-fotofinal-img {
-  width: 100%;
   display: block;
-  object-fit: cover;
-  object-position: center;
-  /* En PC: imagen cuadrada adaptada levemente a formato horizontal */
-  aspect-ratio: 16 / 10;
-  max-height: 550px;
-  filter: brightness(0.9) contrast(1.05);
+  /* En PC/Portátil: Se ve entera al 100% sin recortar nada */
+  width: 100%;
+  max-width: 980px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  filter: brightness(0.95) contrast(1.05);
 }
 
-/* Footer superpuesto sobre la parte inferior de la imagen */
+/* Footer superpuesto SIN fondo borroso: palabras sueltas y organizadas */
 .contact-integrated-footer {
   position: relative;
-  margin-top: -180px;
+  margin-top: -160px;
   z-index: 10;
   width: 100%;
-  background: linear-gradient(180deg, rgba(6, 6, 8, 0.45) 0%, rgba(4, 4, 6, 0.92) 32%, rgba(4, 4, 6, 0.98) 100%);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 4.5rem 2rem 2.5rem 2rem;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-top: none !important;
+  padding: 3rem 2rem 2.5rem 2rem;
+}
+
+.footer-inner-stage {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.footer-brand-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--hero-gold);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+}
+
+.footer-brand-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.footer-col-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.footer-col-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.footer-col-links a:hover {
+  color: var(--hero-gold);
+  transform: translateX(3px);
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 1.8rem;
+  text-align: center;
+}
+
+.footer-bottom-bar p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
 }
 
 .legal-link-inline {
@@ -4265,12 +4328,17 @@ body {
 
 @media (max-width: 768px) {
   .contact-fotofinal-img {
-    /* En móvil: imagen cuadrada adaptada sutilmente a formato vertical */
-    aspect-ratio: 4 / 5;
-    max-height: 580px;
+    /* En móvil: recorta sutilmente los lados sin tapar ni cortar texto */
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 0.88 / 1;
+    object-fit: cover;
+    object-position: center;
   }
   .contact-integrated-footer {
-    margin-top: -140px;
+    margin-top: -120px;
+    padding: 2rem 1.5rem 2rem 1.5rem;
   }
   .legal-modal-card {
     padding: 2rem 1.4rem;
@@ -4281,5 +4349,6 @@ body {
     font-size: 1.4rem;
   }
 }
+
 
 
