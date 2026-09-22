@@ -2109,9 +2109,9 @@ body {
   padding: 0;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
-  align-self: flex-end;
-  margin-top: 1.5rem;
+  align-items: flex-start;
+  align-self: flex-start;
+  margin-top: -3.5rem;
 }
 
 .agatha-pure-img {
