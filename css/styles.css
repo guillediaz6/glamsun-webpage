@@ -4122,12 +4122,12 @@ body {
 
 .contact-fotofinal-img {
   display: block;
-  /* En PC/Portátil: Lado a lado y sutilmente horizontal */
+  /* En PC/Portátil: Lado a lado y sutilmente horizontal, alineado arriba para conservar las letras superiores */
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 1.3 / 1; /* Ligeramente horizontal para recortar un poco arriba/abajo respecto al cuadrado */
+  aspect-ratio: 1.25 / 1;
   object-fit: cover;
-  object-position: center center;
+  object-position: top center;
   margin: 0 auto;
   filter: brightness(0.95) contrast(1.05);
 }
@@ -4347,7 +4347,7 @@ body {
     height: auto;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
   }
   .contact-integrated-footer {
     padding: 1.5rem;
