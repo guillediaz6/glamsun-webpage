@@ -2190,18 +2190,59 @@ body {
 }
 
 .agatha-pure-lead {
-  font-size: 1.95rem;
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.94);
-  line-height: 1.62;
-  margin-bottom: 1.8rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.68;
+  margin-bottom: 1.2rem;
 }
 
 .agatha-pure-body {
-  font-size: 1.55rem;
-  line-height: 1.82;
-  color: rgba(255, 255, 255, 0.68);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.82);
   font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.agatha-pure-body strong,
+.agatha-pure-lead strong {
+  color: var(--hero-gold);
+  font-weight: 600;
+}
+
+/* Destacado Pure Ibiza Radio */
+.agatha-radio-highlight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(229, 195, 101, 0.08);
+  border: 1px solid rgba(229, 195, 101, 0.35);
+  border-left: 4px solid var(--hero-gold);
+  border-radius: 12px;
+  padding: 1rem 1.4rem;
+  margin: 1.4rem 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 195, 101, 0.1);
+}
+
+.agatha-radio-highlight .radio-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.agatha-radio-highlight p {
+  font-size: clamp(0.98rem, 1.3vw, 1.12rem);
+  color: #FFFFFF;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.agatha-radio-highlight strong {
+  color: var(--hero-gold);
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 /* Manifiesto Glam Sun & Suiza */
