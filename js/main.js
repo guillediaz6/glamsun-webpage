@@ -789,4 +789,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Ocultar el menú flotante (#bottom-dock) cuando el usuario llega al footer
+  const integratedFooter = document.getElementById('main-integrated-footer');
+  if (integratedFooter && bottomDock && 'IntersectionObserver' in window) {
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          bottomDock.classList.add('dock-hidden-footer');
+        } else {
+          bottomDock.classList.remove('dock-hidden-footer');
+        }
+      });
+    }, { threshold: 0.05 });
+    footerObserver.observe(integratedFooter);
+  }
 });
+

@@ -3695,3 +3695,414 @@ body {
     height: 58px;
   }
 }
+
+/* ==========================================================================
+   6. SECCIÓN CONTACTO Y FOOTER INTEGRADO (Sticky Reveal Effect)
+   ========================================================================== */
+.contact-reveal-section {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #060608;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding-top: 6rem;
+}
+
+.contact-ambient-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-ambient-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 450px;
+  background: radial-gradient(ellipse at center, rgba(229, 195, 101, 0.08) 0%, rgba(184, 149, 91, 0.03) 45%, transparent 70%);
+  filter: blur(80px);
+}
+
+.contact-content-container {
+  position: relative;
+  z-index: 5;
+  width: 90%;
+  max-width: 860px;
+  margin: 0 auto 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Cabecera de Contacto */
+.contact-header-block {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.contact-main-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
+}
+
+/* Barra del Representante Andrés Martínez */
+.contact-representative-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(229, 195, 101, 0.35);
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  font-size: 0.9rem;
+}
+
+.contact-representative-bar .rep-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.contact-representative-bar .rep-name {
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.contact-representative-bar .rep-divider {
+  color: var(--hero-gold);
+}
+
+.contact-representative-bar .rep-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--hero-gold);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-representative-bar .rep-phone-link:hover {
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* Formulario Minimalista con Líneas Horizontales Inferiores */
+.minimal-line-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  position: relative;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.minimal-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.minimal-line-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding: 0.85rem 0.2rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.98rem;
+  color: #FFFFFF;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.minimal-line-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.minimal-line-input:focus {
+  border-bottom-color: var(--hero-gold);
+  box-shadow: 0 2px 0 0 var(--hero-gold);
+}
+
+.minimal-line-select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23E5C365' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  padding-right: 1.8rem;
+}
+
+.minimal-line-select option {
+  background-color: #0c0d12;
+  color: #FFFFFF;
+}
+
+.minimal-line-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Checkbox Personalizado */
+.form-checkbox-group {
+  margin-top: 0.5rem;
+}
+
+.minimal-checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.minimal-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(229, 195, 101, 0.6);
+  border-radius: 3px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.minimal-checkbox:checked ~ .checkbox-custom {
+  background: var(--hero-gold);
+  border-color: var(--hero-gold);
+}
+
+.minimal-checkbox:checked ~ .checkbox-custom::after {
+  content: '✓';
+  color: #060608;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.checkbox-text {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+/* Botón Sencillo Blanco */
+.btn-simple-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background: #FFFFFF;
+  color: #060608;
+  border: none;
+  padding: 1rem 2.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-top: 1rem;
+  align-self: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+.btn-simple-submit:hover {
+  background: var(--hero-gold);
+  color: #060608;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(229, 195, 101, 0.35);
+}
+
+.btn-simple-submit .btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-simple-submit:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Cuadro de Estado */
+.form-status-box {
+  display: none;
+  padding: 0.9rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.form-status-box.active {
+  display: block;
+}
+
+.form-status-box.success {
+  background: rgba(46, 213, 115, 0.12);
+  border: 1px solid rgba(46, 213, 115, 0.4);
+  color: #2ed573;
+}
+
+.form-status-box.error {
+  background: rgba(255, 71, 87, 0.12);
+  border: 1px solid rgba(255, 71, 87, 0.4);
+  color: #ff4757;
+}
+
+/* Footer Integrado */
+.contact-integrated-footer {
+  width: 100%;
+  background: rgba(4, 4, 6, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4rem 2rem 2.5rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-inner-stage {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer-brand-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--hero-gold);
+}
+
+.footer-brand-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.05em;
+}
+
+.footer-col-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.footer-col-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col-links a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-col-links a:hover {
+  color: var(--hero-gold);
+  transform: translateX(3px);
+}
+
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-bottom-bar p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.04em;
+}
+
+/* Desvanecimiento del Dock sobre el Footer */
+.luxury-bottom-dock.dock-hidden-footer {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translate(-50%, 30px) !important;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease !important;
+}
+
+@media (max-width: 768px) {
+  .footer-top-row {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+  .form-grid-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .contact-representative-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.82rem;
+  }
+}
+

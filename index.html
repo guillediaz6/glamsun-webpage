@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glam Sun — Exclusive Party & Event Design</title>
-  <link rel="stylesheet" href="css/styles.css?v=v100">
+  <link rel="stylesheet" href="css/styles.css?v=v101">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
@@ -484,90 +484,106 @@
           </div>
         </div>
 
-        <!-- Escenario de 2 Columnas: Izquierda Imagen Vertical / Derecha Formulario -->
-        <div class="contact-stage-grid">
-          
-          <!-- Columna Izquierda: Imagen Vertical de Presentación -->
-          <div class="contact-image-col">
-            <div class="contact-vertical-img-wrapper">
-              <img src="assets/images/foto1.webp" alt="Glam Sun Contacto" class="contact-vertical-img" loading="lazy">
-              <div class="contact-img-overlay"></div>
+        <!-- Formulario Minimalista Centrado (Sin imagen) -->
+        <form id="contact-vip-form" class="minimal-line-form" action="https://formspree.io/f/agathasun2025@gmail.com" method="POST" novalidate>
+          <!-- Honeypot Anti-Spam Bots -->
+          <div style="display:none;" aria-hidden="true">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-grid-row">
+            <div class="form-group">
+              <label for="vip-name" class="minimal-label">Nombre y Apellidos *</label>
+              <input type="text" id="vip-name" name="name" class="minimal-line-input" placeholder="Tu nombre completo" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label for="vip-email" class="minimal-label">Correo Electrónico *</label>
+              <input type="email" id="vip-email" name="email" class="minimal-line-input" placeholder="ejemplo@dominio.com" required autocomplete="email">
             </div>
           </div>
 
-          <!-- Columna Derecha: Formulario Minimalista con Líneas Horizontales -->
-          <div class="contact-form-col">
-            <form id="contact-vip-form" class="minimal-line-form" action="https://formspree.io/f/agathasun2025@gmail.com" method="POST" novalidate>
-              <!-- Honeypot Anti-Spam Bots -->
-              <div style="display:none;" aria-hidden="true">
-                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
-              </div>
+          <div class="form-grid-row">
+            <div class="form-group">
+              <label for="vip-phone" class="minimal-label">Teléfono / WhatsApp *</label>
+              <input type="tel" id="vip-phone" name="phone" class="minimal-line-input" placeholder="+34 600 000 000" required autocomplete="tel">
+            </div>
 
-              <div class="form-grid-row">
-                <div class="form-group">
-                  <label for="vip-name" class="minimal-label">Nombre y Apellidos *</label>
-                  <input type="text" id="vip-name" name="name" class="minimal-line-input" placeholder="Tu nombre completo" required autocomplete="name">
-                </div>
-
-                <div class="form-group">
-                  <label for="vip-email" class="minimal-label">Correo Electrónico *</label>
-                  <input type="email" id="vip-email" name="email" class="minimal-line-input" placeholder="ejemplo@dominio.com" required autocomplete="email">
-                </div>
-              </div>
-
-              <div class="form-grid-row">
-                <div class="form-group">
-                  <label for="vip-phone" class="minimal-label">Teléfono / WhatsApp *</label>
-                  <input type="tel" id="vip-phone" name="phone" class="minimal-line-input" placeholder="+34 600 000 000" required autocomplete="tel">
-                </div>
-
-                <div class="form-group">
-                  <label for="vip-subject" class="minimal-label">Tipo de Solicitud *</label>
-                  <select id="vip-subject" name="subject" class="minimal-line-input minimal-line-select" required>
-                    <option value="" disabled selected>Selecciona una opción</option>
-                    <option value="Reserva Mesa">Reserva de Mesa & Botellas</option>
-                    <option value="Boat Party Plaza">Solicitar Plaza / Yacht Boat Party</option>
-                    <option value="Evento Privado">Organización de Evento Privado</option>
-                    <option value="Booking / Prensa">Booking, Prensa o Colaboración</option>
-                    <option value="Informacion General">Información General</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group form-group-full">
-                <label for="vip-message" class="minimal-label">Mensaje o Detalle *</label>
-                <textarea id="vip-message" name="message" class="minimal-line-input minimal-line-textarea" rows="3" placeholder="Indica fecha aproximada, número de personas o cualquier requerimiento..." required></textarea>
-              </div>
-
-              <div class="form-group form-checkbox-group">
-                <label class="minimal-checkbox-label">
-                  <input type="checkbox" id="vip-terms" name="terms" required class="minimal-checkbox">
-                  <span class="checkbox-custom"></span>
-                  <span class="checkbox-text">Acepto los Términos y Condiciones y la Política de Privacidad *</span>
-                </label>
-              </div>
-
-              <!-- Cuadro de estado / feedback de seguridad y rate limit -->
-              <div id="form-status-msg" class="form-status-box" aria-live="polite"></div>
-
-              <button type="submit" id="btn-submit-vip" class="btn-simple-submit">
-                <span class="btn-text">Enviar Solicitud</span>
-                <span class="btn-arrow">➔</span>
-              </button>
-            </form>
+            <div class="form-group">
+              <label for="vip-subject" class="minimal-label">Tipo de Solicitud *</label>
+              <select id="vip-subject" name="subject" class="minimal-line-input minimal-line-select" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Reserva Mesa">Reserva de Mesa & Botellas</option>
+                <option value="Boat Party Plaza">Solicitar Plaza / Yacht Boat Party</option>
+                <option value="Evento Privado">Organización de Evento Privado</option>
+                <option value="Booking / Prensa">Booking, Prensa o Colaboración</option>
+                <option value="Informacion General">Información General</option>
+              </select>
+            </div>
           </div>
 
-        </div>
+          <div class="form-group form-group-full">
+            <label for="vip-message" class="minimal-label">Mensaje o Detalle *</label>
+            <textarea id="vip-message" name="message" class="minimal-line-input minimal-line-textarea" rows="3" placeholder="Indica fecha aproximada, número de personas o cualquier requerimiento..." required></textarea>
+          </div>
+
+          <div class="form-group form-checkbox-group">
+            <label class="minimal-checkbox-label">
+              <input type="checkbox" id="vip-terms" name="terms" required class="minimal-checkbox">
+              <span class="checkbox-custom"></span>
+              <span class="checkbox-text">Acepto la Política de Privacidad y los Términos y Condiciones *</span>
+            </label>
+          </div>
+
+          <!-- Cuadro de estado / feedback de seguridad y rate limit -->
+          <div id="form-status-msg" class="form-status-box" aria-live="polite"></div>
+
+          <button type="submit" id="btn-submit-vip" class="btn-simple-submit">
+            <span class="btn-text">Enviar Solicitud</span>
+            <span class="btn-arrow">➔</span>
+          </button>
+        </form>
 
       </div>
 
-      <!-- Footer Integrado dentro de la sección Contacto -->
-      <footer class="contact-integrated-footer">
-        <p>© 2026 Glam Sun & Agatha Sun. Todos los derechos reservados.</p>
-        <div class="footer-links">
-          <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
-          <a href="mailto:info@glamsun.com">Contacto</a>
+      <!-- Footer Integrado Elegante con Legalidad, Redes Sociales & Copyright -->
+      <footer class="contact-integrated-footer" id="main-integrated-footer">
+        <div class="footer-inner-stage">
+          
+          <div class="footer-top-row">
+            <!-- Columna 1: Marca Glam Sun -->
+            <div class="footer-col footer-brand-col">
+              <span class="footer-brand-title">GLAM SUN</span>
+              <p class="footer-brand-desc">Exclusive Party & Event Design</p>
+            </div>
+
+            <!-- Columna 2: Redes Sociales -->
+            <div class="footer-col">
+              <span class="footer-col-title">Redes Sociales</span>
+              <div class="footer-col-links">
+                <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+                <a href="https://spotify.com" target="_blank" rel="noopener">Spotify / Sets</a>
+              </div>
+            </div>
+
+            <!-- Columna 3: Legalidad -->
+            <div class="footer-col">
+              <span class="footer-col-title">Legalidad</span>
+              <div class="footer-col-links">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Política de Cookies</a>
+                <a href="#">Términos y Condiciones</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Línea Inferior de Copyright -->
+          <div class="footer-bottom-bar">
+            <p>© 2026 Glam Sun & Agatha Sun. Todos los derechos reservados.</p>
+          </div>
+
         </div>
       </footer>
 
@@ -681,6 +697,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=v29"></script>
+  <script src="js/main.js?v=v30"></script>
 </body>
 </html>
