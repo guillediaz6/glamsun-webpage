@@ -1340,9 +1340,9 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 0.8rem clamp(1.5rem, 6vw, 5rem);
+  padding: 0.8rem calc(50vw - clamp(140px, 13vw, 195px));
   cursor: grab;
   user-select: none;
   scrollbar-width: none;
@@ -1365,7 +1365,7 @@ body {
   height: clamp(400px, 36vw, 560px);
   aspect-ratio: 3 / 4;
   flex-shrink: 0;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   border-radius: 0 !important; /* Esquinas rectas 90º */
   overflow: hidden;
   background: #08080c;
@@ -1408,23 +1408,7 @@ body {
 
 /* Flechas de navegación manual flotantes: Cuadradas rectas, elegantes */
 .revive-nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 0;
-  background: rgba(12, 10, 15, 0.92);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(229, 195, 101, 0.6);
-  color: #faf7f2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease;
+  display: none !important;
 }
 
 .revive-nav-arrow:hover {
@@ -3727,26 +3711,11 @@ body {
     flex-direction: column;
     align-items: center;
   }
-  .partnership-logos-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    width: 100%;
-  }
-  .partnership-logos-row .partner-logo-glamsun,
-  .partnership-logos-row .partner-logo-suiza {
-    height: auto;
-    max-height: 140px;
-    max-width: 85vw;
-    width: auto;
-    object-fit: contain;
-  }
   .glamsun-manifesto-block {
+    order: 1;
     width: 100%;
-    margin-top: 0.5rem;
-    gap: 1rem;
+    margin-top: 0;
+    gap: 1.1rem;
     padding: 0 0.5rem;
   }
   .glamsun-manifesto-heading {
@@ -3766,6 +3735,24 @@ body {
   }
   .manifesto-welcome {
     font-size: clamp(1.1rem, 4.2vw, 1.35rem);
+  }
+  .partnership-logos-row {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .partnership-logos-row .partner-logo-glamsun,
+  .partnership-logos-row .partner-logo-suiza {
+    height: auto;
+    max-height: 220px;
+    max-width: 90vw;
+    width: auto;
+    object-fit: contain;
   }
 }
 
