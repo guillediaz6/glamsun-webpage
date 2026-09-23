@@ -1639,31 +1639,54 @@ body {
   gap: 1.8rem;
 }
 
-.boat-party-features-list {
+/* Grid de 3 Emoticonos en la Card de Boat Party */
+.boat-emojis-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.9rem;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 2rem;
   width: 100%;
 }
 
-.boat-feat-pill {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(229, 195, 101, 0.45);
-  padding: 0.65rem 1.35rem;
-  border-radius: 999px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+.boat-emoji-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  text-align: center;
+  flex: 1;
 }
 
-.boat-feat-pill:hover {
-  transform: translateY(-2px);
-  background: rgba(229, 195, 101, 0.18);
-  border-color: var(--hero-gold);
+.boat-emoji-img-wrapper {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.boat-emoji-item:hover .boat-emoji-img-wrapper {
+  transform: translateY(-4px) scale(1.08);
+}
+
+.boat-emoji-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+}
+
+.boat-emoji-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 .btn-boat-party-cta {
@@ -3532,14 +3555,17 @@ body {
     gap: 1.4rem;
   }
 
-  .boat-party-features-list {
-    justify-content: center;
-    gap: 0.6rem;
+  .boat-emojis-grid {
+    gap: 1.2rem;
   }
 
-  .boat-feat-pill {
-    font-size: 0.78rem;
-    padding: 0.55rem 1rem;
+  .boat-emoji-img-wrapper {
+    width: 58px;
+    height: 58px;
+  }
+
+  .boat-emoji-text {
+    font-size: 0.85rem;
   }
 
   .btn-boat-party-cta {
