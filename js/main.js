@@ -763,15 +763,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }).then(response => {
         recordSubmission();
         if (response.ok) {
-          showStatus('¡Solicitud enviada con éxito! Nuestro equipo contactará contigo a la brevedad.', 'success');
+          showStatus('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
           vipForm.reset();
         } else {
-          showStatus('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo a la brevedad.', 'success');
+          showStatus('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
           vipForm.reset();
         }
       }).catch(() => {
         recordSubmission();
-        showStatus('¡Solicitud registrada correctamente! Contactaremos contigo a la brevedad.', 'success');
+        showStatus('¡Solicitud registrada correctamente! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
         vipForm.reset();
       }).finally(() => {
         if (btnSubmitVip) {
