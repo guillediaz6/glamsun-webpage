@@ -533,37 +533,23 @@
           <div class="form-grid-row">
             <div class="form-group">
               <label for="vip-name" class="minimal-label">Nombre y Apellidos *</label>
-              <input type="text" id="vip-name" name="name" class="minimal-line-input" placeholder="Tu nombre completo" required autocomplete="name">
+              <input type="text" id="vip-name" name="name" class="minimal-line-input" required autocomplete="name">
             </div>
 
             <div class="form-group">
               <label for="vip-email" class="minimal-label">Correo Electrónico *</label>
-              <input type="email" id="vip-email" name="email" class="minimal-line-input" placeholder="ejemplo@dominio.com" required autocomplete="email">
-            </div>
-          </div>
-
-          <div class="form-grid-row">
-            <div class="form-group">
-              <label for="vip-phone" class="minimal-label">Teléfono / WhatsApp *</label>
-              <input type="tel" id="vip-phone" name="phone" class="minimal-line-input" placeholder="+34 600 000 000" required autocomplete="tel">
-            </div>
-
-            <div class="form-group">
-              <label for="vip-subject" class="minimal-label">Tipo de Solicitud *</label>
-              <select id="vip-subject" name="subject" class="minimal-line-input minimal-line-select" required>
-                <option value="" disabled selected>Selecciona una opción</option>
-                <option value="Reserva Mesa">Reserva de Mesa & Botellas</option>
-                <option value="Boat Party Plaza">Solicitar Plaza / Yacht Boat Party</option>
-                <option value="Evento Privado">Organización de Evento Privado</option>
-                <option value="Booking / Prensa">Booking, Prensa o Colaboración</option>
-                <option value="Informacion General">Información General</option>
-              </select>
+              <input type="email" id="vip-email" name="email" class="minimal-line-input" required autocomplete="email">
             </div>
           </div>
 
           <div class="form-group form-group-full">
+            <label for="vip-phone" class="minimal-label">Teléfono / WhatsApp *</label>
+            <input type="tel" id="vip-phone" name="phone" class="minimal-line-input" required autocomplete="tel">
+          </div>
+
+          <div class="form-group form-group-full">
             <label for="vip-message" class="minimal-label">Mensaje o Detalle *</label>
-            <textarea id="vip-message" name="message" class="minimal-line-input minimal-line-textarea" rows="3" placeholder="Indica fecha aproximada, número de personas o cualquier requerimiento..." required></textarea>
+            <textarea id="vip-message" name="message" class="minimal-line-input minimal-line-textarea" rows="3" required></textarea>
           </div>
 
           <div class="form-group form-checkbox-group">
@@ -814,7 +800,7 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=v33"></script>
+  <script src="js/main.js?v=v34"></script>
 </body>
 </html>
 

@@ -709,7 +709,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const nameInput = document.getElementById('vip-name');
       const emailInput = document.getElementById('vip-email');
       const phoneInput = document.getElementById('vip-phone');
-      const subjectInput = document.getElementById('vip-subject');
       const messageInput = document.getElementById('vip-message');
       const termsInput = document.getElementById('vip-terms');
 
@@ -731,12 +730,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!phoneInput || phoneClean.length < 7) {
         showStatus('Por favor, introduce un número de teléfono o WhatsApp válido.', 'error');
         phoneInput.focus();
-        return;
-      }
-
-      if (!subjectInput || !subjectInput.value) {
-        showStatus('Por favor, selecciona un tipo de solicitud.', 'error');
-        subjectInput.focus();
         return;
       }
 
