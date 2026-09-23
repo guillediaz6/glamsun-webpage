@@ -1844,19 +1844,16 @@ body {
 }
 
 .event-card-date-badge {
-  background: rgba(197, 160, 89, 0.25);
-  border: 1px solid rgba(197, 160, 89, 0.75);
+  background: transparent;
+  border: none;
   color: var(--hero-gold);
   font-family: 'Montserrat', sans-serif;
   font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.14em;
-  padding: 0.45rem 1.35rem;
-  border-radius: 999px;
+  padding: 0;
   text-transform: uppercase;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 .event-card-title-text {
@@ -3295,7 +3292,7 @@ body {
 
   .event-card-date-badge {
     font-size: 0.68rem;
-    padding: 0.3rem 0.85rem;
+    padding: 0;
   }
 
   .elrow-transition-divider {

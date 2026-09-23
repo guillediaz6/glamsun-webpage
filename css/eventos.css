@@ -332,16 +332,16 @@ body {
 }
 
 .event-date-pill {
-  background: rgba(197, 160, 89, 0.2);
-  border: 1px solid rgba(197, 160, 89, 0.6);
+  background: transparent;
+  border: none;
   color: var(--gold-bright);
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0.14em;
-  padding: 0.45rem 1.15rem;
-  border-radius: 999px;
+  padding: 0;
   text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 .event-status-pill {
