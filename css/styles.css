@@ -2108,6 +2108,7 @@ body {
 
 /* Imagen Agatha pegada al lateral izquierdo sin caja detrás */
 .agatha-pure-image-col {
+  position: relative;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -2118,7 +2119,26 @@ body {
   margin-top: -3.5rem;
 }
 
+/* Parche sutil tono champagne detrás del agujero transparente de la mitad izquierda de la imagen */
+.agatha-pure-image-col::before {
+  content: '';
+  position: absolute;
+  top: 34%;
+  left: 20%;
+  width: 160px;
+  height: 160px;
+  max-width: 25%;
+  max-height: 35%;
+  background: radial-gradient(circle, rgba(229, 195, 101, 0.85) 0%, rgba(197, 160, 89, 0.45) 50%, rgba(197, 160, 89, 0) 75%);
+  border-radius: 50%;
+  filter: blur(10px);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .agatha-pure-img {
+  position: relative;
+  z-index: 2;
   width: 135%;
   max-width: 1250px;
   min-width: 740px;
@@ -3323,6 +3343,7 @@ body {
   }
 
   .agatha-pure-image-col {
+    position: relative;
     margin-top: 0;
     display: flex;
     justify-content: flex-start; /* Pega la imagen a la izquierda */
@@ -3330,6 +3351,13 @@ body {
     align-self: flex-start; /* Asegura que la columna entera se pegue a la izquierda */
     width: 100%;
     overflow: visible;
+  }
+
+  .agatha-pure-image-col::before {
+    top: 30%;
+    left: 14%;
+    width: 100px;
+    height: 100px;
   }
 
   .agatha-pure-img {
