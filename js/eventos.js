@@ -95,6 +95,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const eventCards = Array.from(document.querySelectorAll('.event-item-card'));
   const paginationContainer = document.getElementById('events-pagination');
 
+  // Detección automática del próximo evento en la lista según la fecha de hoy
+  const todayStr = new Date().toISOString().split('T')[0];
+  let upcomingCard = null;
+  let minDiff = Infinity;
+
+  eventCards.forEach(card => {
+    const cardDate = card.getAttribute('data-date');
+    if (cardDate && cardDate >= todayStr) {
+      const diff = new Date(cardDate) - new Date(todayStr);
+      if (diff < minDiff) {
+        minDiff = diff;
+        upcomingCard = card;
+      }
+    }
+  });
+
+  if (upcomingCard) {
+    const badgeRow = upcomingCard.querySelector('.event-meta-badge-row');
+    if (badgeRow && !badgeRow.querySelector('.event-status-pill.next-up')) {
+      const nextUpPill = document.createElement('span');
+      nextUpPill.className = 'event-status-pill next-up';
+      nextUpPill.textContent = '✦ PRÓXIMO EVENTO ✦';
+      badgeRow.appendChild(nextUpPill);
+    }
+  }
+
   let currentPage = 1;
   const totalEvents = eventCards.length;
   const totalPages = Math.ceil(totalEvents / EVENTS_PER_PAGE);

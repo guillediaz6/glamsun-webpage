@@ -224,7 +224,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (eventCards.length > 0) {
-    setActiveCard(0);
+    // Detección automática del próximo evento según la fecha de hoy
+    const todayStr = new Date().toISOString().split('T')[0];
+    let initialActiveIndex = 0;
+    let minDiff = Infinity;
+
+    eventCards.forEach((card, idx) => {
+      const cardDate = card.getAttribute('data-date');
+      if (cardDate && cardDate >= todayStr) {
+        const diff = new Date(cardDate) - new Date(todayStr);
+        if (diff < minDiff) {
+          minDiff = diff;
+          initialActiveIndex = idx;
+        }
+      }
+    });
+
+    setActiveCard(initialActiveIndex);
     startCarouselAutoRotate();
 
     // Pausar rotación al pasar el ratón por el contenedor y reanudar al salir (sin saltos bruscos)
