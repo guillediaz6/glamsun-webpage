@@ -2123,13 +2123,13 @@ body {
 .agatha-pure-image-col::before {
   content: '';
   position: absolute;
-  top: 18%;
-  left: 36%;
-  width: 110px;
-  height: 320px;
-  background: radial-gradient(ellipse at center, rgba(229, 195, 101, 0.9) 0%, rgba(197, 160, 89, 0.5) 55%, rgba(197, 160, 89, 0) 80%);
+  top: 10%;
+  left: 22%;
+  width: 260px;
+  height: 520px;
+  background: radial-gradient(ellipse at center, rgba(229, 195, 101, 1) 0%, rgba(215, 175, 90, 0.85) 65%, rgba(197, 160, 89, 0) 90%);
   border-radius: 999px;
-  filter: blur(12px);
+  filter: blur(8px);
   z-index: 1;
   pointer-events: none;
 }
@@ -3352,10 +3352,10 @@ body {
   }
 
   .agatha-pure-image-col::before {
-    top: 18%;
-    left: 28%;
-    width: 70px;
-    height: 200px;
+    top: 10%;
+    left: 15%;
+    width: 170px;
+    height: 360px;
   }
 
   .agatha-pure-img {
