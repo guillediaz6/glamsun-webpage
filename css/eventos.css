@@ -358,9 +358,11 @@ body {
 }
 
 .event-status-pill.next-up {
-  background: rgba(229, 60, 255, 0.15);
-  border-color: rgba(229, 60, 255, 0.5);
+  background: transparent;
+  border: none;
   color: #FF80FF;
+  padding: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 .event-card-title {
