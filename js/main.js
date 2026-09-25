@@ -849,6 +849,29 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // =========================================================================
+  // LAZY LOADING & CONTROL DE REPRODUCCIÓN VÍDEO REVIVE FULL WIDTH
+  // =========================================================================
+  const reviveVid = document.getElementById('revive-full-vid');
+  if (reviveVid && 'IntersectionObserver' in window) {
+    const reviveVidObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!reviveVid.src && reviveVid.dataset.src) {
+            reviveVid.src = reviveVid.dataset.src;
+            reviveVid.load();
+          }
+          reviveVid.play().catch(() => {});
+        } else {
+          if (!reviveVid.paused) {
+            reviveVid.pause();
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+    reviveVidObserver.observe(reviveVid);
+  }
 });
 
 
