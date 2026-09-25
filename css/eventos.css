@@ -388,14 +388,17 @@ body {
   color: var(--text-muted);
   font-weight: 300;
   max-width: 580px;
-  max-height: 5.4em; /* Muestra las primeras líneas por defecto */
-  overflow: hidden;
   position: relative;
-  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.event-item-card.is-expanded .event-card-desc {
-  max-height: 600px;
+@media (min-width: 769px) {
+  .btn-expand-text {
+    display: none !important;
+  }
+  .event-card-desc {
+    max-height: none !important;
+    overflow: visible !important;
+  }
 }
 
 /* Botón + para expandir el texto si es largo */
