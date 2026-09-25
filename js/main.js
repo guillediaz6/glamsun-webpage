@@ -839,26 +839,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // LAZY LOADING & CONTROL DE REPRODUCCIÓN VÍDEO REVIVE FULL WIDTH
+  // CONTROLADOR DE VÍDEO REVIVE (ON-CLICK + SONIDO + AUTO-PAUSE)
   // =========================================================================
-  const reviveVid = document.getElementById('revive-full-vid');
-  if (reviveVid && 'IntersectionObserver' in window) {
-    const reviveVidObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (!reviveVid.src && reviveVid.dataset.src) {
-            reviveVid.src = reviveVid.dataset.src;
-            reviveVid.load();
-          }
-          reviveVid.play().catch(() => {});
-        } else {
-          if (!reviveVid.paused) {
-            reviveVid.pause();
-          }
-        }
+  const reviveVideo = document.getElementById('revive-full-vid');
+  const revivePlayOverlay = document.getElementById('revive-play-overlay');
+
+  if (reviveVideo && revivePlayOverlay) {
+    revivePlayOverlay.addEventListener('click', () => {
+      reviveVideo.muted = false;
+      reviveVideo.play().then(() => {
+        revivePlayOverlay.classList.add('is-playing');
+      }).catch(() => {
+        revivePlayOverlay.classList.add('is-playing');
       });
-    }, { threshold: 0.15 });
-    reviveVidObserver.observe(reviveVid);
+    });
+
+    reviveVideo.addEventListener('play', () => {
+      revivePlayOverlay.classList.add('is-playing');
+    });
+
+    reviveVideo.addEventListener('pause', () => {
+      if (reviveVideo.currentTime === 0 || reviveVideo.ended) {
+        revivePlayOverlay.classList.remove('is-playing');
+      }
+    });
+
+    if ('IntersectionObserver' in window) {
+      const reviveObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && !reviveVideo.paused) {
+            reviveVideo.pause();
+          }
+        });
+      }, { threshold: 0.15 });
+      reviveObserver.observe(reviveVideo);
+    }
   }
 });
 
