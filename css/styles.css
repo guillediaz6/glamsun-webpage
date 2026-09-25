@@ -2119,24 +2119,46 @@ body {
   margin-top: -3.5rem;
 }
 
-.agatha-pure-img {
+.agatha-pure-img-wrapper {
   position: relative;
-  z-index: 2;
+  display: inline-block;
   width: 135%;
   max-width: 1250px;
   min-width: 740px;
-  height: auto;
-  display: block;
-  object-fit: cover;
   margin-left: -8.5rem;
   padding-left: 0;
   margin-bottom: -0.5rem;
-  filter: drop-shadow(0 20px 50px rgba(229, 60, 255, 0.2)) drop-shadow(20px 30px 40px rgba(0, 180, 255, 0.15));
   transition: transform 0.5s ease;
 }
 
-.agatha-pure-img:hover {
+.agatha-pure-img-wrapper:hover {
   transform: translateX(6px) scale(1.01);
+}
+
+/* Parche sutil tono champagne detrás del agujero transparente de la imagen (pegado a la izquierda y centro-bajo) */
+.agatha-patch {
+  position: absolute;
+  top: 55%;
+  left: 14%;
+  width: 14%;
+  height: 18%;
+  background: radial-gradient(ellipse at center, #cca56d 0%, #c49a60 70%, rgba(196, 154, 96, 0.4) 85%, transparent 100%);
+  border-radius: 999px;
+  filter: blur(4px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.agatha-pure-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  filter: drop-shadow(0 20px 50px rgba(229, 60, 255, 0.2)) drop-shadow(20px 30px 40px rgba(0, 180, 255, 0.15));
 }
 
 /* Columna Derecha: Contenido Editorial situado más abajo, más a la izquierda y bastante más grande */
@@ -3336,14 +3358,19 @@ body {
     overflow: visible;
   }
 
-  .agatha-pure-img {
+  .agatha-pure-img-wrapper {
     width: 112%;
     max-width: 480px;
     min-width: 290px;
-    height: auto;
-    display: block;
     margin-left: -3.6rem; /* Desplazada hacia la izquierda pegada al borde */
     margin-bottom: 0;
+  }
+
+  .agatha-pure-img {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
     filter: drop-shadow(0 15px 35px rgba(229, 60, 255, 0.3)) drop-shadow(0 0 25px rgba(0, 180, 255, 0.25));
   }
 
