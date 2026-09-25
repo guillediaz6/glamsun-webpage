@@ -2557,14 +2557,17 @@ body {
   text-transform: uppercase;
   text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 255, 255, 0.25);
   margin-bottom: 1rem;
-  word-break: break-word;
-  overflow-wrap: break-word;
   max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   flex-wrap: wrap;
+}
+
+.contact-title-colab,
+.contact-title-contact {
+  white-space: nowrap;
 }
 
 .contact-title-connector {
@@ -3837,17 +3840,34 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.15rem;
-    padding: 0 0.2rem;
+    padding: 0;
     margin-bottom: 0.8rem;
+    width: 100%;
   }
 
-  .contact-title-colab,
+  .contact-title-colab {
+    display: block;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    font-size: clamp(1.15rem, 5.6vw, 2.05rem);
+    font-weight: 900;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 255, 255, 0.25);
+  }
+
   .contact-title-contact {
     display: block;
-    font-size: clamp(1.85rem, 8.2vw, 2.5rem);
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    font-size: clamp(1.35rem, 6.6vw, 2.3rem);
     font-weight: 900;
-    letter-spacing: 0.05em;
-    line-height: 1.1;
+    letter-spacing: 0.04em;
+    line-height: 1.15;
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 255, 255, 0.25);
@@ -3855,7 +3875,7 @@ body {
 
   .contact-title-connector {
     display: block;
-    font-size: clamp(1.15rem, 5.2vw, 1.45rem);
+    font-size: clamp(1rem, 4.8vw, 1.35rem);
     color: var(--hero-gold, #e5c365);
     font-weight: 700;
     line-height: 1;
@@ -4134,8 +4154,6 @@ body {
   text-transform: uppercase;
   margin-bottom: 1rem;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.95);
-  word-break: break-word;
-  overflow-wrap: break-word;
   max-width: 100%;
   display: flex;
   align-items: center;
