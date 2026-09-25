@@ -839,42 +839,65 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // CONTROLADOR DE VÍDEO REVIVE (ON-CLICK + SONIDO + AUTO-PAUSE)
+  // CONTROLADOR DE VÍDEOS REVIVE (ON-CLICK + SONIDO + EXCLUSIÓN MUTUA + AUTO-PAUSE)
   // =========================================================================
-  const reviveVideo = document.getElementById('revive-full-vid');
-  const revivePlayOverlay = document.getElementById('revive-play-overlay');
+  const reviveContainers = document.querySelectorAll('.revive-video-container');
+  const allReviveVideos = [];
 
-  if (reviveVideo && revivePlayOverlay) {
-    revivePlayOverlay.addEventListener('click', () => {
-      reviveVideo.muted = false;
-      reviveVideo.play().then(() => {
-        revivePlayOverlay.classList.add('is-playing');
-      }).catch(() => {
-        revivePlayOverlay.classList.add('is-playing');
+  reviveContainers.forEach((container) => {
+    const video = container.querySelector('.revive-video-element');
+    const playOverlay = container.querySelector('.revive-video-play-overlay');
+
+    if (!video) return;
+    allReviveVideos.push(video);
+
+    if (playOverlay) {
+      playOverlay.addEventListener('click', () => {
+        // Pausar cualquier otro video de Revive que esté sonando
+        allReviveVideos.forEach((otherVid) => {
+          if (otherVid !== video && !otherVid.paused) {
+            otherVid.pause();
+          }
+        });
+
+        video.muted = false;
+        video.play().then(() => {
+          playOverlay.classList.add('is-playing');
+        }).catch(() => {
+          playOverlay.classList.add('is-playing');
+        });
       });
+    }
+
+    video.addEventListener('play', () => {
+      // Pausar cualquier otro video si el usuario reproduce con controles nativos
+      allReviveVideos.forEach((otherVid) => {
+        if (otherVid !== video && !otherVid.paused) {
+          otherVid.pause();
+        }
+      });
+      if (playOverlay) {
+        playOverlay.classList.add('is-playing');
+      }
     });
 
-    reviveVideo.addEventListener('play', () => {
-      revivePlayOverlay.classList.add('is-playing');
-    });
-
-    reviveVideo.addEventListener('pause', () => {
-      if (reviveVideo.currentTime === 0 || reviveVideo.ended) {
-        revivePlayOverlay.classList.remove('is-playing');
+    video.addEventListener('pause', () => {
+      if ((video.currentTime === 0 || video.ended) && playOverlay) {
+        playOverlay.classList.remove('is-playing');
       }
     });
 
     if ('IntersectionObserver' in window) {
       const reviveObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting && !reviveVideo.paused) {
-            reviveVideo.pause();
+          if (!entry.isIntersecting && !video.paused) {
+            video.pause();
           }
         });
       }, { threshold: 0.15 });
-      reviveObserver.observe(reviveVideo);
+      reviveObserver.observe(video);
     }
-  }
+  });
 });
 
 
