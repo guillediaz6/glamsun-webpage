@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glam Sun — Exclusive Party & Event Design</title>
-  <link rel="stylesheet" href="css/styles.css?v=134">
+  <link rel="stylesheet" href="css/styles.min.css?v=135">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
@@ -36,6 +36,7 @@
     <!-- Video de fondo portada.mov -->
     <div class="video-container">
       <video id="bg-video" class="video-bg" autoplay muted loop playsinline preload="auto">
+        <source media="(max-width: 768px)" src="assets/videos/portada-mobile.mp4" type="video/mp4">
         <source src="assets/videos/portada.mp4" type="video/mp4">
         Tu navegador no soporta el formato de video.
       </video>
@@ -480,21 +481,21 @@
               
               <div class="boat-emoji-item">
                 <div class="boat-emoji-img-wrapper">
-                  <img src="assets/images/ambiente.webp" alt="Ambiente en alta mar" class="boat-emoji-img">
+                  <img src="assets/images/ambiente.webp" alt="Ambiente en alta mar" class="boat-emoji-img" loading="lazy" decoding="async">
                 </div>
                 <span class="boat-emoji-text">Ambiente en Alta Mar</span>
               </div>
 
               <div class="boat-emoji-item">
                 <div class="boat-emoji-img-wrapper">
-                  <img src="assets/images/bebidas.webp" alt="Bebidas" class="boat-emoji-img">
+                  <img src="assets/images/bebidas.webp" alt="Bebidas" class="boat-emoji-img" loading="lazy" decoding="async">
                 </div>
                 <span class="boat-emoji-text">Bebidas</span>
               </div>
 
               <div class="boat-emoji-item">
                 <div class="boat-emoji-img-wrapper">
-                  <img src="assets/images/musica.webp" alt="Música en directo" class="boat-emoji-img">
+                  <img src="assets/images/musica.webp" alt="Música en directo" class="boat-emoji-img" loading="lazy" decoding="async">
                 </div>
                 <span class="boat-emoji-text">Música en Directo</span>
               </div>
@@ -600,7 +601,7 @@
 
       <!-- Etapa de imagen fotofinal que llega hasta el final con el footer integrado superpuesto -->
       <div class="contact-bottom-bg-stage">
-        <img src="assets/images/fotofinal.webp" alt="Glam Sun Experience" class="contact-fotofinal-img">
+        <img src="assets/images/fotofinal.webp" alt="Glam Sun Experience" class="contact-fotofinal-img" loading="lazy" decoding="async">
 
         <!-- Footer Integrado Elegante con Legalidad & Redes Sociales -->
         <footer class="contact-integrated-footer" id="main-integrated-footer">
@@ -669,7 +670,7 @@
       <div class="dock-core-pill">
         <!-- Logo a la izquierda -->
         <button class="dock-brand-btn" id="dock-logo-btn" type="button" aria-label="Volver a Portada Glam Sun" title="Glam Sun">
-          <img src="assets/images/LOGO.webp" alt="Glam Sun Logo" class="dock-brand-img">
+          <img src="assets/images/LOGO.webp" alt="Glam Sun Logo" class="dock-brand-img" loading="lazy" decoding="async">
         </button>
 
         <div class="dock-inner-divider"></div>
@@ -695,7 +696,7 @@
 
         <!-- Logo Suiza a la derecha -->
         <button class="dock-brand-btn dock-suiza-btn" id="dock-suiza-btn" type="button" aria-label="Glam Sun & Suiza Partnership" title="Suiza">
-          <img src="assets/images/glamsun suiza.webp" alt="Suiza Logo" class="dock-brand-img dock-suiza-img">
+          <img src="assets/images/glamsun suiza.webp" alt="Suiza Logo" class="dock-brand-img dock-suiza-img" loading="lazy" decoding="async">
         </button>
       </div>
 
@@ -827,7 +828,7 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=v36"></script>
+  <script src="js/main.min.js?v=v37"></script>
 </body>
 </html>
 

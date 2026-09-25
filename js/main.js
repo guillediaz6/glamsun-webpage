@@ -14,8 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const epicContainer = document.querySelector('.epic-heading-container');
   const bottomDock = document.getElementById('bottom-dock');
 
-  // Asegurar que el video intente reproducirse automáticamente
+  // Asegurar que el video intente reproducirse automáticamente (con versión móvil en pantallas <= 768px)
   if (bgVideo) {
+    if (window.innerWidth <= 768) {
+      const mobileSource = bgVideo.querySelector('source[media*="768"]');
+      if (mobileSource && mobileSource.src) {
+        bgVideo.src = mobileSource.src;
+      }
+    }
     bgVideo.play().catch(() => {
       // Si el navegador bloquea autoplay, se reproducirá con la primera interacción
       document.body.addEventListener('click', () => {

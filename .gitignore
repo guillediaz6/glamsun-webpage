@@ -12,3 +12,8 @@ assets/images/*.jpeg
 !assets/images/fotofinal.jpeg
 assets/images/*.jpg
 assets/videos/*.mov
+
+# Dependencies & temporary scripts
+node_modules/
+scratch/
+
