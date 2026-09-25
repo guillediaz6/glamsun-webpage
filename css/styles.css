@@ -2142,8 +2142,9 @@ body {
   left: 14%;
   width: 14%;
   height: 18%;
-  background: radial-gradient(ellipse at center, #cca56d 0%, #c49a60 75%, #cca56d 100%);
+  background: radial-gradient(ellipse at center, #cca56d 0%, #c49a60 70%, rgba(196, 154, 96, 0.4) 85%, transparent 100%);
   border-radius: 999px;
+  filter: blur(4px);
   z-index: 1;
   pointer-events: none;
 }
@@ -2243,41 +2244,76 @@ body {
 .agatha-radio-highlight {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  background: rgba(229, 195, 101, 0.08);
-  border: 1px solid rgba(229, 195, 101, 0.35);
+  gap: 1.5rem;
+  background: linear-gradient(135deg, rgba(229, 195, 101, 0.12) 0%, rgba(20, 18, 15, 0.65) 100%);
+  border: 1px solid rgba(229, 195, 101, 0.4);
   border-left: 4px solid var(--hero-gold);
-  border-radius: 12px;
-  padding: 1.1rem 1.4rem;
-  margin: 1.4rem 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 195, 101, 0.1);
+  border-radius: 16px;
+  padding: 1.25rem 1.6rem;
+  margin: 1.8rem 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(229, 195, 101, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.agatha-radio-logos {
+.agatha-radio-highlight:hover {
+  transform: translateY(-2px);
+  border-color: rgba(229, 195, 101, 0.7);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(229, 195, 101, 0.2);
+}
+
+.agatha-radio-badges-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.9rem;
   flex-shrink: 0;
 }
 
-.radio-station-logo {
-  height: 48px;
-  width: auto;
-  max-width: 95px;
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
-  transition: transform 0.3s ease;
+.radio-station-badge {
+  background: linear-gradient(135deg, #ffffff 0%, #f6efe3 100%);
+  border: 1.5px solid rgba(229, 195, 101, 0.7);
+  border-radius: 14px;
+  padding: 0.55rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.radio-station-logo:hover {
-  transform: scale(1.06);
+.radio-station-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+  border-color: var(--hero-gold);
+  box-shadow: 0 10px 25px rgba(229, 195, 101, 0.35), inset 0 1px 2px #ffffff;
+}
+
+.radio-station-logo {
+  height: 64px;
+  width: 64px;
+  max-width: 75px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.28));
+}
+
+.agatha-radio-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.agatha-radio-badge-label {
+  font-family: var(--font-cinzel, 'Cinzel', serif);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--hero-gold);
+  text-transform: uppercase;
 }
 
 .agatha-radio-text p {
-  font-size: clamp(0.98rem, 1.3vw, 1.12rem);
+  font-size: clamp(0.98rem, 1.25vw, 1.1rem);
   color: #FFFFFF;
   line-height: 1.55;
   margin: 0;
@@ -3447,18 +3483,27 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.9rem;
-    padding: 1.1rem 1.2rem;
+    gap: 1.1rem;
+    padding: 1.2rem 1.2rem;
   }
 
-  .agatha-radio-logos {
+  .agatha-radio-badges-wrapper {
     justify-content: center;
     gap: 1rem;
   }
 
+  .radio-station-badge {
+    padding: 0.5rem 0.75rem;
+  }
+
   .radio-station-logo {
-    height: 42px;
-    max-width: 85px;
+    height: 56px;
+    width: 56px;
+  }
+
+  .agatha-radio-text {
+    align-items: center;
+    text-align: center;
   }
 
   .btn-agatha-pure-cta {
