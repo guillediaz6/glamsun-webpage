@@ -2142,9 +2142,8 @@ body {
   left: 14%;
   width: 14%;
   height: 18%;
-  background: radial-gradient(ellipse at center, #cca56d 0%, #c49a60 70%, rgba(196, 154, 96, 0.4) 85%, transparent 100%);
+  background: radial-gradient(ellipse at center, #cca56d 0%, #c49a60 75%, #cca56d 100%);
   border-radius: 999px;
-  filter: blur(4px);
   z-index: 1;
   pointer-events: none;
 }
@@ -2240,35 +2239,51 @@ body {
   font-weight: 600;
 }
 
-/* Destacado Pure Ibiza Radio */
+/* Destacado Pure Ibiza Radio & Activa Hits */
 .agatha-radio-highlight {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
   background: rgba(229, 195, 101, 0.08);
   border: 1px solid rgba(229, 195, 101, 0.35);
   border-left: 4px solid var(--hero-gold);
   border-radius: 12px;
-  padding: 1rem 1.4rem;
+  padding: 1.1rem 1.4rem;
   margin: 1.4rem 0;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 195, 101, 0.1);
 }
 
-.agatha-radio-highlight .radio-icon {
-  font-size: 1.5rem;
+.agatha-radio-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
   flex-shrink: 0;
 }
 
-.agatha-radio-highlight p {
+.radio-station-logo {
+  height: 48px;
+  width: auto;
+  max-width: 95px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.radio-station-logo:hover {
+  transform: scale(1.06);
+}
+
+.agatha-radio-text p {
   font-size: clamp(0.98rem, 1.3vw, 1.12rem);
   color: #FFFFFF;
   line-height: 1.55;
   margin: 0;
 }
 
-.agatha-radio-highlight strong {
+.agatha-radio-text strong {
   color: var(--hero-gold);
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -3426,6 +3441,24 @@ body {
     font-size: 1.05rem;
     line-height: 1.65;
     text-align: center;
+  }
+
+  .agatha-radio-highlight {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.9rem;
+    padding: 1.1rem 1.2rem;
+  }
+
+  .agatha-radio-logos {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .radio-station-logo {
+    height: 42px;
+    max-width: 85px;
   }
 
   .btn-agatha-pure-cta {
