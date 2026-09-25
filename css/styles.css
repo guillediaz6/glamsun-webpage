@@ -175,7 +175,7 @@ body {
   height: 100%;
   object-fit: cover;
   transform: scale(1.02);
-  filter: brightness(0.8) contrast(1.1);
+  filter: brightness(0.92) contrast(1.05);
   background-color: #08080c;
 }
 
@@ -185,8 +185,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.78) 100%),
-              linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 40%, rgba(0,0,0,0.75) 100%);
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.45) 100%),
+              linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 40%, rgba(0,0,0,0.55) 100%);
   pointer-events: none;
 }
 
@@ -278,42 +278,20 @@ body {
   box-shadow: 0 0 25px rgba(229, 195, 101, 0.65);
 }
 
-/* Caja de Cristal Borrosa (Glassmorphism) */
+/* Contenedor de Textos e Imágenes sobre el Vídeo (Sin fondo ni desenfoque para ver el vídeo 100% nítido) */
 .glass-box {
   flex: 1;
-  background: var(--hero-glass-bg);
-  backdrop-filter: blur(36px) saturate(200%);
-  -webkit-backdrop-filter: blur(36px) saturate(200%);
-  border: 1px solid var(--hero-glass-border);
-  border-radius: 32px;
-  padding: 3rem 2.8rem;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-radius: 0;
+  padding: 1rem 0;
   text-align: center;
-  box-shadow: var(--hero-glass-shadow);
+  box-shadow: none;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   animation: fadeInUp 1s ease-out;
-}
-
-.glass-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 200%;
-  height: 100%;
-  background: linear-gradient(
-    60deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 65%
-  );
-  pointer-events: none;
-  animation: shine 9s infinite;
-}
-
-@keyframes shine {
-  0% { transform: translateX(-100%); }
-  45%, 100% { transform: translateX(100%); }
 }
 
 .hero-brand-logos-row {
@@ -412,6 +390,7 @@ body {
   letter-spacing: 0.16em;
   color: rgba(255, 255, 255, 0.95);
   text-transform: uppercase;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.95);
 }
 
 .statement-line2 {
@@ -437,6 +416,7 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.95);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -3140,8 +3120,8 @@ body {
   }
 
   .glass-box {
-    padding: 2.1rem 1.8rem 2rem 1.8rem;
-    border-radius: 28px;
+    padding: 0.8rem 0;
+    border-radius: 0;
   }
 
   .hero-brand-logos-row {
@@ -3247,9 +3227,14 @@ body {
   }
 
   .glass-box {
-    padding: 2.2rem 1.4rem 2rem 1.4rem;
-    border-radius: 26px;
+    padding: 0.5rem 0;
+    border-radius: 0;
     width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
   }
 
   .hero-brand-logos-row {
