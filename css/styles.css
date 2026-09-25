@@ -593,31 +593,6 @@ body {
   transform: translateX(4px);
 }
 
-/* Botón de Sonido */
-.sound-toggle-btn {
-  position: absolute;
-  bottom: 2rem;
-  right: 2.5rem;
-  z-index: 30;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.sound-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
 /* ==========================================================================
    ==========================================================================
    PÁGINA WEB (#main-page) — SIN HEADER, FLUJO VISUAL CONTINUO

@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const brandHomeLink = document.getElementById('brand-home-link');
   const bgVideo = document.getElementById('bg-video');
-  const soundToggle = document.getElementById('sound-toggle');
-  const soundIconMuted = document.getElementById('sound-icon-muted');
-  const soundIconUnmuted = document.getElementById('sound-icon-unmuted');
   const epicContainer = document.querySelector('.epic-heading-container');
   const bottomDock = document.getElementById('bottom-dock');
 
@@ -297,21 +294,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
-
-  // Control de sonido para el video de fondo
-  if (soundToggle && bgVideo) {
-    soundToggle.addEventListener('click', () => {
-      if (bgVideo.muted) {
-        bgVideo.muted = false;
-        soundIconMuted.style.display = 'none';
-        soundIconUnmuted.style.display = 'block';
-      } else {
-        bgVideo.muted = true;
-        soundIconMuted.style.display = 'block';
-        soundIconUnmuted.style.display = 'none';
-      }
-    });
-  }
 
   // =========================================================================
   // MENÚ FLOTANTE INFERIOR (BOTTOM DOCK) INTERACTIVO
