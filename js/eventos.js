@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     eventCards.forEach((card, index) => {
       if (index >= startIndex && index < endIndex) {
-        card.style.display = 'grid';
+        card.style.display = '';
         card.classList.remove('event-card-fade-in');
         void card.offsetWidth; // trigger reflow for smooth animation
         card.classList.add('event-card-fade-in');
