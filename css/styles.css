@@ -75,6 +75,25 @@ body {
   user-select: none;
 }
 
+.ticker-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.ticker-link:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-link:hover .ticker-item .badge {
+  background: rgba(229, 195, 101, 0.35);
+  border-color: var(--hero-gold);
+  color: #FFFFFF;
+}
+
 .ticker-track {
   display: flex;
   width: max-content;

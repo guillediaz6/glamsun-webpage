@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.min.css?v=145">
+  <link rel="stylesheet" href="css/styles.min.css?v=146">
 
   <!-- Datos Estructurados Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -84,22 +84,24 @@
        1. PANTALLA DE PORTADA CON VIDEO FULLSCREEN, FRANJA ANIMADA & BOX GLASS
        ========================================================================= -->
   <section id="hero-section">
-    <!-- Franja superior en movimiento lateral: Fecha y Nombre del evento más próximo -->
+    <!-- Franja superior en movimiento lateral: Vinculada dinámicamente al próximo evento -->
     <header class="top-ticker" aria-label="Próximo Evento Glam Sun">
-      <div class="ticker-track">
-        <div class="ticker-content">
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
+      <a href="eventos.html#evento-3-octubre" class="ticker-link" id="hero-ticker-link" aria-label="Ver próximo evento exclusivo">
+        <div class="ticker-track">
+          <div class="ticker-content" id="ticker-content-1">
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+          </div>
+          <div class="ticker-content" id="ticker-content-2" aria-hidden="true">
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+            <span class="ticker-item"><span class="badge">03 OCTUBRE</span> SWISS ART EXPO EXPERIENCE · ZÜRICH <span class="dot"></span></span>
+          </div>
         </div>
-        <div class="ticker-content" aria-hidden="true">
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
-          <span class="ticker-item"><span class="badge">26 SEPTIEMBRE</span> IBIZA VIBES WORLDWIDE <span class="dot"></span></span>
-        </div>
-      </div>
+      </a>
     </header>
 
     <!-- Video de fondo portada.mov -->
@@ -924,7 +926,7 @@
     </div>
   </div>
 
-  <script src="js/main.min.js?v=v40"></script>
+  <script src="js/main.min.js?v=v41"></script>
 </body>
 </html>
 

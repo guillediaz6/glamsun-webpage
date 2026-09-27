@@ -396,52 +396,9 @@ body {
   position: relative;
 }
 
-@media (min-width: 769px) {
-  .btn-expand-text {
-    display: none !important;
-  }
-  .event-card-desc {
-    max-height: none !important;
-    overflow: visible !important;
-  }
-}
-
-/* Botón + para expandir el texto si es largo */
+/* Eliminado 'Ver más' en móvil y en todas las resoluciones: texto siempre visible */
 .btn-expand-text {
-  background: rgba(229, 195, 101, 0.12);
-  border: 1px solid rgba(197, 160, 89, 0.4);
-  color: var(--gold-bright);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-top: 0.7rem;
-  transition: var(--transition);
-  user-select: none;
-}
-
-.btn-expand-text:hover {
-  background: rgba(229, 195, 101, 0.25);
-  border-color: var(--gold-bright);
-  color: #FFFFFF;
-}
-
-.expand-icon {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-
-.event-item-card.is-expanded .expand-icon {
-  transform: rotate(45deg);
+  display: none !important;
 }
 
 /* Botón de Acción */
@@ -763,15 +720,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
-  margin: 2.5rem auto 1rem auto;
+  gap: 1rem;
+  margin: 2.5rem auto 1.5rem auto;
+  width: 100%;
   max-width: 900px;
   padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .pagination-numbers-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   background: rgba(16, 14, 20, 0.75);
   backdrop-filter: blur(20px);
@@ -827,6 +787,7 @@ body {
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .btn-pagination-nav:hover:not(:disabled) {
@@ -855,6 +816,7 @@ body {
   padding: 0.55rem 1.4rem;
   border-radius: 999px;
   backdrop-filter: blur(15px);
+  text-align: center;
 }
 
 .event-card-fade-in {
@@ -869,5 +831,70 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   PAGINACIÓN RESPONSIVE: PERFECTAMENTE CENTRADA EN MÓVIL
+   ========================================================================== */
+@media (max-width: 768px) {
+  .events-showcase-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 2.2rem;
+  }
+
+  .events-pagination-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem auto 1rem auto;
+    padding: 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .pagination-numbers-wrapper {
+    gap: 0.35rem;
+    padding: 0.25rem 0.45rem;
+  }
+
+  .btn-pagination-num {
+    width: 35px;
+    height: 35px;
+    font-size: 0.82rem;
+  }
+
+  .btn-pagination-nav {
+    padding: 0.52rem 0.95rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+@media (max-width: 440px) {
+  .events-pagination-container {
+    gap: 0.35rem;
+    padding: 0;
+  }
+
+  .btn-pagination-nav {
+    padding: 0.45rem 0.72rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-pagination-num {
+    width: 31px;
+    height: 31px;
+    font-size: 0.75rem;
+  }
+
+  .pagination-numbers-wrapper {
+    gap: 0.25rem;
+    padding: 0.2rem 0.35rem;
   }
 }

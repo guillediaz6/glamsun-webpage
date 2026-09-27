@@ -11,6 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const epicContainer = document.querySelector('.epic-heading-container');
   const bottomDock = document.getElementById('bottom-dock');
 
+  // Actualización automática y dinámica del ticker de portada con el PRÓXIMO EVENTO
+  const upcomingEventsSchedule = [
+    { date: '2026-10-03', badge: '03 OCTUBRE', title: 'SWISS ART EXPO EXPERIENCE · ZÜRICH', hash: '#evento-3-octubre' },
+    { date: '2026-11-07', badge: '07 NOVIEMBRE', title: 'WINTER PRIDE MASPALOMAS · CARPA PINK LIPS', hash: '#evento-7-noviembre' }
+  ];
+
+  try {
+    const todayStr = new Date().toISOString().split('T')[0];
+    const nextEvent = upcomingEventsSchedule.find(ev => ev.date >= todayStr) || upcomingEventsSchedule[upcomingEventsSchedule.length - 1];
+
+    if (nextEvent) {
+      const tickerLink = document.getElementById('hero-ticker-link');
+      if (tickerLink) {
+        tickerLink.href = `eventos.html${nextEvent.hash}`;
+      }
+      const ticker1 = document.getElementById('ticker-content-1');
+      const ticker2 = document.getElementById('ticker-content-2');
+      const itemHTML = `<span class="ticker-item"><span class="badge">${nextEvent.badge}</span> ${nextEvent.title} <span class="dot"></span></span>`;
+      const fullContentHTML = itemHTML.repeat(4);
+      if (ticker1) ticker1.innerHTML = fullContentHTML;
+      if (ticker2) ticker2.innerHTML = fullContentHTML;
+    }
+  } catch (e) {
+    // Si ocurre un error, se mantiene el contenido por defecto del HTML
+  }
+
   // Asegurar que el video intente reproducirse automáticamente (con versión móvil en pantallas <= 768px)
   if (bgVideo) {
     if (window.innerWidth <= 768) {
