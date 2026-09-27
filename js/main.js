@@ -938,15 +938,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const radioData = {
     pureibiza: {
       img: 'assets/images/radio-pureibiza.webp',
-      title: 'Pure Ibiza Radio',
+      title: 'Pure Ibiza Radio (97.2 FM)',
       schedule: 'Lunes a las 22:00 h (hora local de Ibiza)',
-      desc: 'Emisora referente internacional en música electrónica desde Ibiza (97.2 FM). Radio Show exclusivo con Agatha Sun cada lunes.'
+      desc: 'Agatha Sun Radio Show · Every Monday 22:00 to 23:00 (97.2 FM) · pureibizaradio.com'
     },
     activahits: {
       img: 'assets/images/radio-activahits.webp',
       title: 'Activa Hits Radio',
       schedule: 'Sábados a las 22:00 h (hora local)',
-      desc: 'Las mejores tendencias de Tech House, House y Underground en el Radio Show oficial de Agatha Sun cada sábado.'
+      desc: 'Agatha Sun Radio Show · Glam Sun · activahitsradio.es'
     }
   };
 
