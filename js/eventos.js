@@ -142,11 +142,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     eventCards.forEach((card, index) => {
       if (index >= startIndex && index < endIndex) {
+        card.classList.remove('is-hidden');
+        card.removeAttribute('hidden');
         card.style.display = '';
         card.classList.remove('event-card-fade-in');
         void card.offsetWidth; // trigger reflow for smooth animation
         card.classList.add('event-card-fade-in');
       } else {
+        card.classList.add('is-hidden');
+        card.setAttribute('hidden', 'true');
         card.style.display = 'none';
         card.classList.remove('event-card-fade-in');
       }

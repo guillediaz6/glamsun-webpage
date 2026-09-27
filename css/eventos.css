@@ -275,6 +275,11 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65);
 }
 
+.event-item-card.is-hidden,
+.event-item-card[hidden] {
+  display: none !important;
+}
+
 .event-item-card:hover {
   border-color: rgba(229, 195, 101, 0.7);
   transform: translateY(-5px);
@@ -659,10 +664,10 @@ body {
    ========================================================================== */
 @media (max-width: 960px) {
   .event-item-card {
-    display: flex !important;
-    flex-direction: column !important;
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    width: 100%;
     overflow: hidden;
   }
 
