@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.min.css?v=146">
+  <link rel="stylesheet" href="css/styles.min.css?v=147">
 
   <!-- Datos Estructurados Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -392,16 +392,31 @@
 
                 <div class="agatha-radio-highlight">
                   <div class="agatha-radio-badges-wrapper">
-                    <div class="radio-station-badge" title="Pure Ibiza Radio">
+                    <button type="button" class="radio-station-badge" data-radio="pureibiza" title="Ver Pure Ibiza Radio" aria-label="Abrir imagen de Pure Ibiza Radio">
+                      <span class="radio-badge-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                      </span>
                       <img src="assets/images/pureibiza.webp" alt="Pure Ibiza Radio" class="radio-station-logo" loading="lazy">
-                    </div>
-                    <div class="radio-station-badge" title="Activa Hits Radio">
+                      <span class="radio-click-label">Ver ↗</span>
+                    </button>
+
+                    <button type="button" class="radio-station-badge" data-radio="activahits" title="Ver Activa Hits Radio" aria-label="Abrir imagen de Activa Hits Radio">
+                      <span class="radio-badge-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="7" y1="17" x2="17" y2="7"></line>
+                          <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                      </span>
                       <img src="assets/images/activahits.webp" alt="Activa Hits Radio" class="radio-station-logo" loading="lazy">
-                    </div>
+                      <span class="radio-click-label">Ver ↗</span>
+                    </button>
                   </div>
                   <div class="agatha-radio-text">
                     <span class="agatha-radio-badge-label">✦ EMISORAS RESIDENTES ✦</span>
-                    <p>Soy residente de <strong>PURE IBIZA RADIO</strong> y <strong>ACTIVA HITS</strong>, donde cada lunes a las 22:00 h presento mi propio Radio Show.</p>
+                    <p>Soy residente de <strong>PURE IBIZA RADIO</strong> los <strong>lunes a las 22:00 h</strong> (hora local de Ibiza) y en <strong>ACTIVA HITS</strong> los <strong>sábados a las 22:00 h</strong> (hora local).</p>
                   </div>
                 </div>
 
@@ -926,7 +941,24 @@
     </div>
   </div>
 
-  <script src="js/main.min.js?v=v41"></script>
+  <!-- Modal Lightbox para Emisoras de Radio -->
+  <div id="modal-radio-lightbox" class="radio-lightbox-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="radio-lightbox-backdrop" id="radio-lightbox-backdrop"></div>
+    <div class="radio-lightbox-card">
+      <button type="button" class="radio-lightbox-close" id="radio-lightbox-close" aria-label="Cerrar modal">✕</button>
+      <div class="radio-lightbox-img-wrapper">
+        <img id="radio-lightbox-img" src="assets/images/pureibiza.webp" alt="Emisora de Radio" class="radio-lightbox-img">
+      </div>
+      <div class="radio-lightbox-info">
+        <span class="radio-lightbox-pill" id="radio-lightbox-pill">EMISORA RESIDENTE</span>
+        <h3 class="radio-lightbox-title" id="radio-lightbox-title">Pure Ibiza Radio</h3>
+        <p class="radio-lightbox-schedule" id="radio-lightbox-schedule">Lunes a las 22:00 h (hora local de Ibiza)</p>
+        <p class="radio-lightbox-desc" id="radio-lightbox-desc">Sesión semanal exclusiva conducida por Agatha Sun con lo mejor del Tech House, Deep y Melodic.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.min.js?v=v42"></script>
 </body>
 </html>
 

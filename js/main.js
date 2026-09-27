@@ -924,6 +924,68 @@ document.addEventListener('DOMContentLoaded', () => {
       reviveObserver.observe(video);
     }
   });
+
+  // Lightbox Modal para Emisoras de Radio (Pure Ibiza Radio & Activa Hits)
+  const radioModal = document.getElementById('modal-radio-lightbox');
+  const radioModalClose = document.getElementById('radio-lightbox-close');
+  const radioModalBackdrop = document.getElementById('radio-lightbox-backdrop');
+  const radioModalImg = document.getElementById('radio-lightbox-img');
+  const radioModalTitle = document.getElementById('radio-lightbox-title');
+  const radioModalSchedule = document.getElementById('radio-lightbox-schedule');
+  const radioModalDesc = document.getElementById('radio-lightbox-desc');
+  const radioButtons = document.querySelectorAll('.radio-station-badge');
+
+  const radioData = {
+    pureibiza: {
+      img: 'assets/images/pureibiza.webp',
+      title: 'Pure Ibiza Radio',
+      schedule: 'Lunes a las 22:00 h (hora local de Ibiza)',
+      desc: 'Emisora referente internacional en música electrónica desde Ibiza. Sesión exclusiva semanal con Agatha Sun.'
+    },
+    activahits: {
+      img: 'assets/images/activahits.webp',
+      title: 'Activa Hits Radio',
+      schedule: 'Sábados a las 22:00 h (hora local)',
+      desc: 'Las mejores tendencias de Tech House, House y Underground en el Radio Show de Agatha Sun cada sábado.'
+    }
+  };
+
+  function openRadioModal(radioKey) {
+    if (!radioModal) return;
+    const data = radioData[radioKey] || radioData.pureibiza;
+    if (radioModalImg) {
+      radioModalImg.src = data.img;
+      radioModalImg.alt = data.title;
+    }
+    if (radioModalTitle) radioModalTitle.textContent = data.title;
+    if (radioModalSchedule) radioModalSchedule.textContent = data.schedule;
+    if (radioModalDesc) radioModalDesc.textContent = data.desc;
+
+    radioModal.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeRadioModal() {
+    if (!radioModal) return;
+    radioModal.classList.remove('is-active');
+    document.body.style.overflow = '';
+  }
+
+  radioButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const radioKey = btn.getAttribute('data-radio');
+      openRadioModal(radioKey);
+    });
+  });
+
+  if (radioModalClose) radioModalClose.addEventListener('click', closeRadioModal);
+  if (radioModalBackdrop) radioModalBackdrop.addEventListener('click', closeRadioModal);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && radioModal && radioModal.classList.contains('is-active')) {
+      closeRadioModal();
+    }
+  });
 });
 
 
