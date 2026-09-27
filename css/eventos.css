@@ -344,6 +344,11 @@ body {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
+.event-date-pill.past-badge {
+  color: #A39B8B;
+  opacity: 0.85;
+}
+
 .event-status-pill {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
