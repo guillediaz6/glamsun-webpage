@@ -89,29 +89,39 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 4. SISTEMA DE PAGINACIÓN DINÁMICA (6 EVENTOS POR PÁGINA)
+  // 4. SISTEMA DE PAGINACIÓN DINÁMICA & ORDENACIÓN CRONOLÓGICA AUTOMÁTICA
   // =========================================================================
   const EVENTS_PER_PAGE = 6;
-  const eventCards = Array.from(document.querySelectorAll('.event-item-card'));
+  const rawCards = Array.from(document.querySelectorAll('.event-item-card'));
   const paginationContainer = document.getElementById('events-pagination');
+  const showcaseContainer = document.querySelector('.events-showcase-container');
 
-  // Detección automática del próximo evento en la lista según la fecha de hoy
+  // Fecha de hoy en formato YYYY-MM-DD
   const todayStr = new Date().toISOString().split('T')[0];
-  let upcomingCard = null;
-  let minDiff = Infinity;
 
-  eventCards.forEach(card => {
-    const cardDate = card.getAttribute('data-date');
-    if (cardDate && cardDate >= todayStr) {
-      const diff = new Date(cardDate) - new Date(todayStr);
-      if (diff < minDiff) {
-        minDiff = diff;
-        upcomingCard = card;
-      }
-    }
-  });
+  // Ordenación cronológica inteligente:
+  // 1. Próximos eventos (cardDate >= todayStr): ordenados de más cercano a más lejano (ascendente)
+  // 2. Eventos pasados (cardDate < todayStr): ordenados de más reciente a más antiguo (descendente)
+  const upcomingCards = rawCards
+    .filter(c => (c.getAttribute('data-date') || '') >= todayStr)
+    .sort((a, b) => (a.getAttribute('data-date') || '').localeCompare(b.getAttribute('data-date') || ''));
 
-  if (upcomingCard) {
+  const pastCards = rawCards
+    .filter(c => (c.getAttribute('data-date') || '') < todayStr)
+    .sort((a, b) => (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || ''));
+
+  const eventCards = [...upcomingCards, ...pastCards];
+
+  // Reorganizar en el contenedor del DOM
+  if (showcaseContainer && paginationContainer) {
+    eventCards.forEach(card => {
+      showcaseContainer.insertBefore(card, paginationContainer);
+    });
+  }
+
+  // Marcar automáticamente el PRÓXIMO EVENTO si existe
+  if (upcomingCards.length > 0) {
+    const upcomingCard = upcomingCards[0];
     const badgeRow = upcomingCard.querySelector('.event-meta-badge-row');
     if (badgeRow && !badgeRow.querySelector('.event-status-pill.next-up')) {
       const nextUpPill = document.createElement('span');
