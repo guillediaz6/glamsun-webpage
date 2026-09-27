@@ -1,0 +1,21 @@
+{
+  "name": "Glam Sun — Exclusive Party & Event Design",
+  "short_name": "Glam Sun",
+  "description": "Organizador de eventos exclusivos de música electrónica en Gran Canaria, Ibiza y Zürich.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08080a",
+  "theme_color": "#08080a",
+  "icons": [
+    {
+      "src": "/assets/images/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

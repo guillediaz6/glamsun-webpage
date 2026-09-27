@@ -8,6 +8,7 @@ assets/images/*.png
 !assets/images/ambiente.png
 !assets/images/bebidas.png
 !assets/images/musica.png
+!assets/images/favicon-*.png
 assets/images/*.jpeg
 !assets/images/fotofinal.jpeg
 assets/images/*.jpg

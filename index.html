@@ -3,11 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glam Sun — Exclusive Party & Event Design</title>
-  <link rel="stylesheet" href="css/styles.min.css?v=144">
+  <title>Glam Sun — Organizador de Eventos DJ & Música Electrónica</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Glam Sun — Organizador de eventos exclusivos y sesiones de música electrónica, tech house y melodic house con Agatha Sun DJ en Gran Canaria, Ibiza y Zürich.">
+  <meta name="keywords" content="organizador de eventos dj, musica tecno, musica electronica, Gran Canaria, tech house Ibiza, boat party Ibiza, Agatha Sun DJ, eventos Las Palmas, fiestas exclusivas Zurich, Glam Sun">
+  <meta name="author" content="Glam Sun">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://glamsun.com/">
+  <meta name="theme-color" content="#08080a">
+
+  <!-- Favicons & App Icons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Open Graph / Facebook / WhatsApp / Instagram -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Glam Sun">
+  <meta property="og:title" content="Glam Sun — Organizador de Eventos DJ & Música Electrónica">
+  <meta property="og:description" content="Eventos exclusivos de música electrónica, tech house y fiestas VIP en Gran Canaria, Ibiza y Zürich con Agatha Sun DJ.">
+  <meta property="og:url" content="https://glamsun.com/">
+  <meta property="og:image" content="https://glamsun.com/assets/images/LOGO.webp">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Glam Sun — Organizador de Eventos DJ & Música Electrónica">
+  <meta name="twitter:description" content="Eventos exclusivos y sesiones de música electrónica con Agatha Sun DJ en Gran Canaria, Ibiza y Zürich.">
+  <meta name="twitter:image" content="https://glamsun.com/assets/images/LOGO.webp">
+
+  <!-- Google Fonts Optimizadas (Eliminadas fuentes no usadas: Antonio, Bebas Neue, Teko) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Bebas+Neue&family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Teko:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.min.css?v=145">
+
+  <!-- Datos Estructurados Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Glam Sun",
+    "alternateName": "Glam Sun Experience",
+    "url": "https://glamsun.com",
+    "logo": "https://glamsun.com/assets/images/LOGO.webp",
+    "description": "Organizador de eventos exclusivos y fiestas de música electrónica, tech house y boat party en Gran Canaria, Ibiza y Zürich.",
+    "sameAs": [
+      "https://instagram.com/dj.agatha.sun",
+      "https://tiktok.com/@agatha.s91",
+      "https://facebook.com/dj.agatha.sun"
+    ],
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Gran Canaria"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Ibiza"
+      },
+      {
+        "@type": "City",
+        "name": "Zürich"
+      }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Agatha Sun",
+      "jobTitle": "DJ & Event Designer",
+      "sameAs": "https://instagram.com/dj.agatha.sun"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -35,7 +104,7 @@
 
     <!-- Video de fondo portada.mov -->
     <div class="video-container">
-      <video id="bg-video" class="video-bg" autoplay muted loop playsinline preload="auto">
+      <video id="bg-video" class="video-bg" autoplay muted loop playsinline preload="none" poster="assets/images/foto1.webp">
         <source media="(max-width: 768px)" src="assets/videos/portada-mobile.mp4" type="video/mp4">
         <source src="assets/videos/portada.mp4" type="video/mp4">
         Tu navegador no soporta el formato de video.
