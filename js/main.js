@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Actualización automática y dinámica del ticker de portada con el PRÓXIMO EVENTO
   const upcomingEventsSchedule = [
     { date: '2026-10-03', badge: '03 OCTUBRE', title: 'SWISS ART EXPO EXPERIENCE · ZÜRICH', hash: '#evento-3-octubre' },
+    { date: '2026-10-24', badge: '24 OCTUBRE', title: 'SUNSET BOAT PARTY · SUR DE GRAN CANARIA', hash: '#evento-24-octubre' },
     { date: '2026-11-07', badge: '07 NOVIEMBRE', title: 'WINTER PRIDE MASPALOMAS · CARPA PINK LIPS', hash: '#evento-7-noviembre' }
   ];
 
