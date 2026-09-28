@@ -99,10 +99,31 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fecha de hoy en formato YYYY-MM-DD
   const todayStr = new Date().toISOString().split('T')[0];
 
-  // Ordenación cronológica estricta (de la fecha más futura/nueva a la más antigua)
-  const eventCards = rawCards.sort((a, b) => 
-    (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || '')
-  );
+  // 1. Detectar el evento más próximo a la fecha actual (>= todayStr, ascendente)
+  const upcomingFuture = rawCards
+    .filter(c => (c.getAttribute('data-date') || '') >= todayStr)
+    .sort((a, b) => (a.getAttribute('data-date') || '').localeCompare(b.getAttribute('data-date') || ''));
+
+  let nextEventCard = null;
+  let otherCards = [];
+
+  if (upcomingFuture.length > 0) {
+    // El evento más próximo va siempre el primero de todos
+    nextEventCard = upcomingFuture[0];
+
+    // Los demás eventos van en orden cronológico descendente (de más nuevo/futuro a más antiguo)
+    otherCards = rawCards
+      .filter(c => c !== nextEventCard)
+      .sort((a, b) => (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || ''));
+  } else {
+    // Si no quedan futuros, todos se ordenan en orden descendente
+    otherCards = rawCards.sort((a, b) => 
+      (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || '')
+    );
+  }
+
+  // Lista final para la paginación y el DOM:
+  const eventCards = nextEventCard ? [nextEventCard, ...otherCards] : otherCards;
 
   // Reorganizar en el contenedor del DOM
   if (showcaseContainer && paginationContainer) {
@@ -111,10 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Marcar automáticamente el PRÓXIMO EVENTO si existe
-  if (upcomingCards.length > 0) {
-    const upcomingCard = upcomingCards[0];
-    const badgeRow = upcomingCard.querySelector('.event-meta-badge-row');
+  // Marcar automáticamente el PRÓXIMO EVENTO con la etiqueta morada
+  if (nextEventCard) {
+    const badgeRow = nextEventCard.querySelector('.event-meta-badge-row');
     if (badgeRow && !badgeRow.querySelector('.event-status-pill.next-up')) {
       const nextUpPill = document.createElement('span');
       nextUpPill.className = 'event-status-pill next-up';
