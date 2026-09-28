@@ -99,18 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fecha de hoy en formato YYYY-MM-DD
   const todayStr = new Date().toISOString().split('T')[0];
 
-  // Ordenación cronológica inteligente:
-  // 1. Próximos eventos (cardDate >= todayStr): ordenados de más cercano a más lejano (ascendente)
-  // 2. Eventos pasados (cardDate < todayStr): ordenados de más reciente a más antiguo (descendente)
-  const upcomingCards = rawCards
-    .filter(c => (c.getAttribute('data-date') || '') >= todayStr)
-    .sort((a, b) => (a.getAttribute('data-date') || '').localeCompare(b.getAttribute('data-date') || ''));
-
-  const pastCards = rawCards
-    .filter(c => (c.getAttribute('data-date') || '') < todayStr)
-    .sort((a, b) => (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || ''));
-
-  const eventCards = [...upcomingCards, ...pastCards];
+  // Ordenación cronológica estricta (de la fecha más futura/nueva a la más antigua)
+  const eventCards = rawCards.sort((a, b) => 
+    (b.getAttribute('data-date') || '').localeCompare(a.getAttribute('data-date') || '')
+  );
 
   // Reorganizar en el contenedor del DOM
   if (showcaseContainer && paginationContainer) {
