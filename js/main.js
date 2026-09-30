@@ -948,6 +948,12 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Activa Hits Radio',
       schedule: 'Sábados a las 22:00 h (hora local)',
       desc: 'Agatha Sun Radio Show · Glam Sun · activahitsradio.es'
+    },
+    radiotop21: {
+      img: 'assets/images/radio-top21.webp',
+      title: 'Radio Top 21',
+      schedule: 'Viernes de 20:00 h a 22:00 h (Programa en directo)',
+      desc: 'Residente en Radio Top 21 los viernes en directo de 20:00 h a 22:00 h. A partir del 21 de octubre, DJ Set con Deep House, Techno, Funk & House y mucho más.'
     }
   };
 
