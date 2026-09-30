@@ -4365,6 +4365,21 @@ body {
   padding-top: 6rem;
 }
 
+/* En monitores / pantallas de PC, desplaza el título, representante y formulario más abajo para un scroll fluido */
+@media (min-width: 901px) {
+  .contact-reveal-section {
+    padding-top: clamp(12.5rem, 21vh, 18.5rem);
+  }
+  .contact-content-container {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
+  .contact-header-block {
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
+  }
+}
+
 .contact-ambient-bg {
   position: absolute;
   inset: 0;
