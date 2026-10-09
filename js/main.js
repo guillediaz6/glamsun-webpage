@@ -12,7 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const bottomDock = document.getElementById('bottom-dock');
 
   // Actualización automática y dinámica del ticker de portada con el PRÓXIMO EVENTO
-  const upcomingEventsSchedule = [
+  const isEn = document.documentElement.lang === 'en';
+  const upcomingEventsSchedule = isEn ? [
+    { date: '2026-10-03', badge: '03 OCTOBER', title: 'SWISS ART EXPO EXPERIENCE · ZÜRICH', hash: '#evento-3-octubre' },
+    { date: '2026-10-24', badge: '24 OCTOBER', title: 'SUNSET BOAT PARTY · SOUTH OF GRAN CANARIA', hash: '#evento-24-octubre' },
+    { date: '2026-11-07', badge: '07 NOVEMBER', title: 'WINTER PRIDE MASPALOMAS · PINK LIPS TENT', hash: '#evento-7-noviembre' }
+  ] : [
     { date: '2026-10-03', badge: '03 OCTUBRE', title: 'SWISS ART EXPO EXPERIENCE · ZÜRICH', hash: '#evento-3-octubre' },
     { date: '2026-10-24', badge: '24 OCTUBRE', title: 'SUNSET BOAT PARTY · SUR DE GRAN CANARIA', hash: '#evento-24-octubre' },
     { date: '2026-11-07', badge: '07 NOVIEMBRE', title: 'WINTER PRIDE MASPALOMAS · CARPA PINK LIPS', hash: '#evento-7-noviembre' }
@@ -747,31 +752,31 @@ document.addEventListener('DOMContentLoaded', () => {
       const phoneClean = phoneInput ? phoneInput.value.replace(/\D/g, '') : '';
 
       if (!nameInput || !nameInput.value.trim()) {
-        showStatus('Por favor, introduce tu nombre completo.', 'error');
+        showStatus(isEn ? 'Please enter your full name.' : 'Por favor, introduce tu nombre completo.', 'error');
         nameInput.focus();
         return;
       }
 
       if (!emailInput || !emailRegex.test(emailInput.value.trim())) {
-        showStatus('Por favor, introduce un correo electrónico válido.', 'error');
+        showStatus(isEn ? 'Please enter a valid email address.' : 'Por favor, introduce un correo electrónico válido.', 'error');
         emailInput.focus();
         return;
       }
 
       if (!phoneInput || phoneClean.length < 7) {
-        showStatus('Por favor, introduce un número de teléfono o WhatsApp válido.', 'error');
+        showStatus(isEn ? 'Please enter a valid phone or WhatsApp number.' : 'Por favor, introduce un número de teléfono o WhatsApp válido.', 'error');
         phoneInput.focus();
         return;
       }
 
       if (!messageInput || !messageInput.value.trim()) {
-        showStatus('Por favor, incluye un mensaje o detalle de tu reserva.', 'error');
+        showStatus(isEn ? 'Please include a message or booking details.' : 'Por favor, incluye un mensaje o detalle de tu reserva.', 'error');
         messageInput.focus();
         return;
       }
 
       if (!termsInput || !termsInput.checked) {
-        showStatus('Debes aceptar los Términos y Condiciones para enviar la solicitud.', 'error');
+        showStatus(isEn ? 'You must accept the Privacy Policy to submit your request.' : 'Debes aceptar los Términos y Condiciones para enviar la solicitud.', 'error');
         termsInput.focus();
         return;
       }
@@ -780,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btnSubmitVip) {
         btnSubmitVip.disabled = true;
         const textSpan = btnSubmitVip.querySelector('.btn-text');
-        if (textSpan) textSpan.textContent = 'Procesando Solicitud...';
+        if (textSpan) textSpan.textContent = isEn ? 'Processing Request...' : 'Procesando Solicitud...';
       }
 
       const formData = new FormData(vipForm);
@@ -793,22 +798,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }).then(response => {
         recordSubmission();
-        if (response.ok) {
-          showStatus('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
-          vipForm.reset();
-        } else {
-          showStatus('¡Solicitud enviada con éxito! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
-          vipForm.reset();
-        }
+        showStatus(isEn ? 'Request sent successfully! We will contact you as soon as possible.' : '¡Solicitud enviada con éxito! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
+        vipForm.reset();
       }).catch(() => {
         recordSubmission();
-        showStatus('¡Solicitud registrada correctamente! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
+        showStatus(isEn ? 'Request registered successfully! We will contact you as soon as possible.' : '¡Solicitud registrada correctamente! Nos pondremos en contacto contigo con la mayor brevedad posible.', 'success');
         vipForm.reset();
       }).finally(() => {
         if (btnSubmitVip) {
           btnSubmitVip.disabled = false;
           const textSpan = btnSubmitVip.querySelector('.btn-text');
-          if (textSpan) textSpan.textContent = 'Enviar Solicitud';
+          if (textSpan) textSpan.textContent = isEn ? 'Send Request' : 'Enviar Solicitud';
         }
       });
     });
@@ -936,7 +936,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const radioModalDesc = document.getElementById('radio-lightbox-desc');
   const radioButtons = document.querySelectorAll('.radio-station-badge');
 
-  const radioData = {
+  const imgPrefix = isEn ? '../' : '';
+  const radioData = isEn ? {
+    pureibiza: {
+      img: `${imgPrefix}assets/images/radio-pureibiza.webp`,
+      title: 'Pure Ibiza Radio (97.2 FM)',
+      schedule: 'Mondays at 22:00 (Ibiza local time)',
+      desc: 'Agatha Sun Radio Show · Every Monday 22:00 to 23:00 (97.2 FM) · pureibizaradio.com'
+    },
+    activahits: {
+      img: `${imgPrefix}assets/images/radio-activahits.webp`,
+      title: 'Activa Hits Radio',
+      schedule: 'Saturdays at 22:00 (local time)',
+      desc: 'Agatha Sun Radio Show · Glam Sun · activahitsradio.es'
+    },
+    radiotop21: {
+      img: `${imgPrefix}assets/images/radio-top21.webp`,
+      title: 'Radio Top 21',
+      schedule: 'Fridays from 20:00 to 22:00 (Live show)',
+      desc: 'Resident on Radio Top 21 Fridays live from 20:00 to 22:00. Starting October 21, DJ Set with Deep House, Techno, Funk & House and much more.'
+    }
+  } : {
     pureibiza: {
       img: 'assets/images/radio-pureibiza.webp',
       title: 'Pure Ibiza Radio (97.2 FM)',

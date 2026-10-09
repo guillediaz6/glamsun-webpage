@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const isEn = document.documentElement.lang === 'en';
+
   // 1. Generador de Chispas / Partículas Brillantes para el fondo disco
   const sparklesContainer = document.getElementById('disco-sparkles');
   if (sparklesContainer) {
@@ -49,7 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.setAttribute('aria-expanded', isExpanded);
       const label = btn.querySelector('.expand-label');
       if (label) {
-        label.textContent = isExpanded ? 'Ver menos' : 'Ver más';
+        if (isEn) {
+          label.textContent = isExpanded ? 'Read less' : 'Read more';
+        } else {
+          label.textContent = isExpanded ? 'Ver menos' : 'Ver más';
+        }
       }
     });
   });
@@ -138,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (badgeRow && !badgeRow.querySelector('.event-status-pill.next-up')) {
       const nextUpPill = document.createElement('span');
       nextUpPill.className = 'event-status-pill next-up';
-      nextUpPill.textContent = '✦ PRÓXIMO EVENTO ✦';
+      nextUpPill.textContent = isEn ? '✦ UPCOMING EVENT ✦' : '✦ PRÓXIMO EVENTO ✦';
       badgeRow.appendChild(nextUpPill);
     }
   }
@@ -178,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si solo hay 1 página, mostramos la píldora informativa
     if (totalPages <= 1) {
       paginationContainer.innerHTML = `
-        <div class="pagination-info-pill">Mostrando los ${totalEvents} eventos</div>
+        <div class="pagination-info-pill">${isEn ? `Showing all ${totalEvents} events` : `Mostrando los ${totalEvents} eventos`}</div>
       `;
       return;
     }
@@ -186,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Botón Anterior
     const prevBtn = document.createElement('button');
     prevBtn.className = 'btn-pagination btn-pagination-nav';
-    prevBtn.innerHTML = '← Anterior';
+    prevBtn.innerHTML = isEn ? '← Previous' : '← Anterior';
     prevBtn.disabled = currentPage === 1;
     prevBtn.addEventListener('click', () => {
       if (currentPage > 1) {
@@ -204,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const pageBtn = document.createElement('button');
       pageBtn.className = `btn-pagination btn-pagination-num ${i === currentPage ? 'active' : ''}`;
       pageBtn.textContent = i;
-      pageBtn.setAttribute('aria-label', `Ir a página ${i}`);
+      pageBtn.setAttribute('aria-label', isEn ? `Go to page ${i}` : `Ir a página ${i}`);
       if (i === currentPage) {
         pageBtn.setAttribute('aria-current', 'page');
       }
@@ -221,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Botón Siguiente
     const nextBtn = document.createElement('button');
     nextBtn.className = 'btn-pagination btn-pagination-nav';
-    nextBtn.innerHTML = 'Siguiente →';
+    nextBtn.innerHTML = isEn ? 'Next →' : 'Siguiente →';
     nextBtn.disabled = currentPage === totalPages;
     nextBtn.addEventListener('click', () => {
       if (currentPage < totalPages) {
