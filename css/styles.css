@@ -1634,7 +1634,13 @@ body {
   font-weight: 900;
   letter-spacing: 0.16em;
   color: #FFFFFF;
-  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.95);
+  -webkit-text-stroke: 0.6px rgba(0, 0, 0, 0.9);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.85),
+               1px -1px 0 rgba(0, 0, 0, 0.85),
+               -1px 1px 0 rgba(0, 0, 0, 0.85),
+               1px 1px 0 rgba(0, 0, 0, 0.85),
+               0 4px 25px rgba(0, 0, 0, 0.98),
+               0 0 35px rgba(0, 0, 0, 0.95);
   margin: 0 0 1.2rem 0;
   text-transform: uppercase;
 }
@@ -1643,8 +1649,14 @@ body {
   font-size: clamp(1.05rem, 1.8vw, 1.28rem);
   line-height: 1.8;
   color: #FFFFFF;
-  font-weight: 400;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+  font-weight: 500;
+  -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.85);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.9),
+               1px -1px 0 rgba(0, 0, 0, 0.9),
+               -1px 1px 0 rgba(0, 0, 0, 0.9),
+               1px 1px 0 rgba(0, 0, 0, 0.9),
+               0 3px 15px rgba(0, 0, 0, 0.98),
+               0 0 25px rgba(0, 0, 0, 0.95);
   margin: 0 auto;
   max-width: 780px;
 }
@@ -1694,9 +1706,15 @@ body {
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   line-height: 1.8;
   color: #FFFFFF;
-  font-weight: 400;
+  font-weight: 500;
+  -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.85);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.9),
+               1px -1px 0 rgba(0, 0, 0, 0.9),
+               -1px 1px 0 rgba(0, 0, 0, 0.9),
+               1px 1px 0 rgba(0, 0, 0, 0.9),
+               0 3px 15px rgba(0, 0, 0, 0.98),
+               0 0 25px rgba(0, 0, 0, 0.95);
   margin: 0;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
 }
 
 /* 3. Card Limpia para Emoticonos y Botón de Reserva */
@@ -3973,11 +3991,14 @@ body {
 
   .boat-party-intro-title {
     font-size: 2rem;
+    -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.9);
   }
 
   .boat-party-intro-desc {
     font-size: 0.98rem;
     line-height: 1.65;
+    font-weight: 500;
+    -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.85);
   }
 
   .boat-party-image-feature-center {
@@ -3991,6 +4012,13 @@ body {
   .boat-party-sub-desc-text {
     margin: 0 auto 2.8rem auto;
     padding: 0 0.5rem;
+  }
+
+  .boat-party-sub-desc-text p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    font-weight: 500;
+    -webkit-text-stroke: 0.35px rgba(0, 0, 0, 0.85);
   }
 
   .boat-party-emojis-card {
