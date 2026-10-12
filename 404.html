@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Página no encontrada | Glam Sun</title>
+  
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#08080a">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Tipografías Oficiales de Glam Sun -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #08080a;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Luces de fondo ambientales de lujo */
+    .ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 650px;
+      height: 650px;
+      max-width: 90vw;
+      max-height: 90vw;
+      background: radial-gradient(circle, rgba(229, 195, 101, 0.12) 0%, rgba(121, 40, 202, 0.06) 45%, transparent 70%);
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      width: 100%;
+      background: rgba(18, 16, 24, 0.75);
+      border: 1px solid rgba(229, 195, 101, 0.35);
+      border-radius: 28px;
+      padding: clamp(2.5rem, 5vw, 4rem) clamp(1.8rem, 4vw, 3rem);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(229, 195, 101, 0.12);
+    }
+
+    .logo {
+      width: 95px;
+      height: auto;
+      margin-bottom: 1.8rem;
+      filter: drop-shadow(0 4px 15px rgba(229, 195, 101, 0.3));
+    }
+
+    .error-code {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(4.5rem, 12vw, 7.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #ffffff 20%, #e5c365 70%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(229, 195, 101, 0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .desc {
+      font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.95rem 1.8rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #e5c365 0%, #c49a38 100%);
+      color: #08080a;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 25px rgba(229, 195, 101, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(229, 195, 101, 0.55);
+      filter: brightness(1.08);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border: 1px solid rgba(229, 195, 101, 0.4);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(229, 195, 101, 0.15);
+      border-color: #e5c365;
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <main class="container">
+    <a href="/" aria-label="Ir a la portada de Glam Sun">
+      <img src="/assets/images/LOGO.webp" alt="Glam Sun Logo" class="logo">
+    </a>
+
+    <div class="error-code">404</div>
+    <h1 class="title">Página no encontrada</h1>
+    
+    <p class="desc">
+      La experiencia exclusiva que buscas no está disponible o ha cambiado de ubicación. Regresa a nuestra portada o descubre los próximos eventos programados.
+    </p>
+
+    <div class="actions">
+      <a href="/" class="btn btn-primary">
+        <span>Volver a la Portada</span>
+        <span aria-hidden="true">➔</span>
+      </a>
+      <a href="/eventos.html" class="btn btn-secondary">
+        <span>Ver Eventos</span>
+      </a>
+    </div>
+
+    <div class="footer-note">
+      © 2026 Glam Sun Experience · Agatha Sun
+    </div>
+  </main>
+
+</body>
+</html>
