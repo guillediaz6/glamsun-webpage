@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /node_modules/
 
-Sitemap: https://glamsun.com/sitemap.xml
+Sitemap: https://glamsunevents.com/sitemap.xml
