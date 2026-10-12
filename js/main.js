@@ -15,10 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const isEn = document.documentElement.lang === 'en';
   const upcomingEventsSchedule = isEn ? [
     { date: '2026-10-03', badge: '03 OCTOBER', title: 'SWISS ART EXPO EXPERIENCE · ZÜRICH', hash: '#evento-3-octubre' },
+    { date: '2026-10-17', badge: '17 OCTOBER', title: 'AGATHA SUN · PRISTINA (KOSOVO)', hash: '#evento-17-octubre' },
     { date: '2026-10-24', badge: '24 OCTOBER', title: 'SUNSET BOAT PARTY · SOUTH OF GRAN CANARIA', hash: '#evento-24-octubre' },
     { date: '2026-11-07', badge: '07 NOVEMBER', title: 'WINTER PRIDE MASPALOMAS · PINK LIPS TENT', hash: '#evento-7-noviembre' }
   ] : [
     { date: '2026-10-03', badge: '03 OCTUBRE', title: 'SWISS ART EXPO EXPERIENCE · ZÜRICH', hash: '#evento-3-octubre' },
+    { date: '2026-10-17', badge: '17 OCTUBRE', title: 'AGATHA SUN · PRISTINA (KOSOVO)', hash: '#evento-17-octubre' },
     { date: '2026-10-24', badge: '24 OCTUBRE', title: 'SUNSET BOAT PARTY · SUR DE GRAN CANARIA', hash: '#evento-24-octubre' },
     { date: '2026-11-07', badge: '07 NOVIEMBRE', title: 'WINTER PRIDE MASPALOMAS · CARPA PINK LIPS', hash: '#evento-7-noviembre' }
   ];
@@ -977,16 +979,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  let activeRadioReq = 0;
+
   function openRadioModal(radioKey) {
     if (!radioModal) return;
     const data = radioData[radioKey] || radioData.pureibiza;
-    if (radioModalImg) {
-      radioModalImg.src = data.img;
-      radioModalImg.alt = data.title;
-    }
+    const reqId = ++activeRadioReq;
+
     if (radioModalTitle) radioModalTitle.textContent = data.title;
     if (radioModalSchedule) radioModalSchedule.textContent = data.schedule;
     if (radioModalDesc) radioModalDesc.textContent = data.desc;
+
+    if (radioModalImg) {
+      radioModalImg.classList.remove('is-loaded');
+      radioModalImg.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+      radioModalImg.alt = data.title;
+      const targetSrc = data.img;
+
+      const preloader = new Image();
+      preloader.onload = () => {
+        if (reqId === activeRadioReq && radioModal && radioModal.classList.contains('is-active')) {
+          radioModalImg.src = targetSrc;
+          radioModalImg.classList.add('is-loaded');
+        }
+      };
+      preloader.src = targetSrc;
+      if (preloader.complete) {
+        if (reqId === activeRadioReq && radioModal && radioModal.classList.contains('is-active')) {
+          radioModalImg.src = targetSrc;
+          radioModalImg.classList.add('is-loaded');
+        }
+      }
+    }
 
     radioModal.classList.add('is-active');
     document.body.style.overflow = 'hidden';
@@ -994,7 +1018,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function closeRadioModal() {
     if (!radioModal) return;
+    activeRadioReq++;
     radioModal.classList.remove('is-active');
+    if (radioModalImg) {
+      radioModalImg.classList.remove('is-loaded');
+      radioModalImg.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+    }
     document.body.style.overflow = '';
   }
 
